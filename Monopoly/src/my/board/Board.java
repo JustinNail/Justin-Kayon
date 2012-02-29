@@ -27,7 +27,6 @@ public class Board extends javax.swing.JFrame
     @SuppressWarnings( "unchecked" )
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jButton_Rail1 = new javax.swing.JButton();

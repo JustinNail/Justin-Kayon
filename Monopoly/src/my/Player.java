@@ -14,13 +14,12 @@ import my.board.Board;
  */
 public class Player
 {
+    public String name;
     public int location=0;
     
-    ImageIcon avatar;
-   
     Dice dice = new Dice(6);
-    
     boolean goingToJail;
+    int funds=0;
     
     public Player()
     {
@@ -29,6 +28,8 @@ public class Player
     {
         return dice.Roll(2);
     }
+        
+    
     public void Move(int dist)
     {
         location+=dist;

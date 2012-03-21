@@ -5,6 +5,7 @@
 package my.deck;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -17,4 +18,8 @@ public class Deck
 {
     List<Card> deck = new ArrayList<>();
     
+    public void Shuffle()
+    {
+        Collections.shuffle( deck );
+    }
 }

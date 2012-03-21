@@ -3,6 +3,12 @@
  * and open the template in the editor.
  */
 package my.board;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import my.Game;
 /**
  *
@@ -14,9 +20,61 @@ public class Board_jFrame extends javax.swing.JFrame
     /**
      * Creates new form Board
      */
+    List<JLabel> playerLabels = new ArrayList();
+    List<JLabel> playerNames = new ArrayList();
+    List<JTextField> playerFunds = new ArrayList();
+    List<JTextField> playerLocations = new ArrayList();
     public Board_jFrame()
     {
         initComponents();
+        spaces_Init();
+        players_Init();
+    }
+
+    private void players_Init()
+    {
+        JLabel jLabel_Player1 = new JLabel();
+        jLabel_Player1.setVisible(false);
+        jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Car.png")));
+        playerLabels.add(jLabel_Player1);
+        
+        JLabel jLabel_Player2 = new JLabel();
+        jLabel_Player2.setVisible(false);
+        jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Hat.png")));
+        playerLabels.add(jLabel_Player2);
+        
+        JLabel jLabel_Player3 = new JLabel();
+        jLabel_Player3.setVisible(false);
+        jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Dog.png")));
+        playerLabels.add(jLabel_Player3);
+        
+        JLabel jLabel_Player4 = new JLabel();
+        jLabel_Player4.setVisible(false);
+        jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Iron.png")));
+        playerLabels.add(jLabel_Player4);
+        
+        JLabel jLabel_Player5 = new JLabel();
+        jLabel_Player5.setVisible(false);
+        jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Shoe.png")));
+        playerLabels.add(jLabel_Player5);
+        
+        JLabel jLabel_Player6 = new JLabel();
+        jLabel_Player6.setVisible(false);
+        jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Ship.png")));
+        playerLabels.add(jLabel_Player6);
+        
+        JLabel jLabel_Player7 = new JLabel();
+        jLabel_Player7.setVisible(false);
+        jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Thimble.png")));
+        playerLabels.add(jLabel_Player7);
+        
+        JLabel jLabel_Player8 = new JLabel();
+        jLabel_Player8.setVisible(false);
+        jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/WheelBarrow.png")));
+        playerLabels.add(jLabel_Player8);
+    }
+    private void spaces_Init()
+    {
         Board.spaces.add( new Space("Go",jButton_Go.getX(),jButton_Go.getY()));
         Board.spaces.add( new Space("Flying Fortress",jButton_Purple1.getX(),jButton_Purple1.getY()));
         Board.spaces.add( new Space("Community Chest",jButton_Chest1.getX(),jButton_Chest1.getY()));
@@ -58,7 +116,6 @@ public class Board_jFrame extends javax.swing.JFrame
         Board.spaces.add( new Space("Luxury Tax",jButton_Tax_Lux.getX(),jButton_Tax_Lux.getY()));
         Board.spaces.add( new Space("Zanarkand",jButton_Blue2.getX(),jButton_Blue2.getY()));
     }
-
     
     
     /**
@@ -71,7 +128,6 @@ public class Board_jFrame extends javax.swing.JFrame
     private void initComponents() {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
-        jLabel_Player1 = new javax.swing.JLabel();
         jButton_Rail1 = new javax.swing.JButton();
         jButton_Rail2 = new javax.swing.JButton();
         jButton_Rail3 = new javax.swing.JButton();
@@ -114,46 +170,66 @@ public class Board_jFrame extends javax.swing.JFrame
         jButton_Blue2 = new javax.swing.JButton();
         Center = new javax.swing.JLabel();
         jPanel_Player1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField_Money = new javax.swing.JTextField();
-        jTextField_Location = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
+        jLabel_Funds = new javax.swing.JLabel();
+        jTextField_Player1Money = new javax.swing.JTextField();
+        jTextField_Player1Location = new javax.swing.JTextField();
+        jLabel_Location = new javax.swing.JLabel();
+        jLabel_Player1Name = new javax.swing.JLabel();
         jPanel_Player3 = new javax.swing.JPanel();
-        jTextField_Money1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        jTextField_Player3Money = new javax.swing.JTextField();
+        jLabel_Funds1 = new javax.swing.JLabel();
+        jLabel_Location2 = new javax.swing.JLabel();
+        jTextField_Player3Location = new javax.swing.JTextField();
+        jLabel_Player3Name = new javax.swing.JLabel();
         jPanel_Player7 = new javax.swing.JPanel();
-        jTextField_Money6 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        jTextField_Player7Money = new javax.swing.JTextField();
+        jLabel_Funds6 = new javax.swing.JLabel();
+        jLabel_Location6 = new javax.swing.JLabel();
+        jTextField_Player7Location = new javax.swing.JTextField();
+        jLabel_Player7Name = new javax.swing.JLabel();
         jPanel_Player5 = new javax.swing.JPanel();
-        jTextField_Money4 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        jTextField_Player5Money = new javax.swing.JTextField();
+        jLabel_Funds4 = new javax.swing.JLabel();
+        jLabel_Location4 = new javax.swing.JLabel();
+        jTextField_Player5Location = new javax.swing.JTextField();
+        jLabel_Player5Name = new javax.swing.JLabel();
         jPanel_Player8 = new javax.swing.JPanel();
-        jTextField_Money7 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
+        jTextField_Player8Money = new javax.swing.JTextField();
+        jLabel_Funds7 = new javax.swing.JLabel();
+        jLabel_Location7 = new javax.swing.JLabel();
+        jTextField_Player8Location = new javax.swing.JTextField();
+        jLabel_Player8 = new javax.swing.JLabel();
         jPanel_Player6 = new javax.swing.JPanel();
-        jTextField_Money5 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        jTextField_Player6Money = new javax.swing.JTextField();
+        jLabel_Funds5 = new javax.swing.JLabel();
+        jLabel_Location5 = new javax.swing.JLabel();
+        jTextField_Player6Location = new javax.swing.JTextField();
+        jLabel_Player6Name = new javax.swing.JLabel();
         jPanel_Player4 = new javax.swing.JPanel();
-        jTextField_Money3 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        jTextField_Player4Money = new javax.swing.JTextField();
+        jLabel_Funds3 = new javax.swing.JLabel();
+        jLabel_Location3 = new javax.swing.JLabel();
+        jTextField_Player4Location = new javax.swing.JTextField();
+        jLabel_Player4Name = new javax.swing.JLabel();
         jPanel_Player2 = new javax.swing.JPanel();
-        jTextField_Money2 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        jTextField_Player2Money = new javax.swing.JTextField();
+        jLabel_Funds2 = new javax.swing.JLabel();
+        jLabel_Location1 = new javax.swing.JLabel();
+        jTextField_Player2Location = new javax.swing.JTextField();
+        jLabel_Player2Name = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu_File = new javax.swing.JMenu();
         jMenuItem_Exit = new javax.swing.JMenuItem();
         jMenu_Game = new javax.swing.JMenu();
         jMenuItem_AddPlayer = new javax.swing.JMenuItem();
+        jMenuItem_Start = new javax.swing.JMenuItem();
         jMenu_Player = new javax.swing.JMenu();
         jMenuItem_Move = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1200, 768));
         setUndecorated(true);
-
-        jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Car.png"))); // NOI18N
-        jLabel_Player1.setBounds(640, 670, 53, 33);
-        jLayeredPane1.add(jLabel_Player1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton_Rail1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Rail.png"))); // NOI18N
         jButton_Rail1.setAlignmentY(0.0F);
@@ -559,219 +635,151 @@ public class Board_jFrame extends javax.swing.JFrame
         Center.setBounds(90, 90, 540, 540);
         jLayeredPane1.add(Center, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 721, 730));
+
         jPanel_Player1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Player 1"));
+        jPanel_Player1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Funds:");
+        jLabel_Funds.setText("Funds:");
+        jPanel_Player1.add(jLabel_Funds, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
-        jTextField_Money.setEditable(false);
+        jTextField_Player1Money.setEditable(false);
+        jPanel_Player1.add(jTextField_Player1Money, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 30, 50, -1));
 
-        jTextField_Location.setEditable(false);
+        jTextField_Player1Location.setEditable(false);
+        jPanel_Player1.add(jTextField_Player1Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 60, 140, -1));
 
-        jLabel9.setText("Location:");
+        jLabel_Location.setText("Location:");
+        jPanel_Player1.add(jLabel_Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+        jPanel_Player1.add(jLabel_Player1Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
-        javax.swing.GroupLayout jPanel_Player1Layout = new javax.swing.GroupLayout(jPanel_Player1);
-        jPanel_Player1.setLayout(jPanel_Player1Layout);
-        jPanel_Player1Layout.setHorizontalGroup(
-            jPanel_Player1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_Player1Layout.createSequentialGroup()
-                .addGroup(jPanel_Player1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel_Player1Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_Location, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel_Player1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_Money, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 25, Short.MAX_VALUE))
-        );
-        jPanel_Player1Layout.setVerticalGroup(
-            jPanel_Player1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_Player1Layout.createSequentialGroup()
-                .addGroup(jPanel_Player1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField_Money, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel_Player1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jTextField_Location, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 84, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel_Player1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, 200, 175));
 
         jPanel_Player3.setBorder(javax.swing.BorderFactory.createTitledBorder("Player 3"));
+        jPanel_Player3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField_Money1.setEditable(false);
+        jTextField_Player3Money.setEditable(false);
+        jPanel_Player3.add(jTextField_Player3Money, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 30, 50, -1));
 
-        jLabel2.setText("Funds:");
+        jLabel_Funds1.setText("Funds:");
+        jPanel_Player3.add(jLabel_Funds1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
-        javax.swing.GroupLayout jPanel_Player3Layout = new javax.swing.GroupLayout(jPanel_Player3);
-        jPanel_Player3.setLayout(jPanel_Player3Layout);
-        jPanel_Player3Layout.setHorizontalGroup(
-            jPanel_Player3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_Player3Layout.createSequentialGroup()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField_Money1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 32, Short.MAX_VALUE))
-        );
-        jPanel_Player3Layout.setVerticalGroup(
-            jPanel_Player3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_Player3Layout.createSequentialGroup()
-                .addGroup(jPanel_Player3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField_Money1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 107, Short.MAX_VALUE))
-        );
+        jLabel_Location2.setText("Location:");
+        jPanel_Player3.add(jLabel_Location2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
+        jTextField_Player3Location.setEditable(false);
+        jPanel_Player3.add(jTextField_Player3Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 60, 140, -1));
+        jPanel_Player3.add(jLabel_Player3Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+
+        getContentPane().add(jPanel_Player3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 180, 200, 175));
 
         jPanel_Player7.setBorder(javax.swing.BorderFactory.createTitledBorder("Player 7"));
+        jPanel_Player7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField_Money6.setEditable(false);
+        jTextField_Player7Money.setEditable(false);
+        jPanel_Player7.add(jTextField_Player7Money, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 30, 50, -1));
 
-        jLabel7.setText("Funds:");
+        jLabel_Funds6.setText("Funds:");
+        jPanel_Player7.add(jLabel_Funds6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
-        javax.swing.GroupLayout jPanel_Player7Layout = new javax.swing.GroupLayout(jPanel_Player7);
-        jPanel_Player7.setLayout(jPanel_Player7Layout);
-        jPanel_Player7Layout.setHorizontalGroup(
-            jPanel_Player7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_Player7Layout.createSequentialGroup()
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField_Money6, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 32, Short.MAX_VALUE))
-        );
-        jPanel_Player7Layout.setVerticalGroup(
-            jPanel_Player7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_Player7Layout.createSequentialGroup()
-                .addGroup(jPanel_Player7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField_Money6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 107, Short.MAX_VALUE))
-        );
+        jLabel_Location6.setText("Location:");
+        jPanel_Player7.add(jLabel_Location6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
+        jTextField_Player7Location.setEditable(false);
+        jPanel_Player7.add(jTextField_Player7Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 60, 140, -1));
+        jPanel_Player7.add(jLabel_Player7Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+
+        getContentPane().add(jPanel_Player7, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 540, 200, 175));
 
         jPanel_Player5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Player 5"));
+        jPanel_Player5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField_Money4.setEditable(false);
+        jTextField_Player5Money.setEditable(false);
+        jPanel_Player5.add(jTextField_Player5Money, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 30, 50, -1));
 
-        jLabel5.setText("Funds:");
+        jLabel_Funds4.setText("Funds:");
+        jPanel_Player5.add(jLabel_Funds4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
-        javax.swing.GroupLayout jPanel_Player5Layout = new javax.swing.GroupLayout(jPanel_Player5);
-        jPanel_Player5.setLayout(jPanel_Player5Layout);
-        jPanel_Player5Layout.setHorizontalGroup(
-            jPanel_Player5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_Player5Layout.createSequentialGroup()
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField_Money4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 36, Short.MAX_VALUE))
-        );
-        jPanel_Player5Layout.setVerticalGroup(
-            jPanel_Player5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_Player5Layout.createSequentialGroup()
-                .addGroup(jPanel_Player5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField_Money4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 109, Short.MAX_VALUE))
-        );
+        jLabel_Location4.setText("Location:");
+        jPanel_Player5.add(jLabel_Location4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
+        jTextField_Player5Location.setEditable(false);
+        jPanel_Player5.add(jTextField_Player5Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 60, 140, -1));
+        jPanel_Player5.add(jLabel_Player5Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+
+        getContentPane().add(jPanel_Player5, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 360, 200, 175));
 
         jPanel_Player8.setBorder(javax.swing.BorderFactory.createTitledBorder("Player 8"));
+        jPanel_Player8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField_Money7.setEditable(false);
+        jTextField_Player8Money.setEditable(false);
+        jPanel_Player8.add(jTextField_Player8Money, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 30, 50, -1));
 
-        jLabel8.setText("Funds:");
+        jLabel_Funds7.setText("Funds:");
+        jPanel_Player8.add(jLabel_Funds7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
-        javax.swing.GroupLayout jPanel_Player8Layout = new javax.swing.GroupLayout(jPanel_Player8);
-        jPanel_Player8.setLayout(jPanel_Player8Layout);
-        jPanel_Player8Layout.setHorizontalGroup(
-            jPanel_Player8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_Player8Layout.createSequentialGroup()
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField_Money7, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 32, Short.MAX_VALUE))
-        );
-        jPanel_Player8Layout.setVerticalGroup(
-            jPanel_Player8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_Player8Layout.createSequentialGroup()
-                .addGroup(jPanel_Player8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextField_Money7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 107, Short.MAX_VALUE))
-        );
+        jLabel_Location7.setText("Location:");
+        jPanel_Player8.add(jLabel_Location7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
+        jTextField_Player8Location.setEditable(false);
+        jPanel_Player8.add(jTextField_Player8Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 60, 140, -1));
+        jPanel_Player8.add(jLabel_Player8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+
+        getContentPane().add(jPanel_Player8, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 540, 200, 175));
 
         jPanel_Player6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Player 6"));
+        jPanel_Player6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField_Money5.setEditable(false);
+        jTextField_Player6Money.setEditable(false);
+        jPanel_Player6.add(jTextField_Player6Money, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 30, 50, -1));
 
-        jLabel6.setText("Funds:");
+        jLabel_Funds5.setText("Funds:");
+        jPanel_Player6.add(jLabel_Funds5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
-        javax.swing.GroupLayout jPanel_Player6Layout = new javax.swing.GroupLayout(jPanel_Player6);
-        jPanel_Player6.setLayout(jPanel_Player6Layout);
-        jPanel_Player6Layout.setHorizontalGroup(
-            jPanel_Player6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_Player6Layout.createSequentialGroup()
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField_Money5, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 36, Short.MAX_VALUE))
-        );
-        jPanel_Player6Layout.setVerticalGroup(
-            jPanel_Player6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_Player6Layout.createSequentialGroup()
-                .addGroup(jPanel_Player6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField_Money5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 109, Short.MAX_VALUE))
-        );
+        jLabel_Location5.setText("Location:");
+        jPanel_Player6.add(jLabel_Location5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
+        jTextField_Player6Location.setEditable(false);
+        jPanel_Player6.add(jTextField_Player6Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 60, 140, -1));
+        jPanel_Player6.add(jLabel_Player6Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+
+        getContentPane().add(jPanel_Player6, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 360, 200, 175));
 
         jPanel_Player4.setBorder(javax.swing.BorderFactory.createTitledBorder("Player 4"));
+        jPanel_Player4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField_Money3.setEditable(false);
+        jTextField_Player4Money.setEditable(false);
+        jPanel_Player4.add(jTextField_Player4Money, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 30, 50, -1));
 
-        jLabel4.setText("Funds:");
+        jLabel_Funds3.setText("Funds:");
+        jPanel_Player4.add(jLabel_Funds3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
-        javax.swing.GroupLayout jPanel_Player4Layout = new javax.swing.GroupLayout(jPanel_Player4);
-        jPanel_Player4.setLayout(jPanel_Player4Layout);
-        jPanel_Player4Layout.setHorizontalGroup(
-            jPanel_Player4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_Player4Layout.createSequentialGroup()
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField_Money3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 32, Short.MAX_VALUE))
-        );
-        jPanel_Player4Layout.setVerticalGroup(
-            jPanel_Player4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_Player4Layout.createSequentialGroup()
-                .addGroup(jPanel_Player4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField_Money3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 107, Short.MAX_VALUE))
-        );
+        jLabel_Location3.setText("Location:");
+        jPanel_Player4.add(jLabel_Location3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
+        jTextField_Player4Location.setEditable(false);
+        jPanel_Player4.add(jTextField_Player4Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 60, 140, -1));
+        jPanel_Player4.add(jLabel_Player4Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+
+        getContentPane().add(jPanel_Player4, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 180, 200, 175));
 
         jPanel_Player2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Player 2"));
+        jPanel_Player2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField_Money2.setEditable(false);
+        jTextField_Player2Money.setEditable(false);
+        jPanel_Player2.add(jTextField_Player2Money, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 30, 50, -1));
 
-        jLabel3.setText("Funds:");
+        jLabel_Funds2.setText("Funds:");
+        jPanel_Player2.add(jLabel_Funds2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
-        javax.swing.GroupLayout jPanel_Player2Layout = new javax.swing.GroupLayout(jPanel_Player2);
-        jPanel_Player2.setLayout(jPanel_Player2Layout);
-        jPanel_Player2Layout.setHorizontalGroup(
-            jPanel_Player2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_Player2Layout.createSequentialGroup()
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField_Money2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 36, Short.MAX_VALUE))
-        );
-        jPanel_Player2Layout.setVerticalGroup(
-            jPanel_Player2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_Player2Layout.createSequentialGroup()
-                .addGroup(jPanel_Player2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField_Money2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 109, Short.MAX_VALUE))
-        );
+        jLabel_Location1.setText("Location:");
+        jPanel_Player2.add(jLabel_Location1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
+        jTextField_Player2Location.setEditable(false);
+        jPanel_Player2.add(jTextField_Player2Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 60, 140, -1));
+        jPanel_Player2.add(jLabel_Player2Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+
+        getContentPane().add(jPanel_Player2, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 0, 200, 175));
 
         jMenu_File.setText("File");
 
@@ -800,8 +808,19 @@ public class Board_jFrame extends javax.swing.JFrame
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenuItem_AddPlayerMouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenuItem_AddPlayerMousePressed(evt);
+            }
         });
         jMenu_Game.add(jMenuItem_AddPlayer);
+
+        jMenuItem_Start.setText("Start");
+        jMenuItem_Start.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenuItem_StartMousePressed(evt);
+            }
+        });
+        jMenu_Game.add(jMenuItem_Start);
 
         jMenuBar1.add(jMenu_Game);
 
@@ -818,51 +837,6 @@ public class Board_jFrame extends javax.swing.JFrame
         jMenuBar1.add(jMenu_Player);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 721, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel_Player1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel_Player3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel_Player5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel_Player7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel_Player2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel_Player4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel_Player6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel_Player8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(jLayeredPane1)
-            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel_Player2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel_Player1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel_Player3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel_Player4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel_Player5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel_Player6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel_Player7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel_Player8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 70, Short.MAX_VALUE))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -884,19 +858,58 @@ public class Board_jFrame extends javax.swing.JFrame
 
     private void jMenuItem_MoveMousePressed(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jMenuItem_MoveMousePressed
     {//GEN-HEADEREND:event_jMenuItem_MoveMousePressed
-        int dist = Game.players.get(Game.currentPlayer).roll();
-        Game.players.get(Game.currentPlayer).Move( dist );
-        jTextField_Location.setText(Board.spaces.get(Game.players.get(Game.currentPlayer).location).Name);
-        jLabel_Player1.setLocation(Board.spaces.get(Game.players.get(Game.currentPlayer).location).XPos,
-                Board.spaces.get(Game.players.get(Game.currentPlayer).location).YPos);
+        if(Game.started)
+        {
+            int dist = Game.players.get(Game.currentPlayer).roll();
+            Game.players.get(Game.currentPlayer).Move( dist );
+            jTextField_Player1Location.setText(Board.spaces.get(Game.players.get(Game.currentPlayer).location).Name);
+            playerLabels.get(Game.currentPlayer).setLocation(Board.spaces.get(Game.players.get(Game.currentPlayer).location).XPos,
+                    Board.spaces.get(Game.players.get(Game.currentPlayer).location).YPos);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog( rootPane, "Game not started yet", "Failure", JOptionPane.PLAIN_MESSAGE );
+        }
     }//GEN-LAST:event_jMenuItem_MoveMousePressed
 
     private void jMenu_GameMousePressed(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jMenu_GameMousePressed
     {//GEN-HEADEREND:event_jMenu_GameMousePressed
-        Game.addPlayer();
-        jLabel_Player1.setLocation(Board.spaces.get(Game.players.get(Game.currentPlayer).location).XPos,
-                Board.spaces.get(Game.players.get(Game.currentPlayer).location).YPos);
+        
     }//GEN-LAST:event_jMenu_GameMousePressed
+
+    private void jMenuItem_AddPlayerMousePressed(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jMenuItem_AddPlayerMousePressed
+    {//GEN-HEADEREND:event_jMenuItem_AddPlayerMousePressed
+        
+        if(Game.addPlayer())
+        {
+            String name = (String)JOptionPane.showInputDialog(rootPane,"Enter Name","Customized Dialog",JOptionPane.PLAIN_MESSAGE);
+            Game.players.get(Game.numPlayers-1).name=name;       
+            playerLabels.get(Game.numPlayers - 1).setLocation(
+                    Board.spaces.get(0).XPos,
+                    Board.spaces.get(0).YPos);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog( rootPane, "Cannot Add Player", "Failure", JOptionPane.PLAIN_MESSAGE );            
+        }
+    }//GEN-LAST:event_jMenuItem_AddPlayerMousePressed
+
+    private void jMenuItem_StartMousePressed(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jMenuItem_StartMousePressed
+    {//GEN-HEADEREND:event_jMenuItem_StartMousePressed
+        if(Game.Start())
+        {
+            for(int i=0;i<playerLabels.size();i++)
+            {
+                playerLabels.get(i).setVisible(true);
+                
+            }
+            JOptionPane.showMessageDialog( rootPane, "Game Started", "Success", JOptionPane.PLAIN_MESSAGE );
+        }
+        else
+        {
+            JOptionPane.showMessageDialog( rootPane, "Cannot Start Game", "Failure", JOptionPane.PLAIN_MESSAGE );
+        }
+    }//GEN-LAST:event_jMenuItem_StartMousePressed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -941,21 +954,36 @@ public class Board_jFrame extends javax.swing.JFrame
     private javax.swing.JButton jButton_Yellow1;
     private javax.swing.JButton jButton_Yellow2;
     private javax.swing.JButton jButton_Yellow3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabel_Player1;
+    private javax.swing.JLabel jLabel_Funds;
+    private javax.swing.JLabel jLabel_Funds1;
+    private javax.swing.JLabel jLabel_Funds2;
+    private javax.swing.JLabel jLabel_Funds3;
+    private javax.swing.JLabel jLabel_Funds4;
+    private javax.swing.JLabel jLabel_Funds5;
+    private javax.swing.JLabel jLabel_Funds6;
+    private javax.swing.JLabel jLabel_Funds7;
+    private javax.swing.JLabel jLabel_Location;
+    private javax.swing.JLabel jLabel_Location1;
+    private javax.swing.JLabel jLabel_Location2;
+    private javax.swing.JLabel jLabel_Location3;
+    private javax.swing.JLabel jLabel_Location4;
+    private javax.swing.JLabel jLabel_Location5;
+    private javax.swing.JLabel jLabel_Location6;
+    private javax.swing.JLabel jLabel_Location7;
+    private javax.swing.JLabel jLabel_Player1Name;
+    private javax.swing.JLabel jLabel_Player2Name;
+    private javax.swing.JLabel jLabel_Player3Name;
+    private javax.swing.JLabel jLabel_Player4Name;
+    private javax.swing.JLabel jLabel_Player5Name;
+    private javax.swing.JLabel jLabel_Player6Name;
+    private javax.swing.JLabel jLabel_Player7Name;
+    private javax.swing.JLabel jLabel_Player8;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem_AddPlayer;
     private javax.swing.JMenuItem jMenuItem_Exit;
     private javax.swing.JMenuItem jMenuItem_Move;
+    private javax.swing.JMenuItem jMenuItem_Start;
     private javax.swing.JMenu jMenu_File;
     private javax.swing.JMenu jMenu_Game;
     private javax.swing.JMenu jMenu_Player;
@@ -967,14 +995,21 @@ public class Board_jFrame extends javax.swing.JFrame
     private javax.swing.JPanel jPanel_Player6;
     private javax.swing.JPanel jPanel_Player7;
     private javax.swing.JPanel jPanel_Player8;
-    private javax.swing.JTextField jTextField_Location;
-    private javax.swing.JTextField jTextField_Money;
-    private javax.swing.JTextField jTextField_Money1;
-    private javax.swing.JTextField jTextField_Money2;
-    private javax.swing.JTextField jTextField_Money3;
-    private javax.swing.JTextField jTextField_Money4;
-    private javax.swing.JTextField jTextField_Money5;
-    private javax.swing.JTextField jTextField_Money6;
-    private javax.swing.JTextField jTextField_Money7;
+    private javax.swing.JTextField jTextField_Player1Location;
+    private javax.swing.JTextField jTextField_Player1Money;
+    private javax.swing.JTextField jTextField_Player2Location;
+    private javax.swing.JTextField jTextField_Player2Money;
+    private javax.swing.JTextField jTextField_Player3Location;
+    private javax.swing.JTextField jTextField_Player3Money;
+    private javax.swing.JTextField jTextField_Player4Location;
+    private javax.swing.JTextField jTextField_Player4Money;
+    private javax.swing.JTextField jTextField_Player5Location;
+    private javax.swing.JTextField jTextField_Player5Money;
+    private javax.swing.JTextField jTextField_Player6Location;
+    private javax.swing.JTextField jTextField_Player6Money;
+    private javax.swing.JTextField jTextField_Player7Location;
+    private javax.swing.JTextField jTextField_Player7Money;
+    private javax.swing.JTextField jTextField_Player8Location;
+    private javax.swing.JTextField jTextField_Player8Money;
     // End of variables declaration//GEN-END:variables
 }

@@ -36,10 +36,13 @@ public class GameTest
     @Test
     public void testAddPlayer()
     {
+        Game.numPlayers=0;
+        Game.players.clear();
+        Game.started=false;
         System.out.println( "addPlayer" );
         boolean result = Game.addPlayer();
         assertTrue( result );
-        fail( "Failed to add player" );
+
     }
 
     /**
@@ -53,7 +56,7 @@ public class GameTest
         instance.numPlayers=4;
         boolean result = instance.Start();
         assertTrue(result);
-        fail( "Failed to start game" );
+
     }
     /**
      * Test of Start method, of class Game. With not enough players
@@ -66,7 +69,7 @@ public class GameTest
         instance.numPlayers=1;
         boolean result = instance.Start();
         assertTrue(!result);
-        fail( "Failed to not start game" );
+
     }
     /**
      * Test of Start method, of class Game. With too many players
@@ -76,9 +79,49 @@ public class GameTest
     {
         System.out.println( "Start: Too many" );
         Game instance = new Game();
-        instance.numPlayers=8;
+        instance.numPlayers=9;
         boolean result = instance.Start();
         assertTrue(!result);
-        fail( "Failed to not start game" );
+
+    }
+    /**
+     * Test of Start method, of class Game. Check for random order
+     */
+    @Test
+    public void testStartRandom()
+    {
+        System.out.println( "Start: Random Order" );
+        
+        boolean HorseCar=false;
+        boolean CarHorse=false;
+        
+        for(int i=0;i<100;i++)
+        {
+            Game.numPlayers=0;
+            Game.players.clear();
+            Game.started=false;
+            
+            Game.addPlayer();
+            Game.players.get(Game.numPlayers-1).name="Car";
+
+            Game.addPlayer();
+            Game.players.get(Game.numPlayers-1).name="Horse";
+
+            Game.Start();
+
+            String first = Game.players.get(Game.currentPlayer).name;
+            String second = Game.players.get(Game.currentPlayer+1).name;
+
+            if("Horse".equals( first )&&"Car".equals( second ))
+            {
+                HorseCar=true; 
+            }
+            if("Car".equals( first )&&"Horse".equals( second ))
+            {
+                CarHorse=true; 
+            }
+        }
+        assertTrue(HorseCar && CarHorse);
+
     }
 }

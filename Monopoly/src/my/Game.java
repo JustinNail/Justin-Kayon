@@ -23,6 +23,9 @@ public class Game
     public static int numPlayers = 0;
     public static int currentPlayer;
     
+    static final int maxRound = 20;
+    public static int currentRound=0;
+    
     public static boolean started = false;
     
     static public boolean addPlayer()
@@ -33,7 +36,7 @@ public class Game
             {
                 numPlayers++;
                 players.add( new Player());
-                players.get(numPlayers).location=0;
+                players.get(numPlayers-1).location=0;
                 return true;
             }
             else

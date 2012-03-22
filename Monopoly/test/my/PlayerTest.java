@@ -43,20 +43,7 @@ public class PlayerTest
         int maxValue = 12;
         int result = instance.roll();
         assertTrue(result<maxValue && result>minValue);
-        fail( "Roll failed, outside of [2,12]" );
-    }
 
-    /**
-     * Test of getAvatar method, of class Player.
-     */
-    @Test
-    public void testGetAvatar()
-    {
-        System.out.println( "getAvatar" );
-        Player instance = new Player();
-        ImageIcon result = instance.getAvatar();
-        assertTrue( result != null);
-        fail( "Avatar returned null" );
     }
 
     /**
@@ -66,11 +53,13 @@ public class PlayerTest
     public void testMoveGo()
     {
         System.out.println( "Move: from Go" );
+        Game test = new Game();
+        test.Init();
         int dist = 7;
         Player instance = new Player();
         instance.Move( dist );
         assertTrue(instance.location == dist);
-        fail( "failed to move correct distance" );
+
     }
     /**
      * Test of Move method, of class Player. Looping around Go
@@ -79,11 +68,13 @@ public class PlayerTest
     public void testMoveLoop()
     {
         System.out.println( "Move: loop around Go" );
+        Game test = new Game();
+        test.Init();
         int dist = 6;
         Player instance = new Player();
         instance.location=39;
         instance.Move( dist );
         assertTrue(instance.location == 5);
-        fail( "failed to loop around correctly" );
+
     }
 }

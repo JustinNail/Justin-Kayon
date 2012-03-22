@@ -32,14 +32,7 @@ public class Player
     
     public void Move(int dist)
     {
-        location+=dist;
-        if (location>=Board.spaces.size())
-        {
-            location=0;
-            if(!goingToJail)
-            {
-                
-            }
-        }
+        location = (location + dist)%Board.spaces.size();
+        
     }
 }

@@ -37,41 +37,65 @@ public class Board_jFrame extends javax.swing.JFrame
         jLabel_Player1.setVisible(false);
         jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Car.png")));
         playerLabels.add(jLabel_Player1);
+        playerNames.add(jLabel_Player1Name);
+        playerFunds.add(jTextField_Player1Money);
+        playerLocations.add(jTextField_Player1Location);
         
         JLabel jLabel_Player2 = new JLabel();
         jLabel_Player2.setVisible(false);
         jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Hat.png")));
         playerLabels.add(jLabel_Player2);
+        playerNames.add(jLabel_Player2Name);
+        playerFunds.add(jTextField_Player2Money);
+        playerLocations.add(jTextField_Player2Location);
         
         JLabel jLabel_Player3 = new JLabel();
         jLabel_Player3.setVisible(false);
         jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Dog.png")));
         playerLabels.add(jLabel_Player3);
+        playerNames.add(jLabel_Player3Name);
+        playerFunds.add(jTextField_Player3Money);
+        playerLocations.add(jTextField_Player3Location);
         
         JLabel jLabel_Player4 = new JLabel();
         jLabel_Player4.setVisible(false);
         jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Iron.png")));
         playerLabels.add(jLabel_Player4);
+        playerNames.add(jLabel_Player4Name);
+        playerFunds.add(jTextField_Player4Money);
+        playerLocations.add(jTextField_Player4Location);
         
         JLabel jLabel_Player5 = new JLabel();
         jLabel_Player5.setVisible(false);
         jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Shoe.png")));
         playerLabels.add(jLabel_Player5);
+        playerNames.add(jLabel_Player5Name);
+        playerFunds.add(jTextField_Player5Money);
+        playerLocations.add(jTextField_Player5Location);
         
         JLabel jLabel_Player6 = new JLabel();
         jLabel_Player6.setVisible(false);
         jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Ship.png")));
         playerLabels.add(jLabel_Player6);
+        playerNames.add(jLabel_Player6Name);
+        playerFunds.add(jTextField_Player6Money);
+        playerLocations.add(jTextField_Player6Location);
         
         JLabel jLabel_Player7 = new JLabel();
         jLabel_Player7.setVisible(false);
         jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Thimble.png")));
         playerLabels.add(jLabel_Player7);
+        playerNames.add(jLabel_Player7Name);
+        playerFunds.add(jTextField_Player7Money);
+        playerLocations.add(jTextField_Player7Location);
         
         JLabel jLabel_Player8 = new JLabel();
         jLabel_Player8.setVisible(false);
         jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/WheelBarrow.png")));
         playerLabels.add(jLabel_Player8);
+        playerNames.add(jLabel_Player8Name);
+        playerFunds.add(jTextField_Player8Money);
+        playerLocations.add(jTextField_Player8Location);
     }
     private void spaces_Init()
     {
@@ -198,7 +222,7 @@ public class Board_jFrame extends javax.swing.JFrame
         jLabel_Funds7 = new javax.swing.JLabel();
         jLabel_Location7 = new javax.swing.JLabel();
         jTextField_Player8Location = new javax.swing.JTextField();
-        jLabel_Player8 = new javax.swing.JLabel();
+        jLabel_Player8Name = new javax.swing.JLabel();
         jPanel_Player6 = new javax.swing.JPanel();
         jTextField_Player6Money = new javax.swing.JTextField();
         jLabel_Funds5 = new javax.swing.JLabel();
@@ -723,7 +747,7 @@ public class Board_jFrame extends javax.swing.JFrame
 
         jTextField_Player8Location.setEditable(false);
         jPanel_Player8.add(jTextField_Player8Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 60, 140, -1));
-        jPanel_Player8.add(jLabel_Player8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+        jPanel_Player8.add(jLabel_Player8Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
         getContentPane().add(jPanel_Player8, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 540, 200, 175));
 
@@ -862,7 +886,7 @@ public class Board_jFrame extends javax.swing.JFrame
         {
             int dist = Game.players.get(Game.currentPlayer).roll();
             Game.players.get(Game.currentPlayer).Move( dist );
-            jTextField_Player1Location.setText(Board.spaces.get(Game.players.get(Game.currentPlayer).location).Name);
+            playerLocations.get(Game.currentPlayer).setText(Board.spaces.get(Game.players.get(Game.currentPlayer).location).Name);
             playerLabels.get(Game.currentPlayer).setLocation(Board.spaces.get(Game.players.get(Game.currentPlayer).location).XPos,
                     Board.spaces.get(Game.players.get(Game.currentPlayer).location).YPos);
         }
@@ -977,7 +1001,7 @@ public class Board_jFrame extends javax.swing.JFrame
     private javax.swing.JLabel jLabel_Player5Name;
     private javax.swing.JLabel jLabel_Player6Name;
     private javax.swing.JLabel jLabel_Player7Name;
-    private javax.swing.JLabel jLabel_Player8;
+    private javax.swing.JLabel jLabel_Player8Name;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem_AddPlayer;

@@ -10,5 +10,13 @@ package my;
  */
 public class Bank
 {
-    
+    public void giveMoney(Player p, int amt)
+    {
+        p.funds+=amt;
+    }
+    public void takeMoney(Player p, int amt)
+    {
+        p.funds-=amt;
+        
+    }
 }

@@ -8,7 +8,7 @@ package my.board;
  *
  * @author Justin
  */
-public class Space
+public abstract class Space
 {
     public String Name;
     public int XPos, YPos;
@@ -19,4 +19,5 @@ public class Space
         XPos=xPos;
         YPos=yPos;
     }
+     public abstract void doAction();
 }

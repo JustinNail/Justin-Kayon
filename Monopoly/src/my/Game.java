@@ -50,7 +50,28 @@ public class Game
         }
         
     }
-    
+    public static boolean playRound()
+    {
+        if(started)
+        {
+            if(currentRound < maxRound)
+            {
+                for(int i =0;i<players.size();i++)
+                {
+                    players.get(i).takeTurn();
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
     public void Init()
     {
         board.BoardInit();

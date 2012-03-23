@@ -122,6 +122,19 @@ public class GameTest
             }
         }
         assertTrue(HorseCar && CarHorse);
-
+    }
+    @Test
+    public void TestRounds()
+    {
+        Game.numPlayers=0;
+        Game.players.clear();
+        Game.started=false;
+        Game.addPlayer();
+        Game.players.get(Game.numPlayers-1).name="Horse";
+        Game.addPlayer();
+        Game.players.get(Game.numPlayers-1).name="Car";
+        Game.Start();
+        System.out.println( "Game Rounds" );
+        assertTrue(Game.playRound());
     }
 }

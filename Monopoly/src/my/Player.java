@@ -29,6 +29,11 @@ public class Player
         return dice.Roll(2);
     }
         
+    public void takeTurn()
+    {
+        int d = roll();
+        Move(d);
+    }
     
     public void Move(int dist)
     {

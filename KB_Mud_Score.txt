@@ -1,0 +1,24 @@
+229/229hp 141/141mana 1907xp Cobrajam> 
+score
+Name: Cobrajam the Student of the Night
+Desc: Neutral Good Sexless Dwarf Vampire Level: 4 Age: 17
+HP:229/229 (225) Mana:141/141 (141) Move:134/134 (129) Saves:-13
+------------+-----------------------+---------------
+Str: 20(21) | Items:     65/69      | Hitroll:  17
+Int: 18(18) | Weight:   162/310     | Damroll:   6
+Wis: 16(16) +----------------+------+---------------
+Dex: 15(15) | Practices:   4 | Arena Wins:     0
+mCon: 18(18) | Trains:      3 | Arena Losses:   0
+------------+---------+------+----------------------
+Coins Platinum:    19 | Experience
+      Gold:        98 |  Current: 8343
+      Silver:       9 |  Needed:  1907
+----------------------+-----------------------------
+Armor Pierce:    23 [somewhat armored]         
+      Bash:      20 [somewhat armored]         
+      Slash:     23 [armored]                  
+      Magic:     46 [slightly armored]         
+----------------+-------------+---------------------
+Alignment: 1000 | Wimpy:    0 | Quest Points:    0
+----------------+-------------+---------------------
+PkStatus: NPK 

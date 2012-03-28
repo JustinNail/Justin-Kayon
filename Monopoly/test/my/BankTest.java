@@ -30,14 +30,15 @@ public class BankTest {
      * Test of giveMoney method, of class Bank.
      */
     @Test
-    public void testGiveMoney() {
+    public void testGiveMoney() 
+    {
         System.out.println("giveMoney");
-        Player p = null;
-        int amt = 0;
+        Player p = new Player();
+        p.funds=0;
+        int amt = 5;
         Bank instance = new Bank();
         instance.giveMoney(p, amt);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(p.funds==5); 
     }
 
     /**
@@ -46,11 +47,11 @@ public class BankTest {
     @Test
     public void testTakeMoney() {
         System.out.println("takeMoney");
-        Player p = null;
-        int amt = 0;
+        Player p = new Player();
+        p.funds=5;
+        int amt = 5;
         Bank instance = new Bank();
         instance.takeMoney(p, amt);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(p.funds==0);
     }
 }

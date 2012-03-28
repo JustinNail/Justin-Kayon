@@ -99,17 +99,17 @@ public class Board_jFrame extends javax.swing.JFrame
     }
     private void spaces_Init()
     {
-        Board.spaces.add( new CornerSpace("Go",jButton_Go.getX(),jButton_Go.getY()));
+        Board.spaces.add( new GoSpace("Go",jButton_Go.getX(),jButton_Go.getY()));
         Board.spaces.add( new PropertySpace("Flying Fortress",jButton_Purple1.getX(),jButton_Purple1.getY()));
         Board.spaces.add( new CardSpace("Community Chest",jButton_Chest1.getX(),jButton_Chest1.getY()));
         Board.spaces.add( new PropertySpace("Pandemonium",jButton_Purple2.getX(),jButton_Purple2.getY()));
-        Board.spaces.add( new TaxSpace("Income Tax",jButton_Tax_Income.getX(),jButton_Tax_Income.getY()));
+        Board.spaces.add( new IncomeTaxSpace("Income Tax",jButton_Tax_Income.getX(),jButton_Tax_Income.getY()));
         Board.spaces.add( new PropertySpace("*Rail1*",jButton_Rail1.getX(),jButton_Rail1.getY()));
         Board.spaces.add( new PropertySpace("Floating Continent",jButton_Teal1.getX(),jButton_Teal1.getY()));
         Board.spaces.add( new CardSpace("Chance",jButton_Chance1.getX(),jButton_Chance1.getY()));
         Board.spaces.add( new PropertySpace("Crystal Tower",jButton_Teal2.getX(),jButton_Teal2.getY()));
         Board.spaces.add( new PropertySpace("Baron",jButton_Teal3.getX(),jButton_Teal3.getY()));
-        Board.spaces.add( new CornerSpace("Jail",jButton_Jail.getX(),jButton_Jail.getY()));
+        Board.spaces.add( new JailSpace("Jail",jButton_Jail.getX(),jButton_Jail.getY()));
         Board.spaces.add( new PropertySpace("Ancient's Library",jButton_Pink1.getX(),jButton_Pink1.getY()));
         Board.spaces.add( new PropertySpace("Electric Company",jButton_Utility_Electric.getX(),jButton_Utility_Electric.getY()));
         Board.spaces.add( new PropertySpace("Exdeath's Castle",jButton_Pink2.getX(),jButton_Pink2.getY()));
@@ -119,7 +119,7 @@ public class Board_jFrame extends javax.swing.JFrame
         Board.spaces.add( new CardSpace("Community Chest",jButton_Chest2.getX(),jButton_Chest2.getY()));
         Board.spaces.add( new PropertySpace("Imperial Palace",jButton_Orange2.getX(),jButton_Orange2.getY()));
         Board.spaces.add( new PropertySpace("Kefka's Tower",jButton_Orange3.getX(),jButton_Orange3.getY()));
-        Board.spaces.add( new CornerSpace("Free Parking",jButton_FreeParking.getX(),jButton_FreeParking.getY()));
+        Board.spaces.add( new FreeParkingSpace("Free Parking",jButton_FreeParking.getX(),jButton_FreeParking.getY()));
         Board.spaces.add( new PropertySpace("Golden Saucer",jButton_Red1.getX(),jButton_Red1.getY()));
         Board.spaces.add( new CardSpace("Chance",jButton_Chance2.getX(),jButton_Chance2.getY()));
         Board.spaces.add( new PropertySpace("Junon",jButton_Red2.getX(),jButton_Red2.getY()));
@@ -129,7 +129,7 @@ public class Board_jFrame extends javax.swing.JFrame
         Board.spaces.add( new PropertySpace("Esthar",jButton_Yellow2.getX(),jButton_Yellow2.getY()));
         Board.spaces.add( new PropertySpace("Water Works",jButton_Utility_Water.getX(),jButton_Utility_Water.getY()));
         Board.spaces.add( new PropertySpace("Lunatic Pandora",jButton_Yellow3.getX(),jButton_Yellow3.getY()));
-        Board.spaces.add( new CornerSpace("Go to Jail",jButton_GoToJail.getX(),jButton_GoToJail.getY()));
+        Board.spaces.add( new GoToJailSpace("Go to Jail",jButton_GoToJail.getX(),jButton_GoToJail.getY()));
         Board.spaces.add( new PropertySpace("Alexandria",jButton_Green1.getX(),jButton_Green1.getY()));
         Board.spaces.add( new PropertySpace("Burmecia",jButton_Green2.getX(),jButton_Green2.getY()));
         Board.spaces.add( new CardSpace("Community Chest",jButton_Chest3.getX(),jButton_Chest3.getY()));
@@ -137,7 +137,7 @@ public class Board_jFrame extends javax.swing.JFrame
         Board.spaces.add( new PropertySpace("*Rail4*",jButton_Rail4.getX(),jButton_Rail4.getY()));
         Board.spaces.add( new CardSpace("Chance",jButton_Chance3.getX(),jButton_Chance3.getY()));
         Board.spaces.add( new PropertySpace("Besaid",jButton_Blue1.getX(),jButton_Blue1.getY()));
-        Board.spaces.add( new TaxSpace("Luxury Tax",jButton_Tax_Lux.getX(),jButton_Tax_Lux.getY()));
+        Board.spaces.add( new LuxuryTaxSpace("Luxury Tax",jButton_Tax_Lux.getX(),jButton_Tax_Lux.getY()));
         Board.spaces.add( new PropertySpace("Zanarkand",jButton_Blue2.getX(),jButton_Blue2.getY()));
     }
     
@@ -248,7 +248,6 @@ public class Board_jFrame extends javax.swing.JFrame
         jMenuItem_AddPlayer = new javax.swing.JMenuItem();
         jMenuItem_Start = new javax.swing.JMenuItem();
         jMenu_Player = new javax.swing.JMenu();
-        jMenuItem_Move = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1200, 768));
@@ -849,15 +848,6 @@ public class Board_jFrame extends javax.swing.JFrame
         jMenuBar1.add(jMenu_Game);
 
         jMenu_Player.setText("Player");
-
-        jMenuItem_Move.setText("Move");
-        jMenuItem_Move.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jMenuItem_MoveMousePressed(evt);
-            }
-        });
-        jMenu_Player.add(jMenuItem_Move);
-
         jMenuBar1.add(jMenu_Player);
 
         setJMenuBar(jMenuBar1);
@@ -879,22 +869,6 @@ public class Board_jFrame extends javax.swing.JFrame
     {//GEN-HEADEREND:event_jMenuItem_ExitMousePressed
         System.exit(0);
     }//GEN-LAST:event_jMenuItem_ExitMousePressed
-
-    private void jMenuItem_MoveMousePressed(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jMenuItem_MoveMousePressed
-    {//GEN-HEADEREND:event_jMenuItem_MoveMousePressed
-        if(Game.started)
-        {
-            int dist = Game.players.get(Game.currentPlayer).roll();
-            Game.players.get(Game.currentPlayer).Move( dist );
-            playerLocations.get(Game.currentPlayer).setText(Board.spaces.get(Game.players.get(Game.currentPlayer).location).Name);
-            playerLabels.get(Game.currentPlayer).setLocation(Board.spaces.get(Game.players.get(Game.currentPlayer).location).XPos,
-                    Board.spaces.get(Game.players.get(Game.currentPlayer).location).YPos);
-        }
-        else
-        {
-            JOptionPane.showMessageDialog( rootPane, "Game not started yet", "Failure", JOptionPane.PLAIN_MESSAGE );
-        }
-    }//GEN-LAST:event_jMenuItem_MoveMousePressed
 
     private void jMenu_GameMousePressed(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jMenu_GameMousePressed
     {//GEN-HEADEREND:event_jMenu_GameMousePressed
@@ -922,17 +896,22 @@ public class Board_jFrame extends javax.swing.JFrame
     {//GEN-HEADEREND:event_jMenuItem_StartMousePressed
         if(Game.Start())
         {
-            for(int i=0;i<playerLabels.size();i++)
+            for(int i=0;i<Game.players.size();i++)
             {
                 playerLabels.get(i).setVisible(true);
                 
             }
             JOptionPane.showMessageDialog( rootPane, "Game Started", "Success", JOptionPane.PLAIN_MESSAGE );
+            for(int i=0;i<Game.players.size();i++)
+            {
+                                
+            }
         }
         else
         {
             JOptionPane.showMessageDialog( rootPane, "Cannot Start Game", "Failure", JOptionPane.PLAIN_MESSAGE );
         }
+        
     }//GEN-LAST:event_jMenuItem_StartMousePressed
 
     
@@ -1006,7 +985,6 @@ public class Board_jFrame extends javax.swing.JFrame
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem_AddPlayer;
     private javax.swing.JMenuItem jMenuItem_Exit;
-    private javax.swing.JMenuItem jMenuItem_Move;
     private javax.swing.JMenuItem jMenuItem_Start;
     private javax.swing.JMenu jMenu_File;
     private javax.swing.JMenu jMenu_Game;

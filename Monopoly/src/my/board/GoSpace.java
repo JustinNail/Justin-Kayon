@@ -4,6 +4,9 @@
  */
 package my.board;
 
+import javax.swing.JOptionPane;
+import my.Game;
+
 /**
  *
  * @author Justin
@@ -17,6 +20,7 @@ public class GoSpace extends Space
     @Override
     public void doAction()
     {
-        
+        JOptionPane.showMessageDialog( Board.board.dialog, "Passed Go, got $200", "Yay!", JOptionPane.PLAIN_MESSAGE );
+        Game.bank.giveMoney( Game.players.get( Game.currentPlayer),200);
     }
 }

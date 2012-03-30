@@ -4,6 +4,9 @@
  */
 package my.board;
 
+import javax.swing.JOptionPane;
+import my.Game;
+
 /**
  *
  * @author Justin
@@ -17,6 +20,8 @@ public class GoToJailSpace extends Space
     @Override
     public void doAction()
     {
-        
+        JOptionPane.showMessageDialog( Board.board.dialog, "Going to Jail :(", "uh oh", JOptionPane.PLAIN_MESSAGE );
+        Game.players.get( Game.currentPlayer).location=10;//10=JailSpace;
+        Board.spaces.get(10).doAction();
     }
 }

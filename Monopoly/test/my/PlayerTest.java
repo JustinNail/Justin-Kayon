@@ -53,8 +53,6 @@ public class PlayerTest
     public void testMoveGo()
     {
         System.out.println( "Move: from Go" );
-        Game test = new Game();
-        test.Init();
         int dist = 7;
         Player instance = new Player();
         instance.Move( dist );

@@ -10,29 +10,14 @@ import java.util.List;
 public class Board 
 {
     public static List<Space> spaces  = new ArrayList<>();
-    Board_jFrame board = new Board_jFrame();
+    public static Board_jFrame board = new Board_jFrame();
     
     
     
     
     public void BoardInit()
     {
-        try
-        {
-            for ( javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels() )
-            {
-                if ( "Nimbus".equals( info.getName() ) )
-                {
-                    javax.swing.UIManager.setLookAndFeel( info.getClassName() );
-                    break;
-                }
-            }
-        }
-        catch ( ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex )
-        {
-            java.util.logging.Logger.getLogger( Board_jFrame.class.getName() ).log( java.util.logging.Level.SEVERE, null, ex );
-        }
-
+        
         /*
          * Create and display the form
          */
@@ -41,7 +26,7 @@ public class Board
             @Override
             public void run()
             {
-                new Board_jFrame().setVisible( true );
+                board.setVisible( true );
             }
         } );
     }

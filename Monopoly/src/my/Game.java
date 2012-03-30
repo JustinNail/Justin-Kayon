@@ -7,6 +7,7 @@ package my;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import javax.swing.JOptionPane;
 import my.board.Board;
 
 /**
@@ -15,8 +16,9 @@ import my.board.Board;
  */
 public class Game
 {
-    Board board = new Board();
+    public static Board board = new Board();
     public static List<Player> players  = new ArrayList<>();
+    public static Bank bank = new Bank();
     
     static final int maxPlayers = 8;
     static final int minPlayers = 2;
@@ -56,10 +58,8 @@ public class Game
         {
             if(currentRound < maxRound)
             {
-                for(int i =0;i<players.size();i++)
-                {
-                    players.get(i).takeTurn();
-                }
+                
+                currentRound++;
                 return true;
             }
             else
@@ -86,6 +86,10 @@ public class Game
         {
             Collections.shuffle( players );
             currentPlayer = 0;
+            for(int i = 0; i < players.size(); i++)
+            {
+                bank.giveMoney( players.get(i), 1500);
+            }
             started=true;
         }
         return started;

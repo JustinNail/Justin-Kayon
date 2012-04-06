@@ -20,7 +20,7 @@ public class IncomeTaxSpace extends Space
     @Override
     public void doAction()
     {
-        Object[] options={"$200","15% of wealth"};
+        Object[] options={"$200","10% of wealth"};
         
         int result = (int)JOptionPane.showOptionDialog( Board.board.dialog, 
         "Pick your Tax option", "Income Tax", JOptionPane.YES_NO_OPTION, 
@@ -35,7 +35,7 @@ public class IncomeTaxSpace extends Space
             int wealth;
             wealth = Game.players.get( Game.currentPlayer).funds;
             //TODO: add property worth calculations
-            int value = ( int ) ( wealth * 0.15 );
+            int value = ( int ) ( wealth * 0.1 );
             Game.bank.takeMoney( Game.players.get( Game.currentPlayer), value);
         }         
     }

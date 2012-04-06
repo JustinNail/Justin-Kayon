@@ -21,7 +21,7 @@ public class GoToJailSpace extends Space
     public void doAction()
     {
         JOptionPane.showMessageDialog( Board.board.dialog, "Going to Jail :(", "uh oh", JOptionPane.PLAIN_MESSAGE );
+        Game.players.get( Game.currentPlayer).InJail=true;
         Game.players.get( Game.currentPlayer).location=10;//10=JailSpace;
-        Board.spaces.get(10).doAction();
     }
 }

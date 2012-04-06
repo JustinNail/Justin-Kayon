@@ -36,7 +36,7 @@ public class Board_jFrame extends javax.swing.JFrame
     {
         jLabel_Player1.setVisible(false);
         
-        jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Car.png")));
+        
         playerLabels.add(jLabel_Player1);
         
         playerNames.add(jLabel_Player1Name);
@@ -45,7 +45,7 @@ public class Board_jFrame extends javax.swing.JFrame
         
         
         jLabel_Player2.setVisible(false);
-        jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Hat.png")));
+        
         playerLabels.add(jLabel_Player2);
         playerNames.add(jLabel_Player2Name);
         playerFunds.add(jTextField_Player2Money);
@@ -53,7 +53,7 @@ public class Board_jFrame extends javax.swing.JFrame
         
         
         jLabel_Player3.setVisible(false);
-        jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Dog.png")));
+        
         playerLabels.add(jLabel_Player3);
         playerNames.add(jLabel_Player3Name);
         playerFunds.add(jTextField_Player3Money);
@@ -61,7 +61,7 @@ public class Board_jFrame extends javax.swing.JFrame
         
         
         jLabel_Player4.setVisible(false);
-        jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Iron.png")));
+        
         playerLabels.add(jLabel_Player4);
         playerNames.add(jLabel_Player4Name);
         playerFunds.add(jTextField_Player4Money);
@@ -69,7 +69,7 @@ public class Board_jFrame extends javax.swing.JFrame
         
         
         jLabel_Player5.setVisible(false);
-        jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Shoe.png")));
+        
         playerLabels.add(jLabel_Player5);
         playerNames.add(jLabel_Player5Name);
         playerFunds.add(jTextField_Player5Money);
@@ -77,7 +77,7 @@ public class Board_jFrame extends javax.swing.JFrame
         
         
         jLabel_Player6.setVisible(false);
-        jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Ship.png")));
+        
         playerLabels.add(jLabel_Player6);
         playerNames.add(jLabel_Player6Name);
         playerFunds.add(jTextField_Player6Money);
@@ -85,7 +85,7 @@ public class Board_jFrame extends javax.swing.JFrame
         
         
         jLabel_Player7.setVisible(false);
-        jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Thimble.png")));
+        
         playerLabels.add(jLabel_Player7);
         playerNames.add(jLabel_Player7Name);
         playerFunds.add(jTextField_Player7Money);
@@ -93,7 +93,7 @@ public class Board_jFrame extends javax.swing.JFrame
         
         
         jLabel_Player8.setVisible(false);
-        jLabel_Player1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/WheelBarrow.png")));
+        
         playerLabels.add(jLabel_Player8);
         playerNames.add(jLabel_Player8Name);
         playerFunds.add(jTextField_Player8Money);
@@ -209,48 +209,56 @@ public class Board_jFrame extends javax.swing.JFrame
         jTextField_Player1Location = new javax.swing.JTextField();
         jLabel_Location = new javax.swing.JLabel();
         jLabel_Player1Name = new javax.swing.JLabel();
+        jLabel_Player1Key = new javax.swing.JLabel();
         jPanel_Player3 = new javax.swing.JPanel();
         jTextField_Player3Money = new javax.swing.JTextField();
         jLabel_Funds1 = new javax.swing.JLabel();
         jLabel_Location2 = new javax.swing.JLabel();
         jTextField_Player3Location = new javax.swing.JTextField();
         jLabel_Player3Name = new javax.swing.JLabel();
+        jLabel_Player3Key = new javax.swing.JLabel();
         jPanel_Player7 = new javax.swing.JPanel();
         jTextField_Player7Money = new javax.swing.JTextField();
         jLabel_Funds6 = new javax.swing.JLabel();
         jLabel_Location6 = new javax.swing.JLabel();
         jTextField_Player7Location = new javax.swing.JTextField();
         jLabel_Player7Name = new javax.swing.JLabel();
+        jLabel_Player7Key = new javax.swing.JLabel();
         jPanel_Player5 = new javax.swing.JPanel();
         jTextField_Player5Money = new javax.swing.JTextField();
         jLabel_Funds4 = new javax.swing.JLabel();
         jLabel_Location4 = new javax.swing.JLabel();
         jTextField_Player5Location = new javax.swing.JTextField();
         jLabel_Player5Name = new javax.swing.JLabel();
+        jLabel_Player5Key = new javax.swing.JLabel();
         jPanel_Player8 = new javax.swing.JPanel();
         jTextField_Player8Money = new javax.swing.JTextField();
         jLabel_Funds7 = new javax.swing.JLabel();
         jLabel_Location7 = new javax.swing.JLabel();
         jTextField_Player8Location = new javax.swing.JTextField();
         jLabel_Player8Name = new javax.swing.JLabel();
+        jLabel_Player8Key = new javax.swing.JLabel();
         jPanel_Player6 = new javax.swing.JPanel();
         jTextField_Player6Money = new javax.swing.JTextField();
         jLabel_Funds5 = new javax.swing.JLabel();
         jLabel_Location5 = new javax.swing.JLabel();
         jTextField_Player6Location = new javax.swing.JTextField();
         jLabel_Player6Name = new javax.swing.JLabel();
+        jLabel_Player6Key = new javax.swing.JLabel();
         jPanel_Player4 = new javax.swing.JPanel();
         jTextField_Player4Money = new javax.swing.JTextField();
         jLabel_Funds3 = new javax.swing.JLabel();
         jLabel_Location3 = new javax.swing.JLabel();
         jTextField_Player4Location = new javax.swing.JTextField();
         jLabel_Player4Name = new javax.swing.JLabel();
+        jLabel_Player4Key = new javax.swing.JLabel();
         jPanel_Player2 = new javax.swing.JPanel();
         jTextField_Player2Money = new javax.swing.JTextField();
         jLabel_Funds2 = new javax.swing.JLabel();
         jLabel_Location1 = new javax.swing.JLabel();
         jTextField_Player2Location = new javax.swing.JTextField();
         jLabel_Player2Name = new javax.swing.JLabel();
+        jLabel_Player2Key = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jTextField_CurrentPlayer = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -721,6 +729,9 @@ public class Board_jFrame extends javax.swing.JFrame
         jPanel_Player1.add(jLabel_Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
         jPanel_Player1.add(jLabel_Player1Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
+        jLabel_Player1Key.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Car.png"))); // NOI18N
+        jPanel_Player1.add(jLabel_Player1Key, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
+
         getContentPane().add(jPanel_Player1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, 200, 175));
 
         jPanel_Player3.setBorder(javax.swing.BorderFactory.createTitledBorder("Player 3"));
@@ -738,6 +749,9 @@ public class Board_jFrame extends javax.swing.JFrame
         jTextField_Player3Location.setEditable(false);
         jPanel_Player3.add(jTextField_Player3Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 60, 140, -1));
         jPanel_Player3.add(jLabel_Player3Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+
+        jLabel_Player3Key.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Hat.png"))); // NOI18N
+        jPanel_Player3.add(jLabel_Player3Key, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
 
         getContentPane().add(jPanel_Player3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 190, 200, 175));
 
@@ -757,6 +771,9 @@ public class Board_jFrame extends javax.swing.JFrame
         jPanel_Player7.add(jTextField_Player7Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 60, 140, -1));
         jPanel_Player7.add(jLabel_Player7Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
+        jLabel_Player7Key.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Thimble.png"))); // NOI18N
+        jPanel_Player7.add(jLabel_Player7Key, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, -1));
+
         getContentPane().add(jPanel_Player7, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 550, 200, 175));
 
         jPanel_Player5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Player 5"));
@@ -774,6 +791,9 @@ public class Board_jFrame extends javax.swing.JFrame
         jTextField_Player5Location.setEditable(false);
         jPanel_Player5.add(jTextField_Player5Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 60, 140, -1));
         jPanel_Player5.add(jLabel_Player5Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+
+        jLabel_Player5Key.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Ship.png"))); // NOI18N
+        jPanel_Player5.add(jLabel_Player5Key, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
 
         getContentPane().add(jPanel_Player5, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 370, 200, 175));
 
@@ -793,6 +813,9 @@ public class Board_jFrame extends javax.swing.JFrame
         jPanel_Player8.add(jTextField_Player8Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 60, 140, -1));
         jPanel_Player8.add(jLabel_Player8Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
+        jLabel_Player8Key.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/WheelBarrow.png"))); // NOI18N
+        jPanel_Player8.add(jLabel_Player8Key, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
+
         getContentPane().add(jPanel_Player8, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 550, 200, 175));
 
         jPanel_Player6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Player 6"));
@@ -810,6 +833,9 @@ public class Board_jFrame extends javax.swing.JFrame
         jTextField_Player6Location.setEditable(false);
         jPanel_Player6.add(jTextField_Player6Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 60, 140, -1));
         jPanel_Player6.add(jLabel_Player6Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+
+        jLabel_Player6Key.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Shoe.png"))); // NOI18N
+        jPanel_Player6.add(jLabel_Player6Key, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, -1));
 
         getContentPane().add(jPanel_Player6, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 370, 200, 175));
 
@@ -829,6 +855,9 @@ public class Board_jFrame extends javax.swing.JFrame
         jPanel_Player4.add(jTextField_Player4Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 60, 140, -1));
         jPanel_Player4.add(jLabel_Player4Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
+        jLabel_Player4Key.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Iron.png"))); // NOI18N
+        jPanel_Player4.add(jLabel_Player4Key, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, -1));
+
         getContentPane().add(jPanel_Player4, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 190, 200, 175));
 
         jPanel_Player2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Player 2"));
@@ -846,6 +875,9 @@ public class Board_jFrame extends javax.swing.JFrame
         jTextField_Player2Location.setEditable(false);
         jPanel_Player2.add(jTextField_Player2Location, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 60, 140, -1));
         jPanel_Player2.add(jLabel_Player2Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+
+        jLabel_Player2Key.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Dog.png"))); // NOI18N
+        jPanel_Player2.add(jLabel_Player2Key, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
 
         getContentPane().add(jPanel_Player2, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 10, 200, 175));
 
@@ -947,6 +979,7 @@ public class Board_jFrame extends javax.swing.JFrame
         {
             for(int i=0;i<Game.players.size();i++)
             {
+                //set the name labels
                 playerNames.get( i ).setText(Game.players.get( i ).name );
                 playerLabels.get(i).setVisible(true);
                 playerLabels.get(i).setLocation(
@@ -959,25 +992,39 @@ public class Board_jFrame extends javax.swing.JFrame
                         Board.spaces.get(Game.players.get(i).location).Name);
             }
             JOptionPane.showMessageDialog( jLayeredPane1, "Game Started", "Success", JOptionPane.PLAIN_MESSAGE );
+            
+            //game loop
             while(Game.playRound())
             {
                 jTextField_Round.setText(String.valueOf( Game.currentRound) );
                 for(int i =0;i<Game.players.size();i++)
                 {
-                    JOptionPane.showMessageDialog(jLayeredPane1, Game.players.get( i ).name+"'s Turn", "Playing", JOptionPane.PLAIN_MESSAGE );
-                    jTextField_CurrentPlayer.setText(Game.players.get( i ).name);
-                    Game.players.get(i).takeTurn();
                     
-                    playerFunds.get(Game.currentPlayer).setText( 
-                            String.valueOf(Game.players.get(Game.currentPlayer).funds));
+                    do
+                    {
+                        //alert player it's their turn
+                        JOptionPane.showMessageDialog(jLayeredPane1, Game.players.get( i ).name+"'s Turn", "Playing", JOptionPane.PLAIN_MESSAGE );
+                        //update current player box
+                        jTextField_CurrentPlayer.setText(Game.players.get( i ).name);
+
+                        //each player takes their turn
+                        Game.players.get(i).takeTurn();
+
+                        //update the player's info boxes                   
+                        playerFunds.get(Game.currentPlayer).setText( 
+                                String.valueOf(Game.players.get(Game.currentPlayer).funds));
+
+                        playerLocations.get(Game.currentPlayer).setText( 
+                                Board.spaces.get(Game.players.get(Game.currentPlayer).location).Name);
+
+                        //update piece location
+                        playerLabels.get(Game.currentPlayer).setLocation(
+                            Board.spaces.get(Game.players.get(Game.currentPlayer).location).XPos,
+                            Board.spaces.get(Game.players.get(Game.currentPlayer).location).YPos+25);
+                        
+                    }while(Game.players.get(Game.currentPlayer).rolledDoubles);
                     
-                    playerLocations.get(Game.currentPlayer).setText( 
-                            Board.spaces.get(Game.players.get(Game.currentPlayer).location).Name);
-                    
-                    playerLabels.get(Game.currentPlayer).setLocation(
-                        Board.spaces.get(Game.players.get(Game.currentPlayer).location).XPos,
-                        Board.spaces.get(Game.players.get(Game.currentPlayer).location).YPos+25);
-                    
+                    //go to next player
                     Game.currentPlayer=(Game.currentPlayer+1)%Game.players.size();
                     
                 }
@@ -1055,20 +1102,28 @@ public class Board_jFrame extends javax.swing.JFrame
     private javax.swing.JLabel jLabel_Location6;
     private javax.swing.JLabel jLabel_Location7;
     private javax.swing.JLabel jLabel_Player1;
+    private javax.swing.JLabel jLabel_Player1Key;
     private javax.swing.JLabel jLabel_Player1Name;
     private javax.swing.JLabel jLabel_Player2;
+    private javax.swing.JLabel jLabel_Player2Key;
     private javax.swing.JLabel jLabel_Player2Name;
     private javax.swing.JLabel jLabel_Player3;
+    private javax.swing.JLabel jLabel_Player3Key;
     private javax.swing.JLabel jLabel_Player3Name;
     private javax.swing.JLabel jLabel_Player4;
+    private javax.swing.JLabel jLabel_Player4Key;
     private javax.swing.JLabel jLabel_Player4Name;
     private javax.swing.JLabel jLabel_Player5;
+    private javax.swing.JLabel jLabel_Player5Key;
     private javax.swing.JLabel jLabel_Player5Name;
     private javax.swing.JLabel jLabel_Player6;
+    private javax.swing.JLabel jLabel_Player6Key;
     private javax.swing.JLabel jLabel_Player6Name;
     private javax.swing.JLabel jLabel_Player7;
+    private javax.swing.JLabel jLabel_Player7Key;
     private javax.swing.JLabel jLabel_Player7Name;
     private javax.swing.JLabel jLabel_Player8;
+    private javax.swing.JLabel jLabel_Player8Key;
     private javax.swing.JLabel jLabel_Player8Name;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JMenuBar jMenuBar1;

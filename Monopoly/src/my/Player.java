@@ -22,8 +22,12 @@ public class Player
     
     private List<Property> ownedProperties = new ArrayList();
     
-    Dice dice = new Dice(6);
-    boolean InJail;
+    public Dice[] dice = {new Dice(6),new Dice(6)};
+    
+    public int doubles=0;
+    public boolean rolledDoubles=false;
+    
+    public boolean InJail;
     public int funds=0;
     
     public Player()
@@ -31,19 +35,41 @@ public class Player
     }
     public int roll()
     {
-        return dice.Roll(2);
+        dice[0].Roll();
+        dice[1].Roll();
+        
+        return dice[0].result+dice[1].result;
     }
     public int takeTurn()
     {
         if(InJail)
         {
+            Board.spaces.get(10).doAction();//JailSpace action
             return -1;
         }
         else
         {
             int d = roll();
+            if(dice[0].result==dice[1].result)
+            {
+                JOptionPane.showMessageDialog( Board.board.dialog, name+" Rolled Doubles!", "Yay", JOptionPane.PLAIN_MESSAGE );
+                rolledDoubles=true;
+                doubles++;
+            }
+            else
+            {
+                rolledDoubles=false;
+                doubles=0;
+            }
+            if(doubles>=3)
+            {
+                JOptionPane.showMessageDialog( Board.board.dialog, "Going to Jail :(", "cheater", JOptionPane.PLAIN_MESSAGE );
+                Game.players.get( Game.currentPlayer).InJail=true;
+                Game.players.get( Game.currentPlayer).location=10;//10=JailSpace;
+            }
             Move(d);
-            return d;
+            
+            return 0;
         }
     }
     public void Move(int dist)

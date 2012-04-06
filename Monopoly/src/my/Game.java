@@ -58,7 +58,6 @@ public class Game
         {
             if(currentRound < maxRound)
             {
-                
                 currentRound++;
                 return true;
             }

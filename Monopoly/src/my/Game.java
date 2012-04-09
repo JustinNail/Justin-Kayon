@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.List;
 import javax.swing.JOptionPane;
 import my.board.Board;
+import my.board.Chance_CommChestSpace;
 
 /**
  *
@@ -19,6 +20,7 @@ public class Game
     public static Board board = new Board();
     public static List<Player> players  = new ArrayList<>();
     public static Bank bank = new Bank();
+    public static Chance_CommChestSpace Stacks = new Chance_CommChestSpace();    
     
     static final int maxPlayers = 8;
     static final int minPlayers = 2;
@@ -88,7 +90,10 @@ public class Game
             for(int i = 0; i < players.size(); i++)
             {
                 bank.giveMoney( players.get(i), 1500);
-            }
+            }            
+            Stacks.PopulateChance();
+            Stacks.PopulateCommChest();
+           
             started=true;
         }
         return started;

@@ -13,8 +13,6 @@ public class Board
     public static Board_jFrame board = new Board_jFrame();
     
     
-    
-    
     public void BoardInit()
     {
         

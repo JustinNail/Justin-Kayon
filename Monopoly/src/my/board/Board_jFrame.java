@@ -8,22 +8,26 @@ import java.util.List;
 import javax.swing.*;
 import my.Game;
 /**
- *
+ * The class for Monopoly's UI
  * @author Justin
  */
 public class Board_jFrame extends javax.swing.JFrame
 {
 
-    /**
-     * Creates new form Board
-     */
+   
+    // The Lists that hold the UI elements for each player
     List<JLabel> playerLabels = new ArrayList();
     List<JLabel> playerNames = new ArrayList();
     List<JTextField> playerFunds = new ArrayList();
     List<JTextField> playerLocations = new ArrayList();
     
+    //the pane that dialogs are displayed on
+    //public so every class can display a dialog there
     public JLayeredPane dialog = new JLayeredPane();
     
+    /**
+     * initializes all the ui components
+     */
     public Board_jFrame()
     {
         initComponents();
@@ -32,83 +36,101 @@ public class Board_jFrame extends javax.swing.JFrame
         dialog = jLayeredPane1;
     }
 
+    /**
+     * sets every player piece invisible and add the components to the appropriate lists
+     */
     private void players_Init()
     {
+        // <editor-fold defaultstate="collapsed" desc="Player 1">                          
         jLabel_Player1.setVisible(false);
         
-        
         playerLabels.add(jLabel_Player1);
-        
         playerNames.add(jLabel_Player1Name);
         playerFunds.add(jTextField_Player1Money);
         playerLocations.add(jTextField_Player1Location);
+        //</editor-fold>
         
-        
+        // <editor-fold defaultstate="collapsed" desc="Player 2">                          
         jLabel_Player2.setVisible(false);
         
         playerLabels.add(jLabel_Player2);
         playerNames.add(jLabel_Player2Name);
         playerFunds.add(jTextField_Player2Money);
         playerLocations.add(jTextField_Player2Location);
+        //</editor-fold>
         
-        
+        // <editor-fold defaultstate="collapsed" desc="Player 3">                          
         jLabel_Player3.setVisible(false);
         
         playerLabels.add(jLabel_Player3);
         playerNames.add(jLabel_Player3Name);
         playerFunds.add(jTextField_Player3Money);
         playerLocations.add(jTextField_Player3Location);
+        //</editor-fold>
         
-        
+        // <editor-fold defaultstate="collapsed" desc="Player 4">                          
         jLabel_Player4.setVisible(false);
         
         playerLabels.add(jLabel_Player4);
         playerNames.add(jLabel_Player4Name);
         playerFunds.add(jTextField_Player4Money);
         playerLocations.add(jTextField_Player4Location);
+        //</editor-fold>
         
-        
+        // <editor-fold defaultstate="collapsed" desc="Player 5">                          
         jLabel_Player5.setVisible(false);
         
         playerLabels.add(jLabel_Player5);
         playerNames.add(jLabel_Player5Name);
         playerFunds.add(jTextField_Player5Money);
         playerLocations.add(jTextField_Player5Location);
+        //</editor-fold>
         
-        
+        // <editor-fold defaultstate="collapsed" desc="Player 6">                          
         jLabel_Player6.setVisible(false);
         
         playerLabels.add(jLabel_Player6);
         playerNames.add(jLabel_Player6Name);
         playerFunds.add(jTextField_Player6Money);
         playerLocations.add(jTextField_Player6Location);
+        //</editor-fold>
         
-        
+        // <editor-fold defaultstate="collapsed" desc="Player 7">                          
         jLabel_Player7.setVisible(false);
         
         playerLabels.add(jLabel_Player7);
         playerNames.add(jLabel_Player7Name);
         playerFunds.add(jTextField_Player7Money);
         playerLocations.add(jTextField_Player7Location);
+        //</editor-fold>
         
-        
+        // <editor-fold defaultstate="collapsed" desc="Player 8">                          
         jLabel_Player8.setVisible(false);
         
         playerLabels.add(jLabel_Player8);
         playerNames.add(jLabel_Player8Name);
         playerFunds.add(jTextField_Player8Money);
         playerLocations.add(jTextField_Player8Location);
+        //</editor-fold>
     }
+    
+    /**
+     * Creates and adds each space, based on the buttons, to the spaces list in Board
+     */
     private void spaces_Init()
     {
         Board.spaces.add( new GoSpace("Go",jButton_Go.getX(),jButton_Go.getY()));
         Board.spaces.add( new PropertySpace("Flying Fortress",jButton_Purple1.getX(),jButton_Purple1.getY()));
-        Board.spaces.add( new CardSpace("Community Chest",jButton_Chest1.getX(),jButton_Chest1.getY()));
+        
+        Board.spaces.add( new Chance_CommChestSpace("Community Chest",jButton_Chest1.getX(),jButton_Chest1.getY()));
+        
         Board.spaces.add( new PropertySpace("Pandemonium",jButton_Purple2.getX(),jButton_Purple2.getY()));
         Board.spaces.add( new IncomeTaxSpace("Income Tax",jButton_Tax_Income.getX(),jButton_Tax_Income.getY()));
         Board.spaces.add( new PropertySpace("*Rail1*",jButton_Rail1.getX(),jButton_Rail1.getY()));
         Board.spaces.add( new PropertySpace("Floating Continent",jButton_Teal1.getX(),jButton_Teal1.getY()));
-        Board.spaces.add( new CardSpace("Chance",jButton_Chance1.getX(),jButton_Chance1.getY()));
+        
+        Board.spaces.add( new Chance_CommChestSpace("Chance",jButton_Chance1.getX(),jButton_Chance1.getY()));
+        
         Board.spaces.add( new PropertySpace("Crystal Tower",jButton_Teal2.getX(),jButton_Teal2.getY()));
         Board.spaces.add( new PropertySpace("Baron",jButton_Teal3.getX(),jButton_Teal3.getY()));
         Board.spaces.add( new JailSpace("Jail",jButton_Jail.getX(),jButton_Jail.getY()));
@@ -118,12 +140,14 @@ public class Board_jFrame extends javax.swing.JFrame
         Board.spaces.add( new PropertySpace("Castle Kuza",jButton_Pink3.getX(),jButton_Pink3.getY()));
         Board.spaces.add( new PropertySpace("*Rail2*",jButton_Rail2.getX(),jButton_Rail2.getY()));
         Board.spaces.add( new PropertySpace("Figaro Castle",jButton_Orange1.getX(),jButton_Orange1.getY()));
-        Board.spaces.add( new CardSpace("Community Chest",jButton_Chest2.getX(),jButton_Chest2.getY()));
+        
+        Board.spaces.add( new Chance_CommChestSpace("Community Chest",jButton_Chest2.getX(),jButton_Chest2.getY()));
+        
         Board.spaces.add( new PropertySpace("Imperial Palace",jButton_Orange2.getX(),jButton_Orange2.getY()));
         Board.spaces.add( new PropertySpace("Kefka's Tower",jButton_Orange3.getX(),jButton_Orange3.getY()));
         Board.spaces.add( new FreeParkingSpace("Free Parking",jButton_FreeParking.getX(),jButton_FreeParking.getY()));
         Board.spaces.add( new PropertySpace("Golden Saucer",jButton_Red1.getX(),jButton_Red1.getY()));
-        Board.spaces.add( new CardSpace("Chance",jButton_Chance2.getX(),jButton_Chance2.getY()));
+        Board.spaces.add( new Chance_CommChestSpace("Chance",jButton_Chance2.getX(),jButton_Chance2.getY()));
         Board.spaces.add( new PropertySpace("Junon",jButton_Red2.getX(),jButton_Red2.getY()));
         Board.spaces.add( new PropertySpace("Midgar",jButton_Red3.getX(),jButton_Red3.getY()));
         Board.spaces.add( new PropertySpace("*Rail3*",jButton_Rail3.getX(),jButton_Rail3.getY()));
@@ -134,10 +158,10 @@ public class Board_jFrame extends javax.swing.JFrame
         Board.spaces.add( new GoToJailSpace("Go to Jail",jButton_GoToJail.getX(),jButton_GoToJail.getY()));
         Board.spaces.add( new PropertySpace("Alexandria",jButton_Green1.getX(),jButton_Green1.getY()));
         Board.spaces.add( new PropertySpace("Burmecia",jButton_Green2.getX(),jButton_Green2.getY()));
-        Board.spaces.add( new CardSpace("Community Chest",jButton_Chest3.getX(),jButton_Chest3.getY()));
+        Board.spaces.add( new Chance_CommChestSpace("Community Chest",jButton_Chest3.getX(),jButton_Chest3.getY()));
         Board.spaces.add( new PropertySpace("Ban Bal",jButton_Green3.getX(),jButton_Green3.getY()));
         Board.spaces.add( new PropertySpace("*Rail4*",jButton_Rail4.getX(),jButton_Rail4.getY()));
-        Board.spaces.add( new CardSpace("Chance",jButton_Chance3.getX(),jButton_Chance3.getY()));
+        Board.spaces.add( new Chance_CommChestSpace("Chance",jButton_Chance3.getX(),jButton_Chance3.getY()));
         Board.spaces.add( new PropertySpace("Besaid",jButton_Blue1.getX(),jButton_Blue1.getY()));
         Board.spaces.add( new LuxuryTaxSpace("Luxury Tax",jButton_Tax_Lux.getX(),jButton_Tax_Lux.getY()));
         Board.spaces.add( new PropertySpace("Zanarkand",jButton_Blue2.getX(),jButton_Blue2.getY()));
@@ -939,6 +963,7 @@ public class Board_jFrame extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+// <editor-fold defaultstate="collapsed" desc="Stuff i can't delete because netbeans is lame">                          
     private void jMenuItem_AddPlayerMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jMenuItem_AddPlayerMouseClicked
     {//GEN-HEADEREND:event_jMenuItem_AddPlayerMouseClicked
         
@@ -948,52 +973,71 @@ public class Board_jFrame extends javax.swing.JFrame
     {//GEN-HEADEREND:event_jMenuItem_ExitMouseClicked
         
     }//GEN-LAST:event_jMenuItem_ExitMouseClicked
-
+//</editor-fold>
+    /**
+     * Close the game when Exit is selected
+     * @param evt 
+     */
     private void jMenuItem_ExitMousePressed(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jMenuItem_ExitMousePressed
     {//GEN-HEADEREND:event_jMenuItem_ExitMousePressed
         System.exit(0);
     }//GEN-LAST:event_jMenuItem_ExitMousePressed
-
+// <editor-fold defaultstate="collapsed" desc="Stuff i can't delete because netbeans is lame">      
     private void jMenu_GameMousePressed(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jMenu_GameMousePressed
     {//GEN-HEADEREND:event_jMenu_GameMousePressed
         
     }//GEN-LAST:event_jMenu_GameMousePressed
-
+//</editor-fold>
+    /**
+     * Attempts to add a player when AddPlayer is selected
+     * @param evt 
+     */
     private void jMenuItem_AddPlayerMousePressed(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jMenuItem_AddPlayerMousePressed
     {//GEN-HEADEREND:event_jMenuItem_AddPlayerMousePressed
-        
+        //create a new player
         if(Game.addPlayer())
         {
+            //get player name from dialog box
             String name = (String)JOptionPane.showInputDialog(jLayeredPane1,"Enter Name","",JOptionPane.PLAIN_MESSAGE);
             Game.players.get(Game.numPlayers-1).name=name;       
         }
         else
         {
+            //alert user of failure
             JOptionPane.showMessageDialog( jLayeredPane1, "Cannot Add Player", "Failure", JOptionPane.PLAIN_MESSAGE );            
         }
     }//GEN-LAST:event_jMenuItem_AddPlayerMousePressed
 
+    /**
+     * Attempts to start the game if Start is selected
+     * @param evt 
+     */
     private void jMenuItem_StartMousePressed(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jMenuItem_StartMousePressed
     {//GEN-HEADEREND:event_jMenuItem_StartMousePressed
+        //if Game successfully started
         if(Game.Start())
         {
             for(int i=0;i<Game.players.size();i++)
             {
                 //set the name labels
                 playerNames.get( i ).setText(Game.players.get( i ).name );
+                //make each active player's peice visible
                 playerLabels.get(i).setVisible(true);
+                //place the peice on Go
                 playerLabels.get(i).setLocation(
                     Board.spaces.get(0).XPos,
                     Board.spaces.get(0).YPos+25);
+                //display initial funds
                 playerFunds.get(i).setText( 
                         String.valueOf(Game.players.get(i).funds));
-
+                //display initial location
                 playerLocations.get(i).setText( 
                         Board.spaces.get(Game.players.get(i).location).Name);
             }
+            //display succedd message
             JOptionPane.showMessageDialog( jLayeredPane1, "Game Started", "Success", JOptionPane.PLAIN_MESSAGE );
             
-            //game loop
+            //game loop, loops so long as the Game can play rounds
             while(Game.playRound())
             {
                 jTextField_Round.setText(String.valueOf( Game.currentRound) );

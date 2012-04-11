@@ -10,5 +10,12 @@ package my.deck;
  */
 public class Card
 {
+    public int id;
+    public String disc;
     
+    public Card(int i, String d)
+    {
+        id=i;
+        disc=d;
+    }
 }

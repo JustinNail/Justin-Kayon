@@ -7,47 +7,44 @@ package my.board;
 import java.util.*; 
 //import my.board.Board;
 import my.Game;
+import my.deck.Card;
 
 /**
  * @author Kayon
  */
 public class Chance_CommChestSpace extends Space
 {    
-    Chance_CommChestSpace temp = new Chance_CommChestSpace();    
-   
-    /*public Chance_CommChestSpace(String name, int xPos, int yPos)
+  
+    public Chance_CommChestSpace(String name, int xPos, int yPos)
     {
         super(name, xPos, yPos);
-    }*/
+    }
 
-    public void Chance_CommChestSpace() {}
+    
     
     @Override
     public void doAction()
     {
-        /*System.out.println();
-        temp.PopulateChance();
-        System.out.println();
-        temp.PopulateCommChest();
-        System.out.println();*/
-        
-        temp.Shuffle(temp.chance, "Chance");
-        System.out.println();
-        temp.Shuffle(temp.comchest, "Community Chest");
-        System.out.println();        
+        /*Card drawn=comchest.get(0);
+        switch(drawn.id)
+        * {
+        *   case 1:blah
+        * }*/
     }
     
     // Create the Community Chest array list 
-    private ArrayList comchest = new ArrayList();
+    public static List<Card> comchest = new ArrayList<>();
     // Create the Chance array list 
-    private ArrayList chance = new ArrayList();     
+    public static List<Card> chance = new ArrayList<>();     
     
     
-    public void PopulateChance()
+    public static void PopulateChance()
     {
         // Adding elements to the chance array list 
-        chance.add("1 Advance to Go (Collect $200)"); 
-        chance.add("2 Advance to Midgar - if you pass Go, Collect $200"); 
+        
+        chance.add(new Card(1,"Advance to Go (Collect $200)"));
+        
+        chance.add(new Card(2,"Advance to Midgar - if you pass Go, Collect $200"));
         chance.add("3 Advance token to nearest Utility. If unowned, you "
                     + "may buy it from the Bank. If owned, throw dice and "
                     + "pay owner a total ten times the amount thrown."); 
@@ -82,7 +79,7 @@ public class Chance_CommChestSpace extends Space
         System.out.println("Size of chance after additions: " + chance.size()); */
     }
     
-    public void PopulateCommChest()
+    public static void PopulateCommChest()
     {
         // Add elements to the Community Chest array list 
         comchest.add("1 Advance to Go (Collect $200)");
@@ -114,19 +111,5 @@ public class Chance_CommChestSpace extends Space
         System.out.println("Contents of comchest: " + comchest);    
         System.out.println("Size of comchest after additions: " + comchest.size()); */
     }
-    
-    /* To shuffle elements of Java ArrayList use, static void shuffle(List list) 
-     * method of Collections class.
-     */
-    public void Shuffle(ArrayList stack, String name)
-    {
-        Collections.shuffle(stack);
-        System.out.println("After shuffling, " + name + " contains : " + stack);    
-    }
-    
-    public static void main(String[] args)
-    {
-        
-    }
-    
+
 }

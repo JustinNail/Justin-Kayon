@@ -19,8 +19,7 @@ public class Game
 {
     public static Board board = new Board();
     public static List<Player> players  = new ArrayList<>();
-    public static Bank bank = new Bank();
-    public static Chance_CommChestSpace Stacks = new Chance_CommChestSpace();    
+    public static Bank bank = new Bank();  
     
     static final int maxPlayers = 8;
     static final int minPlayers = 2;
@@ -91,8 +90,10 @@ public class Game
             {
                 bank.giveMoney( players.get(i), 1500);
             }            
-            Stacks.PopulateChance();
-            Stacks.PopulateCommChest();
+            Chance_CommChestSpace.PopulateChance();
+            Collections.shuffle( Chance_CommChestSpace.chance);
+            Chance_CommChestSpace.PopulateCommChest();
+            Collections.shuffle( Chance_CommChestSpace.comchest);
            
             started=true;
         }

@@ -9,7 +9,8 @@ import java.util.Collections;
 import java.util.List;
 import javax.swing.JOptionPane;
 import my.board.Board;
-import my.board.Chance_CommChestSpace;
+import my.board.ChanceSpace;
+import my.board.CommChestSpace;
 
 /**
  *
@@ -90,10 +91,10 @@ public class Game
             {
                 bank.giveMoney( players.get(i), 1500);
             }            
-            Chance_CommChestSpace.PopulateChance();
-            Collections.shuffle( Chance_CommChestSpace.chance);
-            Chance_CommChestSpace.PopulateCommChest();
-            Collections.shuffle( Chance_CommChestSpace.comchest);
+            ChanceSpace.PopulateChance();
+            Collections.shuffle( ChanceSpace.chance);
+            CommChestSpace.PopulateCommChest();
+            Collections.shuffle( CommChestSpace.comchest);
            
             started=true;
         }

@@ -119,52 +119,46 @@ public class Board_jFrame extends javax.swing.JFrame
      */
     private void spaces_Init()
     {
-        Board.spaces.add( new GoSpace("Go",jButton_Go.getX(),jButton_Go.getY()));
-        Board.spaces.add( new PropertySpace("Flying Fortress",jButton_Purple1.getX(),jButton_Purple1.getY()));
-        
-        Board.spaces.add( new Chance_CommChestSpace("Community Chest",jButton_Chest1.getX(),jButton_Chest1.getY()));
-        
-        Board.spaces.add( new PropertySpace("Pandemonium",jButton_Purple2.getX(),jButton_Purple2.getY()));
+        Board.spaces.add( new GoSpace       ("Go",jButton_Go.getX(),jButton_Go.getY()));
+        Board.spaces.add( new PropertySpace ("Flying Fortress",jButton_Purple1.getX(),jButton_Purple1.getY()));        
+        Board.spaces.add( new CommChestSpace("Community Chest",jButton_Chest1.getX(),jButton_Chest1.getY()));        
+        Board.spaces.add( new PropertySpace ("Pandemonium",jButton_Purple2.getX(),jButton_Purple2.getY()));
         Board.spaces.add( new IncomeTaxSpace("Income Tax",jButton_Tax_Income.getX(),jButton_Tax_Income.getY()));
-        Board.spaces.add( new PropertySpace("*Rail1*",jButton_Rail1.getX(),jButton_Rail1.getY()));
-        Board.spaces.add( new PropertySpace("Floating Continent",jButton_Teal1.getX(),jButton_Teal1.getY()));
-        
-        Board.spaces.add( new Chance_CommChestSpace("Chance",jButton_Chance1.getX(),jButton_Chance1.getY()));
-        
-        Board.spaces.add( new PropertySpace("Crystal Tower",jButton_Teal2.getX(),jButton_Teal2.getY()));
-        Board.spaces.add( new PropertySpace("Baron",jButton_Teal3.getX(),jButton_Teal3.getY()));
-        Board.spaces.add( new JailSpace("Jail",jButton_Jail.getX(),jButton_Jail.getY()));
-        Board.spaces.add( new PropertySpace("Ancient's Library",jButton_Pink1.getX(),jButton_Pink1.getY()));
-        Board.spaces.add( new PropertySpace("Electric Company",jButton_Utility_Electric.getX(),jButton_Utility_Electric.getY()));
-        Board.spaces.add( new PropertySpace("Exdeath's Castle",jButton_Pink2.getX(),jButton_Pink2.getY()));
-        Board.spaces.add( new PropertySpace("Castle Kuza",jButton_Pink3.getX(),jButton_Pink3.getY()));
-        Board.spaces.add( new PropertySpace("*Rail2*",jButton_Rail2.getX(),jButton_Rail2.getY()));
-        Board.spaces.add( new PropertySpace("Figaro Castle",jButton_Orange1.getX(),jButton_Orange1.getY()));
-        
-        Board.spaces.add( new Chance_CommChestSpace("Community Chest",jButton_Chest2.getX(),jButton_Chest2.getY()));
-        
-        Board.spaces.add( new PropertySpace("Imperial Palace",jButton_Orange2.getX(),jButton_Orange2.getY()));
-        Board.spaces.add( new PropertySpace("Kefka's Tower",jButton_Orange3.getX(),jButton_Orange3.getY()));
+        Board.spaces.add( new PropertySpace ("*Rail1*",jButton_Rail1.getX(),jButton_Rail1.getY()));
+        Board.spaces.add( new PropertySpace ("Floating Continent",jButton_Teal1.getX(),jButton_Teal1.getY()));        
+        Board.spaces.add( new ChanceSpace   ("Chance",jButton_Chance1.getX(),jButton_Chance1.getY()));        
+        Board.spaces.add( new PropertySpace ("Crystal Tower",jButton_Teal2.getX(),jButton_Teal2.getY()));
+        Board.spaces.add( new PropertySpace ("Baron",jButton_Teal3.getX(),jButton_Teal3.getY()));
+        Board.spaces.add( new JailSpace     ("Jail",jButton_Jail.getX(),jButton_Jail.getY()));
+        Board.spaces.add( new PropertySpace ("Ancient's Library",jButton_Pink1.getX(),jButton_Pink1.getY()));
+        Board.spaces.add( new PropertySpace ("Electric Company",jButton_Utility_Electric.getX(),jButton_Utility_Electric.getY()));
+        Board.spaces.add( new PropertySpace ("Exdeath's Castle",jButton_Pink2.getX(),jButton_Pink2.getY()));
+        Board.spaces.add( new PropertySpace ("Castle Kuza",jButton_Pink3.getX(),jButton_Pink3.getY()));
+        Board.spaces.add( new PropertySpace ("*Rail2*",jButton_Rail2.getX(),jButton_Rail2.getY()));
+        Board.spaces.add( new PropertySpace ("Figaro Castle",jButton_Orange1.getX(),jButton_Orange1.getY()));        
+        Board.spaces.add( new CommChestSpace("Community Chest",jButton_Chest2.getX(),jButton_Chest2.getY()));        
+        Board.spaces.add( new PropertySpace ("Imperial Palace",jButton_Orange2.getX(),jButton_Orange2.getY()));
+        Board.spaces.add( new PropertySpace ("Kefka's Tower",jButton_Orange3.getX(),jButton_Orange3.getY()));
         Board.spaces.add( new FreeParkingSpace("Free Parking",jButton_FreeParking.getX(),jButton_FreeParking.getY()));
-        Board.spaces.add( new PropertySpace("Golden Saucer",jButton_Red1.getX(),jButton_Red1.getY()));
-        Board.spaces.add( new Chance_CommChestSpace("Chance",jButton_Chance2.getX(),jButton_Chance2.getY()));
-        Board.spaces.add( new PropertySpace("Junon",jButton_Red2.getX(),jButton_Red2.getY()));
-        Board.spaces.add( new PropertySpace("Midgar",jButton_Red3.getX(),jButton_Red3.getY()));
-        Board.spaces.add( new PropertySpace("*Rail3*",jButton_Rail3.getX(),jButton_Rail3.getY()));
-        Board.spaces.add( new PropertySpace("Balamb",jButton_Yellow1.getX(),jButton_Yellow1.getY()));
-        Board.spaces.add( new PropertySpace("Esthar",jButton_Yellow2.getX(),jButton_Yellow2.getY()));
-        Board.spaces.add( new PropertySpace("Water Works",jButton_Utility_Water.getX(),jButton_Utility_Water.getY()));
-        Board.spaces.add( new PropertySpace("Lunatic Pandora",jButton_Yellow3.getX(),jButton_Yellow3.getY()));
-        Board.spaces.add( new GoToJailSpace("Go to Jail",jButton_GoToJail.getX(),jButton_GoToJail.getY()));
-        Board.spaces.add( new PropertySpace("Alexandria",jButton_Green1.getX(),jButton_Green1.getY()));
-        Board.spaces.add( new PropertySpace("Burmecia",jButton_Green2.getX(),jButton_Green2.getY()));
-        Board.spaces.add( new Chance_CommChestSpace("Community Chest",jButton_Chest3.getX(),jButton_Chest3.getY()));
-        Board.spaces.add( new PropertySpace("Ban Bal",jButton_Green3.getX(),jButton_Green3.getY()));
-        Board.spaces.add( new PropertySpace("*Rail4*",jButton_Rail4.getX(),jButton_Rail4.getY()));
-        Board.spaces.add( new Chance_CommChestSpace("Chance",jButton_Chance3.getX(),jButton_Chance3.getY()));
-        Board.spaces.add( new PropertySpace("Besaid",jButton_Blue1.getX(),jButton_Blue1.getY()));
+        Board.spaces.add( new PropertySpace ("Golden Saucer",jButton_Red1.getX(),jButton_Red1.getY()));
+        Board.spaces.add( new ChanceSpace   ("Chance",jButton_Chance2.getX(),jButton_Chance2.getY()));
+        Board.spaces.add( new PropertySpace ("Junon",jButton_Red2.getX(),jButton_Red2.getY()));
+        Board.spaces.add( new PropertySpace ("Midgar",jButton_Red3.getX(),jButton_Red3.getY()));
+        Board.spaces.add( new PropertySpace ("*Rail3*",jButton_Rail3.getX(),jButton_Rail3.getY()));
+        Board.spaces.add( new PropertySpace ("Balamb",jButton_Yellow1.getX(),jButton_Yellow1.getY()));
+        Board.spaces.add( new PropertySpace ("Esthar",jButton_Yellow2.getX(),jButton_Yellow2.getY()));
+        Board.spaces.add( new PropertySpace ("Water Works",jButton_Utility_Water.getX(),jButton_Utility_Water.getY()));
+        Board.spaces.add( new PropertySpace ("Lunatic Pandora",jButton_Yellow3.getX(),jButton_Yellow3.getY()));
+        Board.spaces.add( new GoToJailSpace ("Go to Jail",jButton_GoToJail.getX(),jButton_GoToJail.getY()));
+        Board.spaces.add( new PropertySpace ("Alexandria",jButton_Green1.getX(),jButton_Green1.getY()));
+        Board.spaces.add( new PropertySpace ("Burmecia",jButton_Green2.getX(),jButton_Green2.getY()));
+        Board.spaces.add( new CommChestSpace("Community Chest",jButton_Chest3.getX(),jButton_Chest3.getY()));
+        Board.spaces.add( new PropertySpace ("Ban Bal",jButton_Green3.getX(),jButton_Green3.getY()));
+        Board.spaces.add( new PropertySpace ("*Rail4*",jButton_Rail4.getX(),jButton_Rail4.getY()));
+        Board.spaces.add( new ChanceSpace   ("Chance",jButton_Chance3.getX(),jButton_Chance3.getY()));
+        Board.spaces.add( new PropertySpace ("Besaid",jButton_Blue1.getX(),jButton_Blue1.getY()));
         Board.spaces.add( new LuxuryTaxSpace("Luxury Tax",jButton_Tax_Lux.getX(),jButton_Tax_Lux.getY()));
-        Board.spaces.add( new PropertySpace("Zanarkand",jButton_Blue2.getX(),jButton_Blue2.getY()));
+        Board.spaces.add( new PropertySpace ("Zanarkand",jButton_Blue2.getX(),jButton_Blue2.getY()));
     }
     
     

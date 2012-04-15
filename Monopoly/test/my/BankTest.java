@@ -38,7 +38,7 @@ public class BankTest {
         int amt = 5;
         Bank instance = new Bank();
         instance.giveMoney(p, amt);
-        assertTrue(p.funds==5); 
+        assertTrue(p.funds==5);
     }
 
     /**

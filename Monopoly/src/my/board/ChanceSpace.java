@@ -20,9 +20,7 @@ public class ChanceSpace extends Space
     public ChanceSpace(String name, int xPos, int yPos)
     {
         super(name, xPos, yPos);
-    }
-
-    
+    }    
     
     @Override
     public void doAction()
@@ -32,29 +30,118 @@ public class ChanceSpace extends Space
         switch(drawn.id)
         {
            case 1:
-               Game.players.get(Game.currentPlayer).location = 0;//0=GoSpace;
+               Game.players.get(Game.currentPlayer).location = 0;               // 0 = GoSpace;
                Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 200);              
+               break;
                
            case 2:
                if (Game.players.get(Game.currentPlayer).location > 24)
                     Board.spaces.get(0).doAction();              
-               Game.players.get(Game.currentPlayer).location = 24;//24=Midgar;
+               Game.players.get(Game.currentPlayer).location = 24;              // 24 = Midgar;
+               break;
                
            case 3:
-           case 4:        
+               if (Game.players.get(Game.currentPlayer).location > 12 && 
+                       Game.players.get(Game.currentPlayer).location < 28)
+                   Game.players.get(Game.currentPlayer).location = 28;          // 28 = Pipe Utility;
+               else 
+               {
+                   Board.spaces.get(0).doAction();  
+                   Game.players.get(Game.currentPlayer).location = 12;          // 12 = Bulb Utility;
+               }   
+               break;
+               
+           case 4:
+               if (Game.players.get(Game.currentPlayer).location > 5 && 
+                       Game.players.get(Game.currentPlayer).location < 15)
+                   Game.players.get(Game.currentPlayer).location = 15;          // 15 = Airship 2
+               else
+                   if (Game.players.get(Game.currentPlayer).location > 15 && 
+                            Game.players.get(Game.currentPlayer).location < 25)
+                       Game.players.get(Game.currentPlayer).location = 25;      // 25 = Airship 3
+                   else
+                       if (Game.players.get(Game.currentPlayer).location > 25 && 
+                                Game.players.get(Game.currentPlayer).location < 35)
+                           Game.players.get(Game.currentPlayer).location = 35;  // 35 = Airship 4
+                       else
+                       {
+                           Board.spaces.get(0).doAction();  
+                           Game.players.get(Game.currentPlayer).location = 5;   // 5 = Airship 1
+                       }                  
+               break;
+               
            case 5:
+               if (Game.players.get(Game.currentPlayer).location > 5 && 
+                       Game.players.get(Game.currentPlayer).location < 15)
+                   Game.players.get(Game.currentPlayer).location = 15;          // 15 = Airship 2
+               else
+                   if (Game.players.get(Game.currentPlayer).location > 15 && 
+                            Game.players.get(Game.currentPlayer).location < 25)
+                       Game.players.get(Game.currentPlayer).location = 25;      // 25 = Airship 3
+                   else
+                       if (Game.players.get(Game.currentPlayer).location > 25 && 
+                                Game.players.get(Game.currentPlayer).location < 35)
+                           Game.players.get(Game.currentPlayer).location = 35;  // 35 = Airship 4
+                       else
+                       {
+                           Board.spaces.get(0).doAction();  
+                           Game.players.get(Game.currentPlayer).location = 5;   // 5 = Airship 1
+                       }           
+               break;
+               
            case 6:
+               if (Game.players.get(Game.currentPlayer).location > 11)
+                    Board.spaces.get(0).doAction();          
+               Game.players.get(Game.currentPlayer).location = 11;              // 11 = Ancient's Library
+               break;
+               
            case 7:
+               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 50);
+               break;
+               
            case 8:
+               break;
+               
            case 9:
-           case 10:        
+               Game.players.get(Game.currentPlayer).location -= 3;
+               break;
+               
+           case 10:   
+               Game.players.get(Game.currentPlayer).InJail = true;
+               Game.players.get(Game.currentPlayer).location = 10;              // 10 = Jail
+               break;
+               
            case 11:
+               break;
+               
            case 12:
+               Game.bank.takeMoney(Game.players.get(Game.currentPlayer), 15);
+               break;
+               
            case 13:
-           case 14:
+               if (Game.players.get(Game.currentPlayer).location > 5)
+                    Board.spaces.get(0).doAction();          
+               Game.players.get(Game.currentPlayer).location = 5;               // 5 = Fahrenheit Airship
+               break;
+               
+           case 14:                      
+               Game.players.get(Game.currentPlayer).location = 40;              // 40 = Zanarkand
+               break;
+               
            case 15:
+               for (int i = 1; i <= Game.numPlayers; i++)
+               {
+                   Game.bank.takeMoney(Game.players.get(Game.currentPlayer), 15);
+                   Game.bank.giveMoney(Game.players.get(i), 15);
+               }
+               break;
+               
            case 16:        
+               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 150);
+               break;
            case 17:               
+               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 100);
+               break;
         }
     }
     

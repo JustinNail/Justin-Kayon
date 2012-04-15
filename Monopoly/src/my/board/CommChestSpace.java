@@ -17,9 +17,7 @@ public class CommChestSpace extends Space
     public CommChestSpace(String name, int xPos, int yPos)
     {
         super(name, xPos, yPos);
-    }
-
-    
+    }    
     
     @Override
     public void doAction()
@@ -29,22 +27,80 @@ public class CommChestSpace extends Space
         switch(drawn.id)
         {
            case 1:
+               Game.players.get(Game.currentPlayer).location = 0;               // 0 = GoSpace;
+               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 200);   
+               break;
+               
            case 2:
+               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 200);
+               break;
+               
            case 3:
+               Game.bank.takeMoney(Game.players.get(Game.currentPlayer), 50);
+               break;
+               
            case 4:        
+               break;
+               
            case 5:
+               Game.players.get(Game.currentPlayer).InJail = true;
+               Game.players.get(Game.currentPlayer).location = 10;              // 10 = Jail
+               break;
+               
            case 6:
+               for (int i = 1; i <= Game.numPlayers; i++)
+               {                                      
+                   Game.bank.takeMoney(Game.players.get(i), 10);
+                   Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 10);
+               }
+               break;
+               
            case 7:
+               for (int i = 1; i <= Game.numPlayers; i++)
+               {                                      
+                   Game.bank.takeMoney(Game.players.get(i), 50);
+                   Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 50);
+               }
+               break;
+               
            case 8:
+               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 20);
+               break;
+               
            case 9:
-           case 10:        
+               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 100);
+               break;
+               
+           case 10: 
+               Game.bank.takeMoney(Game.players.get(Game.currentPlayer), 100);
+               break;
+               
            case 11:
+               Game.bank.takeMoney(Game.players.get(Game.currentPlayer), 50);
+               break;
+               
            case 12:
+               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 25);
+               break;
+               
            case 13:
-           case 14:
+               break;
+               
+           case 14:               
+               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 10);
+               break;
+               
            case 15:
-           case 16:        
-           case 17:               
+               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 100);
+               break;
+               
+           case 16:                 
+               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 50);
+               break;
+               
+           case 17:                
+               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 100);
+               break;
         }
     }
     

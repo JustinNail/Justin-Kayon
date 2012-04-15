@@ -36,7 +36,7 @@ public class Game
     {
         if (!started)
         {
-            if(numPlayers<=maxPlayers)
+            if(numPlayers <= maxPlayers)
             {
                 numPlayers++;
                 players.add( new Player());

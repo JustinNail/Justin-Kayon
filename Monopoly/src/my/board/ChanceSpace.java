@@ -106,9 +106,9 @@ public class ChanceSpace extends Space
                Game.players.get(Game.currentPlayer).location -= 3;
                break;
                
-           case 10:   
-               Game.players.get(Game.currentPlayer).InJail = true;
+           case 10:                  
                Game.players.get(Game.currentPlayer).location = 10;              // 10 = Jail
+               Game.players.get(Game.currentPlayer).InJail = true;
                break;
                
            case 11:

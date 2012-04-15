@@ -43,8 +43,8 @@ public class CommChestSpace extends Space
                break;
                
            case 5:
+               Game.players.get(Game.currentPlayer).location = 10;              // 10 = Jail               
                Game.players.get(Game.currentPlayer).InJail = true;
-               Game.players.get(Game.currentPlayer).location = 10;              // 10 = Jail
                break;
                
            case 6:

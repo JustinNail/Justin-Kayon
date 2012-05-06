@@ -27,7 +27,7 @@ public class Game
     public static int numPlayers = 0;
     public static int currentPlayer;
     
-    static final int maxRound = 20;
+    
     public static int currentRound=0;
     
     public static boolean started = false;
@@ -56,22 +56,16 @@ public class Game
     }
     public static boolean playRound()
     {
-        if(started)
+        for(int i = 0; i < players.size(); i++)
         {
-            if(currentRound < maxRound)
+            if(players.get(i).funds<=0)
             {
-                currentRound++;
-                return true;
-            }
-            else
-            {
-                return false;
+                players.remove( i );
+                numPlayers--;
             }
         }
-        else
-        {
-            return false;
-        }
+        
+        return numPlayers >=2;
     }
     public void Init()
     {

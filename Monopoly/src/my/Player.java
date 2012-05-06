@@ -21,8 +21,11 @@ public class Player
     public int location=0;
     
     private List<Property> ownedProperties = new ArrayList();
+    public boolean ChestJailCard=false;
+    public boolean ChanceJailCard=false;
     
     public Dice[] dice = {new Dice(6),new Dice(6)};
+    public int rolled;
     
     public int doubles=0;
     public boolean rolledDoubles=false;
@@ -49,7 +52,8 @@ public class Player
         }
         else
         {
-            int d = roll();
+            rolled = roll();
+            
             if(dice[0].result==dice[1].result)
             {
                 JOptionPane.showMessageDialog( Board.board.dialog, name+" Rolled Doubles!", "Yay", JOptionPane.PLAIN_MESSAGE );
@@ -67,7 +71,7 @@ public class Player
                 Game.players.get( Game.currentPlayer).InJail=true;
                 Game.players.get( Game.currentPlayer).location=10; //10=JailSpace;
             }
-            Move(d);
+            Move(rolled);
             
             return 0;
         }

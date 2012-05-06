@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 import my.Game;
+import my.Property;
+import my.RailProperty;
+import my.UtilityProperty;
 /**
  * The class for Monopoly's UI
  * @author Justin
@@ -20,6 +23,8 @@ public class Board_jFrame extends javax.swing.JFrame
     List<JLabel> playerNames = new ArrayList();
     List<JTextField> playerFunds = new ArrayList();
     List<JTextField> playerLocations = new ArrayList();
+    List<JTextField> playerCards = new ArrayList();
+    List<JComboBox> playerProperties = new ArrayList();
     
     //the pane that dialogs are displayed on
     //public so every class can display a dialog there
@@ -33,6 +38,7 @@ public class Board_jFrame extends javax.swing.JFrame
         initComponents();
         spaces_Init();
         players_Init();
+       
         dialog = jLayeredPane1;
     }
 
@@ -48,6 +54,8 @@ public class Board_jFrame extends javax.swing.JFrame
         playerNames.add(jLabel_Player1Name);
         playerFunds.add(jTextField_Player1Money);
         playerLocations.add(jTextField_Player1Location);
+        playerCards.add( jTextField_CardsPlayer1);
+        playerProperties.add(jComboBox_OwnedPlayer1);
         //</editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="Player 2">                          
@@ -57,6 +65,8 @@ public class Board_jFrame extends javax.swing.JFrame
         playerNames.add(jLabel_Player2Name);
         playerFunds.add(jTextField_Player2Money);
         playerLocations.add(jTextField_Player2Location);
+        playerCards.add( jTextField_CardsPlayer2);
+        playerProperties.add(jComboBox_OwnedPlayer2);
         //</editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="Player 3">                          
@@ -66,6 +76,8 @@ public class Board_jFrame extends javax.swing.JFrame
         playerNames.add(jLabel_Player3Name);
         playerFunds.add(jTextField_Player3Money);
         playerLocations.add(jTextField_Player3Location);
+        playerCards.add( jTextField_CardsPlayer3);
+        playerProperties.add(jComboBox_OwnedPlayer3);
         //</editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="Player 4">                          
@@ -75,6 +87,8 @@ public class Board_jFrame extends javax.swing.JFrame
         playerNames.add(jLabel_Player4Name);
         playerFunds.add(jTextField_Player4Money);
         playerLocations.add(jTextField_Player4Location);
+        playerCards.add( jTextField_CardsPlayer4);
+        playerProperties.add(jComboBox_OwnedPlayer4);
         //</editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="Player 5">                          
@@ -84,6 +98,8 @@ public class Board_jFrame extends javax.swing.JFrame
         playerNames.add(jLabel_Player5Name);
         playerFunds.add(jTextField_Player5Money);
         playerLocations.add(jTextField_Player5Location);
+        playerCards.add( jTextField_CardsPlayer5);
+        playerProperties.add(jComboBox_OwnedPlayer5);
         //</editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="Player 6">                          
@@ -93,6 +109,8 @@ public class Board_jFrame extends javax.swing.JFrame
         playerNames.add(jLabel_Player6Name);
         playerFunds.add(jTextField_Player6Money);
         playerLocations.add(jTextField_Player6Location);
+        playerCards.add( jTextField_CardsPlayer6);
+        playerProperties.add(jComboBox_OwnedPlayer6);
         //</editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="Player 7">                          
@@ -102,6 +120,8 @@ public class Board_jFrame extends javax.swing.JFrame
         playerNames.add(jLabel_Player7Name);
         playerFunds.add(jTextField_Player7Money);
         playerLocations.add(jTextField_Player7Location);
+        playerCards.add( jTextField_CardsPlayer7);
+        playerProperties.add(jComboBox_OwnedPlayer7);
         //</editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="Player 8">                          
@@ -111,6 +131,8 @@ public class Board_jFrame extends javax.swing.JFrame
         playerNames.add(jLabel_Player8Name);
         playerFunds.add(jTextField_Player8Money);
         playerLocations.add(jTextField_Player8Location);
+        playerCards.add( jTextField_CardsPlayer8);
+        playerProperties.add(jComboBox_OwnedPlayer8);
         //</editor-fold>
     }
     
@@ -119,46 +141,113 @@ public class Board_jFrame extends javax.swing.JFrame
      */
     private void spaces_Init()
     {
-        Board.spaces.add( new GoSpace       ("Go",jButton_Go.getX(),jButton_Go.getY()));
-        Board.spaces.add( new PropertySpace ("Flying Fortress",jButton_Purple1.getX(),jButton_Purple1.getY()));        
-        Board.spaces.add( new CommChestSpace("Community Chest",jButton_Chest1.getX(),jButton_Chest1.getY()));        
-        Board.spaces.add( new PropertySpace ("Pandemonium",jButton_Purple2.getX(),jButton_Purple2.getY()));
-        Board.spaces.add( new IncomeTaxSpace("Income Tax",jButton_Tax_Income.getX(),jButton_Tax_Income.getY()));
-        Board.spaces.add( new PropertySpace ("*Rail1*",jButton_Rail1.getX(),jButton_Rail1.getY()));
-        Board.spaces.add( new PropertySpace ("Floating Continent",jButton_Teal1.getX(),jButton_Teal1.getY()));        
-        Board.spaces.add( new ChanceSpace   ("Chance",jButton_Chance1.getX(),jButton_Chance1.getY()));        
-        Board.spaces.add( new PropertySpace ("Crystal Tower",jButton_Teal2.getX(),jButton_Teal2.getY()));
-        Board.spaces.add( new PropertySpace ("Baron",jButton_Teal3.getX(),jButton_Teal3.getY()));
-        Board.spaces.add( new JailSpace     ("Jail",jButton_Jail.getX(),jButton_Jail.getY()));
-        Board.spaces.add( new PropertySpace ("Ancient's Library",jButton_Pink1.getX(),jButton_Pink1.getY()));
-        Board.spaces.add( new PropertySpace ("Electric Company",jButton_Utility_Electric.getX(),jButton_Utility_Electric.getY()));
-        Board.spaces.add( new PropertySpace ("Exdeath's Castle",jButton_Pink2.getX(),jButton_Pink2.getY()));
-        Board.spaces.add( new PropertySpace ("Castle Kuza",jButton_Pink3.getX(),jButton_Pink3.getY()));
-        Board.spaces.add( new PropertySpace ("*Rail2*",jButton_Rail2.getX(),jButton_Rail2.getY()));
-        Board.spaces.add( new PropertySpace ("Figaro Castle",jButton_Orange1.getX(),jButton_Orange1.getY()));        
-        Board.spaces.add( new CommChestSpace("Community Chest",jButton_Chest2.getX(),jButton_Chest2.getY()));        
-        Board.spaces.add( new PropertySpace ("Imperial Palace",jButton_Orange2.getX(),jButton_Orange2.getY()));
-        Board.spaces.add( new PropertySpace ("Kefka's Tower",jButton_Orange3.getX(),jButton_Orange3.getY()));
-        Board.spaces.add( new FreeParkingSpace("Free Parking",jButton_FreeParking.getX(),jButton_FreeParking.getY()));
-        Board.spaces.add( new PropertySpace ("Golden Saucer",jButton_Red1.getX(),jButton_Red1.getY()));
-        Board.spaces.add( new ChanceSpace   ("Chance",jButton_Chance2.getX(),jButton_Chance2.getY()));
-        Board.spaces.add( new PropertySpace ("Junon",jButton_Red2.getX(),jButton_Red2.getY()));
-        Board.spaces.add( new PropertySpace ("Midgar",jButton_Red3.getX(),jButton_Red3.getY()));
-        Board.spaces.add( new PropertySpace ("*Rail3*",jButton_Rail3.getX(),jButton_Rail3.getY()));
-        Board.spaces.add( new PropertySpace ("Balamb",jButton_Yellow1.getX(),jButton_Yellow1.getY()));
-        Board.spaces.add( new PropertySpace ("Esthar",jButton_Yellow2.getX(),jButton_Yellow2.getY()));
-        Board.spaces.add( new PropertySpace ("Water Works",jButton_Utility_Water.getX(),jButton_Utility_Water.getY()));
-        Board.spaces.add( new PropertySpace ("Lunatic Pandora",jButton_Yellow3.getX(),jButton_Yellow3.getY()));
-        Board.spaces.add( new GoToJailSpace ("Go to Jail",jButton_GoToJail.getX(),jButton_GoToJail.getY()));
-        Board.spaces.add( new PropertySpace ("Alexandria",jButton_Green1.getX(),jButton_Green1.getY()));
-        Board.spaces.add( new PropertySpace ("Burmecia",jButton_Green2.getX(),jButton_Green2.getY()));
-        Board.spaces.add( new CommChestSpace("Community Chest",jButton_Chest3.getX(),jButton_Chest3.getY()));
-        Board.spaces.add( new PropertySpace ("Ban Bal",jButton_Green3.getX(),jButton_Green3.getY()));
-        Board.spaces.add( new PropertySpace ("*Rail4*",jButton_Rail4.getX(),jButton_Rail4.getY()));
-        Board.spaces.add( new ChanceSpace   ("Chance",jButton_Chance3.getX(),jButton_Chance3.getY()));
-        Board.spaces.add( new PropertySpace ("Besaid",jButton_Blue1.getX(),jButton_Blue1.getY()));
-        Board.spaces.add( new LuxuryTaxSpace("Luxury Tax",jButton_Tax_Lux.getX(),jButton_Tax_Lux.getY()));
-        Board.spaces.add( new PropertySpace ("Zanarkand",jButton_Blue2.getX(),jButton_Blue2.getY()));
+/*0*/   Board.spaces.add( new GoSpace("Go",jButton_Go.getX(),jButton_Go.getY()));
+        
+/*1*/   Board.spaces.add( new PropertySpace ("Flying Fortress",jButton_Purple1.getX(),jButton_Purple1.getY(), 
+                new Property (Property.Group.Purple,60,30,2,10,30,90,160,250,"Flying Fortress")));        
+        
+/*2*/   Board.spaces.add( new CommChestSpace("Community Chest",jButton_Chest1.getX(),jButton_Chest1.getY()));        
+        
+/*3*/   Board.spaces.add( new PropertySpace ("Pandemonium",jButton_Purple2.getX(),jButton_Purple2.getY(), 
+                new Property (Property.Group.Purple,60,30,4,20,60,180,320,450,"Pandemonium")));        
+        
+/*4*/   Board.spaces.add( new IncomeTaxSpace("Income Tax",jButton_Tax_Income.getX(),jButton_Tax_Income.getY()));
+        
+/*5*/   Board.spaces.add( new PropertySpace ("The Highwind",jButton_Rail1.getX(),jButton_Rail1.getY(), 
+                new RailProperty ("The Highwind")));        
+        
+/*6*/   Board.spaces.add( new PropertySpace ("Floating Continent",jButton_Teal1.getX(),jButton_Teal1.getY(), 
+                new Property (Property.Group.LBlue, 100,50,6,30,90,270,400,550,"Floating Continent")));        
+        
+/*7*/   Board.spaces.add( new ChanceSpace   ("Chance",jButton_Chance1.getX(),jButton_Chance1.getY()));        
+        
+/*8*/   Board.spaces.add( new PropertySpace ("Crystal Tower",jButton_Teal2.getX(),jButton_Teal2.getY(), 
+                new Property (Property.Group.LBlue, 100,50,6,30,90,270,400,550,"Crystal Tower")));        
+        
+/*9*/   Board.spaces.add( new PropertySpace ("Baron",jButton_Teal3.getX(),jButton_Teal3.getY(), 
+                new Property (Property.Group.LBlue, 120,60,8,40,100,300,450,600,"Baron")));        
+        
+/*10*/  Board.spaces.add( new JailSpace     ("Jail",jButton_Jail.getX(),jButton_Jail.getY()));
+        
+/*11*/  Board.spaces.add( new PropertySpace ("Ancient's Library",jButton_Pink1.getX(),jButton_Pink1.getY(), 
+                new Property (Property.Group.Pink, 140,70,10,50,150,450,625,750,"Ancients's Library")));        
+        
+/*12*/  Board.spaces.add( new PropertySpace ("Bahamut",jButton_Utility_Electric.getX(),jButton_Utility_Electric.getY(), 
+                new UtilityProperty ("Bahamut")));        
+        
+/*13*/  Board.spaces.add( new PropertySpace ("Exdeath's Castle",jButton_Pink2.getX(),jButton_Pink2.getY(), 
+                new Property (Property.Group.Pink, 140,70,10,50,150,450,625,750,"Exdeath's Castle")));        
+        
+/*14*/  Board.spaces.add( new PropertySpace ("Castle Kuza",jButton_Pink3.getX(),jButton_Pink3.getY(), 
+                new Property (Property.Group.Pink, 160,80,12,60,180,500,700,900,"Castle Kuza")));        
+        
+/*15*/  Board.spaces.add( new PropertySpace ("The Ragnarok",jButton_Rail2.getX(),jButton_Rail2.getY(), 
+                new RailProperty ("The Ragnarok")));        
+        
+/*16*/  Board.spaces.add( new PropertySpace ("Figaro Castle",jButton_Orange1.getX(),jButton_Orange1.getY(), 
+                new Property (Property.Group.Orange, 180,90,14,70,200,550,750,950,"Figaro Castle")));        
+        
+/*17*/  Board.spaces.add( new CommChestSpace("Community Chest",jButton_Chest2.getX(),jButton_Chest2.getY()));
+        
+/*18*/  Board.spaces.add( new PropertySpace ("Imperial Palace",jButton_Orange2.getX(),jButton_Orange2.getY(), 
+                new Property (Property.Group.Orange, 180,90,14,70,200,550,750,950,"Imperial Palace")));        
+        
+/*19*/  Board.spaces.add( new PropertySpace ("Kefka's Tower",jButton_Orange3.getX(),jButton_Orange3.getY(), 
+                new Property (Property.Group.Orange, 200,100,16,80,220,600,800,1000,"Kefka's Tower")));        
+        
+/*20*/  Board.spaces.add( new FreeParkingSpace("Free Parking",jButton_FreeParking.getX(),jButton_FreeParking.getY()));
+        
+/*21*/  Board.spaces.add( new PropertySpace ("Golden Saucer",jButton_Red1.getX(),jButton_Red1.getY(), 
+                new Property (Property.Group.Red, 220,110,18,90,250,700,825,1050,"Golden Saucer")));        
+  
+/*22*/  Board.spaces.add( new ChanceSpace   ("Chance",jButton_Chance2.getX(),jButton_Chance2.getY()));
+        
+/*23*/  Board.spaces.add( new PropertySpace ("Junon",jButton_Red2.getX(),jButton_Red2.getY(), 
+                new Property (Property.Group.Red, 220,110,18,90,250,700,825,1050,"Junon")));        
+        
+/*24*/  Board.spaces.add( new PropertySpace ("Midgar",jButton_Red3.getX(),jButton_Red3.getY(), 
+                new Property (Property.Group.Red, 240,120,20,100,300,750,925,1100,"Midgar")));        
+        
+/*25*/  Board.spaces.add( new PropertySpace ("The Invincible",jButton_Rail3.getX(),jButton_Rail3.getY(), 
+                new RailProperty ("The Invincible")));        
+        
+/*26*/  Board.spaces.add( new PropertySpace ("Balamb",jButton_Yellow1.getX(),jButton_Yellow1.getY(), 
+                new Property (Property.Group.Red, 260,130,22,110,330,800,975,1150,"Balamb")));        
+        
+/*27*/  Board.spaces.add( new PropertySpace ("Esthar",jButton_Yellow2.getX(),jButton_Yellow2.getY(), 
+                new Property (Property.Group.Red, 260,130,22,110,330,800,975,1150,"Esthar")));        
+        
+/*28*/  Board.spaces.add( new PropertySpace ("Shiva",jButton_Utility_Water.getX(),jButton_Utility_Water.getY(), 
+                new UtilityProperty ("Shiva")));        
+        
+/*29*/  Board.spaces.add( new PropertySpace ("Lunatic Pandora",jButton_Yellow3.getX(),jButton_Yellow3.getY(), 
+                new Property (Property.Group.Red, 280,140,24,120,360,850,1025,1200,"Lunatic Pandora")));        
+        
+/*30*/  Board.spaces.add( new GoToJailSpace ("Go to Jail",jButton_GoToJail.getX(),jButton_GoToJail.getY()));
+        
+/*31*/  Board.spaces.add( new PropertySpace ("Alexandria",jButton_Green1.getX(),jButton_Green1.getY(), 
+                new Property (Property.Group.Green, 300,150,26,130,390,900,1100,1275,"Alexandria")));        
+        
+/*32*/  Board.spaces.add( new PropertySpace ("Burmecia",jButton_Green2.getX(),jButton_Green2.getY(), 
+                new Property (Property.Group.Green, 300,150,26,130,390,900,1100,1275,"Burmecia")));        
+        
+/*33*/  Board.spaces.add( new CommChestSpace("Community Chest",jButton_Chest3.getX(),jButton_Chest3.getY()));
+        
+/*34*/  Board.spaces.add( new PropertySpace ("Ban Bal",jButton_Green3.getX(),jButton_Green3.getY(), 
+                new Property (Property.Group.Green, 320,160,28,150,450,1000,1200,1400,"Ban Bal")));        
+        
+/*35*/  Board.spaces.add( new PropertySpace ("The Farenheit",jButton_Rail4.getX(),jButton_Rail4.getY(), 
+                new RailProperty ("The Farenheit")));        
+        
+/*36*/  Board.spaces.add( new ChanceSpace   ("Chance",jButton_Chance3.getX(),jButton_Chance3.getY()));
+        
+/*37*/  Board.spaces.add( new PropertySpace ("Besaid",jButton_Blue1.getX(),jButton_Blue1.getY(), 
+                new Property (Property.Group.Blue, 350,175,35,175,500,1100,1300,1500,"Besaid")));        
+        
+/*38*/  Board.spaces.add( new LuxuryTaxSpace("Luxury Tax",jButton_Tax_Lux.getX(),jButton_Tax_Lux.getY()));
+        
+/*39*/  Board.spaces.add( new PropertySpace ("Zanarkand",jButton_Blue2.getX(),jButton_Blue2.getY(), 
+                new Property (Property.Group.Blue, 400,200,50,200,600,1400,1700,2000,"Zanarkand")));        
     }
     
     
@@ -228,6 +317,10 @@ public class Board_jFrame extends javax.swing.JFrame
         jLabel_Location = new javax.swing.JLabel();
         jLabel_Player1Name = new javax.swing.JLabel();
         jLabel_Player1Key = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField_CardsPlayer1 = new javax.swing.JTextField();
+        jComboBox_OwnedPlayer1 = new javax.swing.JComboBox();
+        jLabel11 = new javax.swing.JLabel();
         jPanel_Player3 = new javax.swing.JPanel();
         jTextField_Player3Money = new javax.swing.JTextField();
         jLabel_Funds1 = new javax.swing.JLabel();
@@ -235,6 +328,10 @@ public class Board_jFrame extends javax.swing.JFrame
         jTextField_Player3Location = new javax.swing.JTextField();
         jLabel_Player3Name = new javax.swing.JLabel();
         jLabel_Player3Key = new javax.swing.JLabel();
+        jTextField_CardsPlayer3 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jComboBox_OwnedPlayer3 = new javax.swing.JComboBox();
         jPanel_Player7 = new javax.swing.JPanel();
         jTextField_Player7Money = new javax.swing.JTextField();
         jLabel_Funds6 = new javax.swing.JLabel();
@@ -242,6 +339,10 @@ public class Board_jFrame extends javax.swing.JFrame
         jTextField_Player7Location = new javax.swing.JTextField();
         jLabel_Player7Name = new javax.swing.JLabel();
         jLabel_Player7Key = new javax.swing.JLabel();
+        jTextField_CardsPlayer7 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jComboBox_OwnedPlayer7 = new javax.swing.JComboBox();
         jPanel_Player5 = new javax.swing.JPanel();
         jTextField_Player5Money = new javax.swing.JTextField();
         jLabel_Funds4 = new javax.swing.JLabel();
@@ -249,6 +350,10 @@ public class Board_jFrame extends javax.swing.JFrame
         jTextField_Player5Location = new javax.swing.JTextField();
         jLabel_Player5Name = new javax.swing.JLabel();
         jLabel_Player5Key = new javax.swing.JLabel();
+        jTextField_CardsPlayer5 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jComboBox_OwnedPlayer5 = new javax.swing.JComboBox();
         jPanel_Player8 = new javax.swing.JPanel();
         jTextField_Player8Money = new javax.swing.JTextField();
         jLabel_Funds7 = new javax.swing.JLabel();
@@ -256,6 +361,10 @@ public class Board_jFrame extends javax.swing.JFrame
         jTextField_Player8Location = new javax.swing.JTextField();
         jLabel_Player8Name = new javax.swing.JLabel();
         jLabel_Player8Key = new javax.swing.JLabel();
+        jTextField_CardsPlayer8 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jComboBox_OwnedPlayer8 = new javax.swing.JComboBox();
         jPanel_Player6 = new javax.swing.JPanel();
         jTextField_Player6Money = new javax.swing.JTextField();
         jLabel_Funds5 = new javax.swing.JLabel();
@@ -263,6 +372,10 @@ public class Board_jFrame extends javax.swing.JFrame
         jTextField_Player6Location = new javax.swing.JTextField();
         jLabel_Player6Name = new javax.swing.JLabel();
         jLabel_Player6Key = new javax.swing.JLabel();
+        jTextField_CardsPlayer6 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jComboBox_OwnedPlayer6 = new javax.swing.JComboBox();
         jPanel_Player4 = new javax.swing.JPanel();
         jTextField_Player4Money = new javax.swing.JTextField();
         jLabel_Funds3 = new javax.swing.JLabel();
@@ -270,6 +383,10 @@ public class Board_jFrame extends javax.swing.JFrame
         jTextField_Player4Location = new javax.swing.JTextField();
         jLabel_Player4Name = new javax.swing.JLabel();
         jLabel_Player4Key = new javax.swing.JLabel();
+        jTextField_CardsPlayer4 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jComboBox_OwnedPlayer4 = new javax.swing.JComboBox();
         jPanel_Player2 = new javax.swing.JPanel();
         jTextField_Player2Money = new javax.swing.JTextField();
         jLabel_Funds2 = new javax.swing.JLabel();
@@ -277,6 +394,10 @@ public class Board_jFrame extends javax.swing.JFrame
         jTextField_Player2Location = new javax.swing.JTextField();
         jLabel_Player2Name = new javax.swing.JLabel();
         jLabel_Player2Key = new javax.swing.JLabel();
+        jTextField_CardsPlayer2 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jComboBox_OwnedPlayer2 = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         jTextField_CurrentPlayer = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -325,7 +446,7 @@ public class Board_jFrame extends javax.swing.JFrame
         jLabel_Player8.setBounds(650, 660, 50, 20);
         jLayeredPane1.add(jLabel_Player8, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jButton_Rail1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Rail.png"))); // NOI18N
+        jButton_Rail1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Rail1.png"))); // NOI18N
         jButton_Rail1.setAlignmentY(0.0F);
         jButton_Rail1.setBorderPainted(false);
         jButton_Rail1.setMaximumSize(new java.awt.Dimension(60, 90));
@@ -335,7 +456,7 @@ public class Board_jFrame extends javax.swing.JFrame
         jButton_Rail1.setBounds(330, 630, 60, 90);
         jLayeredPane1.add(jButton_Rail1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jButton_Rail2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/RailL.png"))); // NOI18N
+        jButton_Rail2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Rail2.png"))); // NOI18N
         jButton_Rail2.setAlignmentY(0.0F);
         jButton_Rail2.setBorderPainted(false);
         jButton_Rail2.setMaximumSize(new java.awt.Dimension(100, 67));
@@ -345,7 +466,7 @@ public class Board_jFrame extends javax.swing.JFrame
         jButton_Rail2.setBounds(0, 330, 90, 60);
         jLayeredPane1.add(jButton_Rail2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jButton_Rail3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Rail.png"))); // NOI18N
+        jButton_Rail3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Rail3.png"))); // NOI18N
         jButton_Rail3.setAlignmentY(0.0F);
         jButton_Rail3.setBorderPainted(false);
         jButton_Rail3.setMaximumSize(new java.awt.Dimension(60, 90));
@@ -355,7 +476,7 @@ public class Board_jFrame extends javax.swing.JFrame
         jButton_Rail3.setBounds(330, 0, 60, 90);
         jLayeredPane1.add(jButton_Rail3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jButton_Rail4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/RailR.png"))); // NOI18N
+        jButton_Rail4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Rail4.png"))); // NOI18N
         jButton_Rail4.setAlignmentY(0.0F);
         jButton_Rail4.setBorderPainted(false);
         jButton_Rail4.setMaximumSize(new java.awt.Dimension(100, 67));
@@ -365,7 +486,7 @@ public class Board_jFrame extends javax.swing.JFrame
         jButton_Rail4.setBounds(630, 330, 90, 60);
         jLayeredPane1.add(jButton_Rail4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jButton_Utility_Electric.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Utility_E.png"))); // NOI18N
+        jButton_Utility_Electric.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Utility_Electric.png"))); // NOI18N
         jButton_Utility_Electric.setAlignmentY(0.0F);
         jButton_Utility_Electric.setBorderPainted(false);
         jButton_Utility_Electric.setMaximumSize(new java.awt.Dimension(100, 67));
@@ -375,7 +496,7 @@ public class Board_jFrame extends javax.swing.JFrame
         jButton_Utility_Electric.setBounds(0, 510, 90, 60);
         jLayeredPane1.add(jButton_Utility_Electric, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jButton_Utility_Water.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Utility_W.png"))); // NOI18N
+        jButton_Utility_Water.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Utility_Water.png"))); // NOI18N
         jButton_Utility_Water.setAlignmentY(0.0F);
         jButton_Utility_Water.setBorderPainted(false);
         jButton_Utility_Water.setMaximumSize(new java.awt.Dimension(60, 90));
@@ -750,6 +871,18 @@ public class Board_jFrame extends javax.swing.JFrame
         jLabel_Player1Key.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Car.png"))); // NOI18N
         jPanel_Player1.add(jLabel_Player1Key, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
 
+        jLabel3.setText("Get Out of Jail Free Cards:");
+        jPanel_Player1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+
+        jTextField_CardsPlayer1.setEnabled(false);
+        jPanel_Player1.add(jTextField_CardsPlayer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 30, -1));
+
+        jComboBox_OwnedPlayer1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
+        jPanel_Player1.add(jComboBox_OwnedPlayer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
+
+        jLabel11.setText("Owned Properties:");
+        jPanel_Player1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+
         getContentPane().add(jPanel_Player1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, 200, 175));
 
         jPanel_Player3.setBorder(javax.swing.BorderFactory.createTitledBorder("Player 3"));
@@ -770,6 +903,18 @@ public class Board_jFrame extends javax.swing.JFrame
 
         jLabel_Player3Key.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Hat.png"))); // NOI18N
         jPanel_Player3.add(jLabel_Player3Key, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
+
+        jTextField_CardsPlayer3.setEnabled(false);
+        jPanel_Player3.add(jTextField_CardsPlayer3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 30, -1));
+
+        jLabel5.setText("Get Out of Jail Free Cards:");
+        jPanel_Player3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+
+        jLabel13.setText("Owned Properties:");
+        jPanel_Player3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+
+        jComboBox_OwnedPlayer3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
+        jPanel_Player3.add(jComboBox_OwnedPlayer3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
 
         getContentPane().add(jPanel_Player3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 190, 200, 175));
 
@@ -792,6 +937,18 @@ public class Board_jFrame extends javax.swing.JFrame
         jLabel_Player7Key.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Thimble.png"))); // NOI18N
         jPanel_Player7.add(jLabel_Player7Key, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, -1));
 
+        jTextField_CardsPlayer7.setEnabled(false);
+        jPanel_Player7.add(jTextField_CardsPlayer7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 30, -1));
+
+        jLabel9.setText("Get Out of Jail Free Cards:");
+        jPanel_Player7.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+
+        jLabel17.setText("Owned Properties:");
+        jPanel_Player7.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+
+        jComboBox_OwnedPlayer7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
+        jPanel_Player7.add(jComboBox_OwnedPlayer7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
+
         getContentPane().add(jPanel_Player7, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 550, 200, 175));
 
         jPanel_Player5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Player 5"));
@@ -812,6 +969,18 @@ public class Board_jFrame extends javax.swing.JFrame
 
         jLabel_Player5Key.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Ship.png"))); // NOI18N
         jPanel_Player5.add(jLabel_Player5Key, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
+
+        jTextField_CardsPlayer5.setEnabled(false);
+        jPanel_Player5.add(jTextField_CardsPlayer5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 30, -1));
+
+        jLabel7.setText("Get Out of Jail Free Cards:");
+        jPanel_Player5.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+
+        jLabel15.setText("Owned Properties:");
+        jPanel_Player5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+
+        jComboBox_OwnedPlayer5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
+        jPanel_Player5.add(jComboBox_OwnedPlayer5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
 
         getContentPane().add(jPanel_Player5, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 370, 200, 175));
 
@@ -834,6 +1003,18 @@ public class Board_jFrame extends javax.swing.JFrame
         jLabel_Player8Key.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/WheelBarrow.png"))); // NOI18N
         jPanel_Player8.add(jLabel_Player8Key, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
 
+        jTextField_CardsPlayer8.setEnabled(false);
+        jPanel_Player8.add(jTextField_CardsPlayer8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 30, -1));
+
+        jLabel10.setText("Get Out of Jail Free Cards:");
+        jPanel_Player8.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+
+        jLabel18.setText("Owned Properties:");
+        jPanel_Player8.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+
+        jComboBox_OwnedPlayer8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
+        jPanel_Player8.add(jComboBox_OwnedPlayer8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
+
         getContentPane().add(jPanel_Player8, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 550, 200, 175));
 
         jPanel_Player6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Player 6"));
@@ -854,6 +1035,18 @@ public class Board_jFrame extends javax.swing.JFrame
 
         jLabel_Player6Key.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Shoe.png"))); // NOI18N
         jPanel_Player6.add(jLabel_Player6Key, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, -1));
+
+        jTextField_CardsPlayer6.setEnabled(false);
+        jPanel_Player6.add(jTextField_CardsPlayer6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 30, -1));
+
+        jLabel8.setText("Get Out of Jail Free Cards:");
+        jPanel_Player6.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+
+        jLabel16.setText("Owned Properties:");
+        jPanel_Player6.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+
+        jComboBox_OwnedPlayer6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
+        jPanel_Player6.add(jComboBox_OwnedPlayer6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
 
         getContentPane().add(jPanel_Player6, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 370, 200, 175));
 
@@ -876,6 +1069,18 @@ public class Board_jFrame extends javax.swing.JFrame
         jLabel_Player4Key.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Iron.png"))); // NOI18N
         jPanel_Player4.add(jLabel_Player4Key, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, -1));
 
+        jTextField_CardsPlayer4.setEnabled(false);
+        jPanel_Player4.add(jTextField_CardsPlayer4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 30, -1));
+
+        jLabel6.setText("Get Out of Jail Free Cards:");
+        jPanel_Player4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+
+        jLabel14.setText("Owned Properties:");
+        jPanel_Player4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+
+        jComboBox_OwnedPlayer4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
+        jPanel_Player4.add(jComboBox_OwnedPlayer4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
+
         getContentPane().add(jPanel_Player4, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 190, 200, 175));
 
         jPanel_Player2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Player 2"));
@@ -896,6 +1101,18 @@ public class Board_jFrame extends javax.swing.JFrame
 
         jLabel_Player2Key.setIcon(new javax.swing.ImageIcon(getClass().getResource("/board_Resources/Dog.png"))); // NOI18N
         jPanel_Player2.add(jLabel_Player2Key, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
+
+        jTextField_CardsPlayer2.setEnabled(false);
+        jPanel_Player2.add(jTextField_CardsPlayer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 30, -1));
+
+        jLabel4.setText("Get Out of Jail Free Cards:");
+        jPanel_Player2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+
+        jLabel12.setText("Owned Properties:");
+        jPanel_Player2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+
+        jComboBox_OwnedPlayer2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
+        jPanel_Player2.add(jComboBox_OwnedPlayer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
 
         getContentPane().add(jPanel_Player2, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 10, 200, 175));
 
@@ -1027,6 +1244,8 @@ public class Board_jFrame extends javax.swing.JFrame
                 //display initial location
                 playerLocations.get(i).setText( 
                         Board.spaces.get(Game.players.get(i).location).Name);
+                //
+                
             }
             //display succedd message
             JOptionPane.showMessageDialog( jLayeredPane1, "Game Started", "Success", JOptionPane.PLAIN_MESSAGE );
@@ -1121,8 +1340,32 @@ public class Board_jFrame extends javax.swing.JFrame
     private javax.swing.JButton jButton_Yellow1;
     private javax.swing.JButton jButton_Yellow2;
     private javax.swing.JButton jButton_Yellow3;
+    private javax.swing.JComboBox jComboBox_OwnedPlayer1;
+    private javax.swing.JComboBox jComboBox_OwnedPlayer2;
+    private javax.swing.JComboBox jComboBox_OwnedPlayer3;
+    private javax.swing.JComboBox jComboBox_OwnedPlayer4;
+    private javax.swing.JComboBox jComboBox_OwnedPlayer5;
+    private javax.swing.JComboBox jComboBox_OwnedPlayer6;
+    private javax.swing.JComboBox jComboBox_OwnedPlayer7;
+    private javax.swing.JComboBox jComboBox_OwnedPlayer8;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel_Funds;
     private javax.swing.JLabel jLabel_Funds1;
     private javax.swing.JLabel jLabel_Funds2;
@@ -1178,6 +1421,14 @@ public class Board_jFrame extends javax.swing.JFrame
     private javax.swing.JPanel jPanel_Player6;
     private javax.swing.JPanel jPanel_Player7;
     private javax.swing.JPanel jPanel_Player8;
+    private javax.swing.JTextField jTextField_CardsPlayer1;
+    private javax.swing.JTextField jTextField_CardsPlayer2;
+    private javax.swing.JTextField jTextField_CardsPlayer3;
+    private javax.swing.JTextField jTextField_CardsPlayer4;
+    private javax.swing.JTextField jTextField_CardsPlayer5;
+    private javax.swing.JTextField jTextField_CardsPlayer6;
+    private javax.swing.JTextField jTextField_CardsPlayer7;
+    private javax.swing.JTextField jTextField_CardsPlayer8;
     private javax.swing.JTextField jTextField_CurrentPlayer;
     private javax.swing.JTextField jTextField_Player1Location;
     private javax.swing.JTextField jTextField_Player1Money;

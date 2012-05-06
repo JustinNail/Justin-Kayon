@@ -14,7 +14,7 @@ public class Dice
 {
     static Random r=new Random();
     int sides;
-    int result;
+    public int result;
     
     public Dice(int s)
     {

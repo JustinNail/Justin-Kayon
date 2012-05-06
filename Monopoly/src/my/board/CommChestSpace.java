@@ -5,6 +5,7 @@
 package my.board;
 
 import java.util.*;
+import javax.swing.JOptionPane;
 import my.Game;
 import my.deck.Card;
 
@@ -14,6 +15,9 @@ import my.deck.Card;
  */
 public class CommChestSpace extends Space
 {
+    // Create the Community Chest array list 
+    public static List<Card> comchest = new ArrayList<>();
+    
     public CommChestSpace(String name, int xPos, int yPos)
     {
         super(name, xPos, yPos);
@@ -24,88 +28,126 @@ public class CommChestSpace extends Space
     {
         Card drawn=comchest.get(0);
         
+        comchest.remove(0);
+        JOptionPane.showMessageDialog( Board.board.dialog, drawn.disc, "Community Chest", JOptionPane.PLAIN_MESSAGE );
+        
         switch(drawn.id)
         {
-           case 1:
+           case 1://"Advance to Go (Collect $200)"
                Game.players.get(Game.currentPlayer).location = 0;               // 0 = GoSpace;
-               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 200);   
+               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 200); 
+               
+               comchest.add(drawn);
                break;
                
-           case 2:
+           case 2://"Bank error in your favor – Collect $200"
                Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 200);
+               
+               comchest.add(drawn);
                break;
                
-           case 3:
+           case 3://"Healer's fees – Pay $50"
                Game.bank.takeMoney(Game.players.get(Game.currentPlayer), 50);
+               
+               comchest.add(drawn);
                break;
                
-           case 4:        
+           case 4://"Get Out of Jail Free – this card may be kept until needed, "
+                  //"or sold"  
+               Game.players.get(Game.currentPlayer).ChestJailCard=true;
                break;
                
-           case 5:
+           case 5://"Go to Jail – go directly to jail – Do not pass Go, do not "
+                  // "Collect $200"
                Game.players.get(Game.currentPlayer).location = 10;              // 10 = Jail               
                Game.players.get(Game.currentPlayer).InJail = true;
+               
+               comchest.add(drawn);
                break;
                
-           case 6:
-               for (int i = 1; i <= Game.numPlayers; i++)
+           case 6://"It is your birthday - Collect $10 from each player"
+               for (int i = 1; i < Game.numPlayers; i++)
                {                                      
                    Game.bank.takeMoney(Game.players.get(i), 10);
                    Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 10);
                }
+               
+               comchest.add(drawn);
                break;
                
-           case 7:
-               for (int i = 1; i <= Game.numPlayers; i++)
+           case 7://"Grand Opera Night – collect $50 from every player for "
+                  //"opening night seats"
+               for (int i = 0; i < Game.numPlayers; i++)
                {                                      
                    Game.bank.takeMoney(Game.players.get(i), 50);
                    Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 50);
                }
+               
+               comchest.add(drawn);
                break;
                
-           case 8:
+           case 8://"Income Tax refund – Collect $20"
                Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 20);
+               
+               comchest.add(drawn);
                break;
                
-           case 9:
+           case 9://"Life Insurance Matures – Collect $100"
                Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 100);
+               
+               comchest.add(drawn);
                break;
                
-           case 10: 
+           case 10://"Pay Hospital Fees of $100"
                Game.bank.takeMoney(Game.players.get(Game.currentPlayer), 100);
+               
+               comchest.add(drawn);
                break;
                
-           case 11:
+           case 11://"Pay School Fees of $50"
                Game.bank.takeMoney(Game.players.get(Game.currentPlayer), 50);
+               
+               comchest.add(drawn);
                break;
                
-           case 12:
+           case 12://"Receive $25 Consultancy Fee"
                Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 25);
+               
+               comchest.add(drawn);
                break;
                
-           case 13:
+           case 13://" You are assessed for street repairs – $40 per house, $115 "
+                    //"per temple"
+               
+               comchest.add(drawn);
                break;
                
-           case 14:               
+           case 14://"You have won second prize in a beauty contest– Collect $10"             
                Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 10);
+               
+               comchest.add(drawn);
                break;
                
-           case 15:
+           case 15://"You inherit $100"
                Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 100);
+               
+               comchest.add(drawn);
                break;
                
-           case 16:                 
+           case 16://"From sale of stock you get $50"
                Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 50);
+               
+               comchest.add(drawn);
                break;
                
-           case 17:                
+           case 17://"Holiday Fund matures - Receive $100"              
                Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 100);
+               
+               comchest.add(drawn);
                break;
         }
     }
     
-    // Create the Community Chest array list 
-    public static List<Card> comchest = new ArrayList<>();
     
     public static void PopulateCommChest()
     {
@@ -132,12 +174,7 @@ public class CommChestSpace extends Space
         comchest.add(new Card(16, "From sale of stock you get $50"));
         comchest.add(new Card(17, "Holiday Fund matures - Receive $100"));
                        
-        /*temp.Shuffle(temp.comchest, "Community Chest"); 
-        System.out.println();*/
         
-       /* // display the array list 
-        System.out.println("Contents of comchest: " + comchest);    
-        System.out.println("Size of comchest after additions: " + comchest.size()); */
     }
     
     

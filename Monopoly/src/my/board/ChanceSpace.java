@@ -36,18 +36,18 @@ public class ChanceSpace extends Space
         switch(drawn.id)
         {
            case 1://"Advance to Go (Collect $200)"
-               Game.players.get(Game.currentPlayer).location = 0;               // 0 = GoSpace;
-               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 200);
+               Game.Players.get(Game.currentPlayer).location = 0;               // 0 = GoSpace;
+               Game.bank.giveMoney(Game.Players.get(Game.currentPlayer), 200);
                
                chance.add(drawn);
                break;
                
            case 2://"Advance to Midgar - if you pass Go, Collect $200"
-               if (Game.players.get(Game.currentPlayer).location > 24)//already past midgar
+               if (Game.Players.get(Game.currentPlayer).location > 24)//already past midgar
                {
                     Board.spaces.get(0).doAction();              
                }
-               Game.players.get(Game.currentPlayer).location = 24;              // 24 = Midgar;
+               Game.Players.get(Game.currentPlayer).location = 24;              // 24 = Midgar;
                Board.spaces.get(24).doAction();              
                
                chance.add(drawn);
@@ -58,34 +58,34 @@ public class ChanceSpace extends Space
                   // "pay owner a total ten times the amount thrown."
                
                //if bulb util is closer (12 = Bulb Utility, 28 = Pipe Utility)
-               if (Math.abs(Game.players.get(Game.currentPlayer).location - 12) <  
-                   Math.abs(Game.players.get(Game.currentPlayer).location - 28))
+               if (Math.abs(Game.Players.get(Game.currentPlayer).location - 12) <  
+                   Math.abs(Game.Players.get(Game.currentPlayer).location - 28))
                {
-                   Game.players.get(Game.currentPlayer).location = 12;          
+                   Game.Players.get(Game.currentPlayer).location = 12;          
                    if(PropertySpace.class.cast(Board.spaces.get(12)).property.Owner==null)
                    {
                        Board.spaces.get(12).doAction();
                    }
                    else if(PropertySpace.class.cast(Board.spaces.get(12)).property.Owner!=
-                           Game.players.get(Game.currentPlayer))
+                           Game.Players.get(Game.currentPlayer))
                    {
-                       int amt = Game.players.get(Game.currentPlayer).roll();
-                       Game.bank.takeMoney(Game.players.get(Game.currentPlayer) , amt);
+                       int amt = Game.Players.get(Game.currentPlayer).roll();
+                       Game.bank.takeMoney(Game.Players.get(Game.currentPlayer) , amt);
                        Game.bank.giveMoney(PropertySpace.class.cast(Board.spaces.get(12)).property.Owner, amt);
                    }
                }
                else
                {
-                   Game.players.get(Game.currentPlayer).location = 28;          
+                   Game.Players.get(Game.currentPlayer).location = 28;          
                    if(PropertySpace.class.cast(Board.spaces.get(28)).property.Owner==null)
                    {
                        Board.spaces.get(28).doAction();
                    }
                    else if(PropertySpace.class.cast(Board.spaces.get(28)).property.Owner!=
-                           Game.players.get(Game.currentPlayer))
+                           Game.Players.get(Game.currentPlayer))
                    {
-                       int amt = Game.players.get(Game.currentPlayer).roll();
-                       Game.bank.takeMoney(Game.players.get(Game.currentPlayer) , amt);
+                       int amt = Game.Players.get(Game.currentPlayer).roll();
+                       Game.bank.takeMoney(Game.Players.get(Game.currentPlayer) , amt);
                        Game.bank.giveMoney(PropertySpace.class.cast(Board.spaces.get(28)).property.Owner, amt);
                    }
                }   
@@ -101,95 +101,95 @@ public class ChanceSpace extends Space
                // 5 = Airship 1, 15 = Airship 2, 25 = Airship 3, 35 = Airship 4
                
                //Airship 1 closer
-               if (Math.abs(Game.players.get(Game.currentPlayer).location - 5) > 
-                   Math.abs(Game.players.get(Game.currentPlayer).location - 15) &&
-                   Math.abs(Game.players.get(Game.currentPlayer).location - 5) > 
-                   Math.abs(Game.players.get(Game.currentPlayer).location - 25) &&
-                   Math.abs(Game.players.get(Game.currentPlayer).location - 5) > 
-                   Math.abs(Game.players.get(Game.currentPlayer).location - 35))
+               if (Math.abs(Game.Players.get(Game.currentPlayer).location - 5) > 
+                   Math.abs(Game.Players.get(Game.currentPlayer).location - 15) &&
+                   Math.abs(Game.Players.get(Game.currentPlayer).location - 5) > 
+                   Math.abs(Game.Players.get(Game.currentPlayer).location - 25) &&
+                   Math.abs(Game.Players.get(Game.currentPlayer).location - 5) > 
+                   Math.abs(Game.Players.get(Game.currentPlayer).location - 35))
                {
-                   Game.players.get(Game.currentPlayer).location = 5; 
+                   Game.Players.get(Game.currentPlayer).location = 5; 
                    if(PropertySpace.class.cast(Board.spaces.get(5)).property.Owner==null)
                    {
                        Board.spaces.get(5).doAction();
                    }
                    else if(PropertySpace.class.cast(Board.spaces.get(5)).property.Owner!=
-                           Game.players.get(Game.currentPlayer))
+                           Game.Players.get(Game.currentPlayer))
                    {
                        int amt = 2 * PropertySpace.class.cast(Board.spaces.get(5)).property.calcRent();
-                       Game.bank.takeMoney(Game.players.get(Game.currentPlayer) , amt);
+                       Game.bank.takeMoney(Game.Players.get(Game.currentPlayer) , amt);
                        Game.bank.giveMoney(PropertySpace.class.cast(Board.spaces.get(5)).property.Owner, amt);
                    }
                }
                
                //Airship 2 closer
-               else if (Math.abs(Game.players.get(Game.currentPlayer).location - 15) > 
-                   Math.abs(Game.players.get(Game.currentPlayer).location - 25) &&
-                   Math.abs(Game.players.get(Game.currentPlayer).location - 15) > 
-                   Math.abs(Game.players.get(Game.currentPlayer).location - 35) &&
-                   Math.abs(Game.players.get(Game.currentPlayer).location - 15) > 
-                   Math.abs(Game.players.get(Game.currentPlayer).location - 5)
+               else if (Math.abs(Game.Players.get(Game.currentPlayer).location - 15) > 
+                   Math.abs(Game.Players.get(Game.currentPlayer).location - 25) &&
+                   Math.abs(Game.Players.get(Game.currentPlayer).location - 15) > 
+                   Math.abs(Game.Players.get(Game.currentPlayer).location - 35) &&
+                   Math.abs(Game.Players.get(Game.currentPlayer).location - 15) > 
+                   Math.abs(Game.Players.get(Game.currentPlayer).location - 5)
                        )
                {
-                   Game.players.get(Game.currentPlayer).location = 15;  
+                   Game.Players.get(Game.currentPlayer).location = 15;  
                    
                    if(PropertySpace.class.cast(Board.spaces.get(15)).property.Owner==null)
                    {
                        Board.spaces.get(15).doAction();
                    }
                    else if(PropertySpace.class.cast(Board.spaces.get(15)).property.Owner!=
-                           Game.players.get(Game.currentPlayer))
+                           Game.Players.get(Game.currentPlayer))
                    {
                        int amt = 2 * PropertySpace.class.cast(Board.spaces.get(15)).property.calcRent();
-                       Game.bank.takeMoney(Game.players.get(Game.currentPlayer) , amt);
+                       Game.bank.takeMoney(Game.Players.get(Game.currentPlayer) , amt);
                        Game.bank.giveMoney(PropertySpace.class.cast(Board.spaces.get(15)).property.Owner, amt);
                    }
                }
                
                //Airship 3 closer
-               else if (Math.abs(Game.players.get(Game.currentPlayer).location - 25) > 
-                   Math.abs(Game.players.get(Game.currentPlayer).location - 15) &&
-                   Math.abs(Game.players.get(Game.currentPlayer).location - 25) > 
-                   Math.abs(Game.players.get(Game.currentPlayer).location - 5) &&
-                   Math.abs(Game.players.get(Game.currentPlayer).location - 25) > 
-                   Math.abs(Game.players.get(Game.currentPlayer).location - 35)
+               else if (Math.abs(Game.Players.get(Game.currentPlayer).location - 25) > 
+                   Math.abs(Game.Players.get(Game.currentPlayer).location - 15) &&
+                   Math.abs(Game.Players.get(Game.currentPlayer).location - 25) > 
+                   Math.abs(Game.Players.get(Game.currentPlayer).location - 5) &&
+                   Math.abs(Game.Players.get(Game.currentPlayer).location - 25) > 
+                   Math.abs(Game.Players.get(Game.currentPlayer).location - 35)
                        )
                {
-                   Game.players.get(Game.currentPlayer).location = 25;          
+                   Game.Players.get(Game.currentPlayer).location = 25;          
                    
                    if(PropertySpace.class.cast(Board.spaces.get(25)).property.Owner==null)
                    {
                        Board.spaces.get(25).doAction();
                    }
                    else if(PropertySpace.class.cast(Board.spaces.get(25)).property.Owner!=
-                           Game.players.get(Game.currentPlayer))
+                           Game.Players.get(Game.currentPlayer))
                    {
                        int amt = 2 * PropertySpace.class.cast(Board.spaces.get(25)).property.calcRent();
-                       Game.bank.takeMoney(Game.players.get(Game.currentPlayer) , amt);
+                       Game.bank.takeMoney(Game.Players.get(Game.currentPlayer) , amt);
                        Game.bank.giveMoney(PropertySpace.class.cast(Board.spaces.get(25)).property.Owner, amt);
                    }
                }
                
                //Airship 4 cloaser
-               else if (Math.abs(Game.players.get(Game.currentPlayer).location - 35) > 
-                   Math.abs(Game.players.get(Game.currentPlayer).location - 15) &&
-                   Math.abs(Game.players.get(Game.currentPlayer).location - 35) > 
-                   Math.abs(Game.players.get(Game.currentPlayer).location - 25) &&
-                   Math.abs(Game.players.get(Game.currentPlayer).location - 35) > 
-                   Math.abs(Game.players.get(Game.currentPlayer).location - 5)
+               else if (Math.abs(Game.Players.get(Game.currentPlayer).location - 35) > 
+                   Math.abs(Game.Players.get(Game.currentPlayer).location - 15) &&
+                   Math.abs(Game.Players.get(Game.currentPlayer).location - 35) > 
+                   Math.abs(Game.Players.get(Game.currentPlayer).location - 25) &&
+                   Math.abs(Game.Players.get(Game.currentPlayer).location - 35) > 
+                   Math.abs(Game.Players.get(Game.currentPlayer).location - 5)
                        )
                {
-                   Game.players.get(Game.currentPlayer).location = 35;          
+                   Game.Players.get(Game.currentPlayer).location = 35;          
                    
                    if(PropertySpace.class.cast(Board.spaces.get(35)).property.Owner==null)
                    {
                        Board.spaces.get(35).doAction();
                    }
                    else if(PropertySpace.class.cast(Board.spaces.get(35)).property.Owner!=
-                           Game.players.get(Game.currentPlayer))
+                           Game.Players.get(Game.currentPlayer))
                    {
                        int amt = 2 * PropertySpace.class.cast(Board.spaces.get(35)).property.calcRent();
-                       Game.bank.takeMoney(Game.players.get(Game.currentPlayer) , amt);
+                       Game.bank.takeMoney(Game.Players.get(Game.currentPlayer) , amt);
                        Game.bank.giveMoney(PropertySpace.class.cast(Board.spaces.get(35)).property.Owner, amt);
                    }
                }
@@ -200,37 +200,37 @@ public class ChanceSpace extends Space
            case 6://"Advance to Ancient's Library – if you pass Go, Collect $200"
                
                // 11 = Ancient's Library
-               if (Game.players.get(Game.currentPlayer).location > 11)//passing go
+               if (Game.Players.get(Game.currentPlayer).location > 11)//passing go
                {
                     Board.spaces.get(0).doAction();          
                }
-               Game.players.get(Game.currentPlayer).location = 11;              
+               Game.Players.get(Game.currentPlayer).location = 11;              
                Board.spaces.get(11).doAction();
                
                chance.add(drawn);
                break;
                
            case 7://"Bank pays you dividend of $50"
-               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 50);
+               Game.bank.giveMoney(Game.Players.get(Game.currentPlayer), 50);
                
                chance.add(drawn);
                break;
                
            case 8://"Get out of Jail Free – this card may be kept until needed, "
                   // "or traded/sold"
-               Game.players.get(Game.currentPlayer).ChanceJailCard=true;
+               Game.Players.get(Game.currentPlayer).ChanceJailCard=true;
                break;
                
            case 9://"Go back 3 spaces"
-               Game.players.get(Game.currentPlayer).location -= 3;
-               Board.spaces.get(Game.players.get(Game.currentPlayer).location).doAction();
+               Game.Players.get(Game.currentPlayer).location -= 3;
+               Board.spaces.get(Game.Players.get(Game.currentPlayer).location).doAction();
                
                chance.add(drawn);
                break;
                
            case 10://"Go directly to Jail – do not pass Go, do not Collect $200"
-               Game.players.get(Game.currentPlayer).location = 10;// 10 = Jail
-               Game.players.get(Game.currentPlayer).InJail = true;
+               Game.Players.get(Game.currentPlayer).location = 10;// 10 = Jail
+               Game.Players.get(Game.currentPlayer).InJail = true;
                
                chance.add(drawn);
                break;
@@ -242,25 +242,25 @@ public class ChanceSpace extends Space
                break;
                
            case 12://"Pay poor tax of $15"
-               Game.bank.takeMoney(Game.players.get(Game.currentPlayer), 15);
+               Game.bank.takeMoney(Game.Players.get(Game.currentPlayer), 15);
                
                chance.add(drawn);
                break;
                
            case 13://"Take a trip to the Highwind – if you pass Go, "
                    // "Collect $200"
-               if (Game.players.get(Game.currentPlayer).location > 5)
+               if (Game.Players.get(Game.currentPlayer).location > 5)
                {
                     Board.spaces.get(0).doAction();          
                }
-               Game.players.get(Game.currentPlayer).location = 5;               // 5 = Highwind
+               Game.Players.get(Game.currentPlayer).location = 5;               // 5 = Highwind
                Board.spaces.get(5).doAction();
                
                chance.add(drawn);
                break;
                
            case 14://"Take a pilgrimage to Zanarkand – advance token to Zanarkand"                      
-               Game.players.get(Game.currentPlayer).location = 40;              // 40 = Zanarkand
+               Game.Players.get(Game.currentPlayer).location = 40;              // 40 = Zanarkand
                Board.spaces.get(5).doAction();
                
                chance.add(drawn);
@@ -270,20 +270,20 @@ public class ChanceSpace extends Space
                     // "player $50"
                for (int i = 0; i < Game.numPlayers; i++)
                {
-                   Game.bank.takeMoney(Game.players.get(Game.currentPlayer), 50);
-                   Game.bank.giveMoney(Game.players.get(i), 50);
+                   Game.bank.takeMoney(Game.Players.get(Game.currentPlayer), 50);
+                   Game.bank.giveMoney(Game.Players.get(i), 50);
                }
                
                chance.add(drawn);
                break;
                
            case 16://"Your building loan matures – Collect $150"
-               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 150);
+               Game.bank.giveMoney(Game.Players.get(Game.currentPlayer), 150);
                
                chance.add(drawn);
                break;
            case 17://"You have won a crossword competition - Collect $100"
-               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 100);
+               Game.bank.giveMoney(Game.Players.get(Game.currentPlayer), 100);
                
                chance.add(drawn);
                break;

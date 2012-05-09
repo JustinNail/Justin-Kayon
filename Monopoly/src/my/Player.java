@@ -68,8 +68,8 @@ public class Player
             if(doubles>=3)
             {
                 JOptionPane.showMessageDialog( Board.board.dialog, "Going to Jail :(", "cheater", JOptionPane.PLAIN_MESSAGE );
-                Game.players.get( Game.currentPlayer).InJail=true;
-                Game.players.get( Game.currentPlayer).location=10; //10=JailSpace;
+                Game.Players.get( Game.currentPlayer).InJail=true;
+                Game.Players.get( Game.currentPlayer).location=10; //10=JailSpace;
             }
             Move(rolled);
             

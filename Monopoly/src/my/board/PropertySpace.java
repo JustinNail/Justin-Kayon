@@ -24,7 +24,7 @@ public class PropertySpace extends Space
     @Override
     public void doAction()
     {
-        if(property.Owner == Game.players.get( Game.currentPlayer ))
+        if(property.Owner == Game.Players.get( Game.currentPlayer ))
         {
             JOptionPane.showMessageDialog( Board.board.dialog, 
                     "You own "+property.Name, property.Name, JOptionPane.PLAIN_MESSAGE );
@@ -37,8 +37,8 @@ public class PropertySpace extends Space
             
             if(result==JOptionPane.YES_OPTION)
             {
-                Game.bank.takeMoney( Game.players.get( Game.currentPlayer), property.Cost);
-                property.Owner = Game.players.get( Game.currentPlayer);
+                Game.bank.takeMoney( Game.Players.get( Game.currentPlayer), property.Cost);
+                property.Owner = Game.Players.get( Game.currentPlayer);
             }
         }
         else
@@ -46,7 +46,7 @@ public class PropertySpace extends Space
             JOptionPane.showMessageDialog( Board.board.dialog, 
                     property.Owner.name+" owns "+property.Name+". You must pay rent of "+ property.calcRent(), property.Name, JOptionPane.PLAIN_MESSAGE );
             
-            Game.bank.takeMoney( Game.players.get( Game.currentPlayer), property.calcRent());
+            Game.bank.takeMoney( Game.Players.get( Game.currentPlayer), property.calcRent());
         }
     }
 }

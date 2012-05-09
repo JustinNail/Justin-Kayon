@@ -21,6 +21,6 @@ public class GoSpace extends Space
     public void doAction()
     {
         JOptionPane.showMessageDialog( Board.board.dialog, "Passed Go, got $200", "Yay!", JOptionPane.PLAIN_MESSAGE );
-        Game.bank.giveMoney( Game.players.get( Game.currentPlayer),200);
+        Game.bank.giveMoney( Game.Players.get( Game.currentPlayer),200);
     }
 }

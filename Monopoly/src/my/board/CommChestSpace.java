@@ -34,33 +34,33 @@ public class CommChestSpace extends Space
         switch(drawn.id)
         {
            case 1://"Advance to Go (Collect $200)"
-               Game.players.get(Game.currentPlayer).location = 0;               // 0 = GoSpace;
-               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 200); 
+               Game.Players.get(Game.currentPlayer).location = 0;               // 0 = GoSpace;
+               Game.bank.giveMoney(Game.Players.get(Game.currentPlayer), 200); 
                
                comchest.add(drawn);
                break;
                
            case 2://"Bank error in your favor – Collect $200"
-               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 200);
+               Game.bank.giveMoney(Game.Players.get(Game.currentPlayer), 200);
                
                comchest.add(drawn);
                break;
                
            case 3://"Healer's fees – Pay $50"
-               Game.bank.takeMoney(Game.players.get(Game.currentPlayer), 50);
+               Game.bank.takeMoney(Game.Players.get(Game.currentPlayer), 50);
                
                comchest.add(drawn);
                break;
                
            case 4://"Get Out of Jail Free – this card may be kept until needed, "
                   //"or sold"  
-               Game.players.get(Game.currentPlayer).ChestJailCard=true;
+               Game.Players.get(Game.currentPlayer).ChestJailCard=true;
                break;
                
            case 5://"Go to Jail – go directly to jail – Do not pass Go, do not "
                   // "Collect $200"
-               Game.players.get(Game.currentPlayer).location = 10;              // 10 = Jail               
-               Game.players.get(Game.currentPlayer).InJail = true;
+               Game.Players.get(Game.currentPlayer).location = 10;              // 10 = Jail               
+               Game.Players.get(Game.currentPlayer).InJail = true;
                
                comchest.add(drawn);
                break;
@@ -68,8 +68,8 @@ public class CommChestSpace extends Space
            case 6://"It is your birthday - Collect $10 from each player"
                for (int i = 1; i < Game.numPlayers; i++)
                {                                      
-                   Game.bank.takeMoney(Game.players.get(i), 10);
-                   Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 10);
+                   Game.bank.takeMoney(Game.Players.get(i), 10);
+                   Game.bank.giveMoney(Game.Players.get(Game.currentPlayer), 10);
                }
                
                comchest.add(drawn);
@@ -79,39 +79,39 @@ public class CommChestSpace extends Space
                   //"opening night seats"
                for (int i = 0; i < Game.numPlayers; i++)
                {                                      
-                   Game.bank.takeMoney(Game.players.get(i), 50);
-                   Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 50);
+                   Game.bank.takeMoney(Game.Players.get(i), 50);
+                   Game.bank.giveMoney(Game.Players.get(Game.currentPlayer), 50);
                }
                
                comchest.add(drawn);
                break;
                
            case 8://"Income Tax refund – Collect $20"
-               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 20);
+               Game.bank.giveMoney(Game.Players.get(Game.currentPlayer), 20);
                
                comchest.add(drawn);
                break;
                
            case 9://"Life Insurance Matures – Collect $100"
-               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 100);
+               Game.bank.giveMoney(Game.Players.get(Game.currentPlayer), 100);
                
                comchest.add(drawn);
                break;
                
            case 10://"Pay Hospital Fees of $100"
-               Game.bank.takeMoney(Game.players.get(Game.currentPlayer), 100);
+               Game.bank.takeMoney(Game.Players.get(Game.currentPlayer), 100);
                
                comchest.add(drawn);
                break;
                
            case 11://"Pay School Fees of $50"
-               Game.bank.takeMoney(Game.players.get(Game.currentPlayer), 50);
+               Game.bank.takeMoney(Game.Players.get(Game.currentPlayer), 50);
                
                comchest.add(drawn);
                break;
                
            case 12://"Receive $25 Consultancy Fee"
-               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 25);
+               Game.bank.giveMoney(Game.Players.get(Game.currentPlayer), 25);
                
                comchest.add(drawn);
                break;
@@ -123,25 +123,25 @@ public class CommChestSpace extends Space
                break;
                
            case 14://"You have won second prize in a beauty contest– Collect $10"             
-               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 10);
+               Game.bank.giveMoney(Game.Players.get(Game.currentPlayer), 10);
                
                comchest.add(drawn);
                break;
                
            case 15://"You inherit $100"
-               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 100);
+               Game.bank.giveMoney(Game.Players.get(Game.currentPlayer), 100);
                
                comchest.add(drawn);
                break;
                
            case 16://"From sale of stock you get $50"
-               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 50);
+               Game.bank.giveMoney(Game.Players.get(Game.currentPlayer), 50);
                
                comchest.add(drawn);
                break;
                
            case 17://"Holiday Fund matures - Receive $100"              
-               Game.bank.giveMoney(Game.players.get(Game.currentPlayer), 100);
+               Game.bank.giveMoney(Game.Players.get(Game.currentPlayer), 100);
                
                comchest.add(drawn);
                break;

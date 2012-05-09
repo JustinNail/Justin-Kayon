@@ -19,7 +19,7 @@ import my.board.CommChestSpace;
 public class Game
 {
     public static Board board = new Board();
-    public static List<Player> players  = new ArrayList<>();
+    public static List<Player> Players  = new ArrayList<>();
     public static Bank bank = new Bank();  
     
     static final int maxPlayers = 8;
@@ -39,8 +39,8 @@ public class Game
             if(numPlayers <= maxPlayers)
             {
                 numPlayers++;
-                players.add( new Player());
-                players.get(numPlayers-1).location=0;
+                Players.add( new Player());
+                Players.get(numPlayers-1).location=0;
                 return true;
             }
             else
@@ -56,11 +56,11 @@ public class Game
     }
     public static boolean playRound()
     {
-        for(int i = 0; i < players.size(); i++)
+        for(int i = 0; i < Players.size(); i++)
         {
-            if(players.get(i).funds<=0)
+            if(Players.get(i).funds<=0)
             {
-                players.remove( i );
+                Players.remove( i );
                 numPlayers--;
             }
         }
@@ -79,11 +79,11 @@ public class Game
         }
         else
         {
-            Collections.shuffle( players );
+            Collections.shuffle( Players );
             currentPlayer = 0;
-            for(int i = 0; i < players.size(); i++)
+            for(int i = 0; i < Players.size(); i++)
             {
-                bank.giveMoney( players.get(i), 1500);
+                bank.giveMoney( Players.get(i), 1500);
             }            
             ChanceSpace.PopulateChance();
             Collections.shuffle( ChanceSpace.chance);

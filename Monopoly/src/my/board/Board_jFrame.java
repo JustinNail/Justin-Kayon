@@ -24,7 +24,7 @@ public class Board_jFrame extends javax.swing.JFrame
     List<JTextField> playerFunds = new ArrayList();
     List<JTextField> playerLocations = new ArrayList();
     List<JTextField> playerCards = new ArrayList();
-    List<JComboBox> playerProperties = new ArrayList();
+    
     
     //the pane that dialogs are displayed on
     //public so every class can display a dialog there
@@ -55,7 +55,7 @@ public class Board_jFrame extends javax.swing.JFrame
         playerFunds.add(jTextField_Player1Money);
         playerLocations.add(jTextField_Player1Location);
         playerCards.add( jTextField_CardsPlayer1);
-        playerProperties.add(jComboBox_OwnedPlayer1);
+        
         //</editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="Player 2">                          
@@ -66,7 +66,7 @@ public class Board_jFrame extends javax.swing.JFrame
         playerFunds.add(jTextField_Player2Money);
         playerLocations.add(jTextField_Player2Location);
         playerCards.add( jTextField_CardsPlayer2);
-        playerProperties.add(jComboBox_OwnedPlayer2);
+        
         //</editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="Player 3">                          
@@ -77,7 +77,7 @@ public class Board_jFrame extends javax.swing.JFrame
         playerFunds.add(jTextField_Player3Money);
         playerLocations.add(jTextField_Player3Location);
         playerCards.add( jTextField_CardsPlayer3);
-        playerProperties.add(jComboBox_OwnedPlayer3);
+       
         //</editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="Player 4">                          
@@ -88,7 +88,7 @@ public class Board_jFrame extends javax.swing.JFrame
         playerFunds.add(jTextField_Player4Money);
         playerLocations.add(jTextField_Player4Location);
         playerCards.add( jTextField_CardsPlayer4);
-        playerProperties.add(jComboBox_OwnedPlayer4);
+        
         //</editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="Player 5">                          
@@ -99,7 +99,7 @@ public class Board_jFrame extends javax.swing.JFrame
         playerFunds.add(jTextField_Player5Money);
         playerLocations.add(jTextField_Player5Location);
         playerCards.add( jTextField_CardsPlayer5);
-        playerProperties.add(jComboBox_OwnedPlayer5);
+        
         //</editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="Player 6">                          
@@ -110,7 +110,7 @@ public class Board_jFrame extends javax.swing.JFrame
         playerFunds.add(jTextField_Player6Money);
         playerLocations.add(jTextField_Player6Location);
         playerCards.add( jTextField_CardsPlayer6);
-        playerProperties.add(jComboBox_OwnedPlayer6);
+       
         //</editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="Player 7">                          
@@ -121,7 +121,7 @@ public class Board_jFrame extends javax.swing.JFrame
         playerFunds.add(jTextField_Player7Money);
         playerLocations.add(jTextField_Player7Location);
         playerCards.add( jTextField_CardsPlayer7);
-        playerProperties.add(jComboBox_OwnedPlayer7);
+       
         //</editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="Player 8">                          
@@ -132,7 +132,7 @@ public class Board_jFrame extends javax.swing.JFrame
         playerFunds.add(jTextField_Player8Money);
         playerLocations.add(jTextField_Player8Location);
         playerCards.add( jTextField_CardsPlayer8);
-        playerProperties.add(jComboBox_OwnedPlayer8);
+        
         //</editor-fold>
     }
     
@@ -319,7 +319,6 @@ public class Board_jFrame extends javax.swing.JFrame
         jLabel_Player1Key = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jTextField_CardsPlayer1 = new javax.swing.JTextField();
-        jComboBox_OwnedPlayer1 = new javax.swing.JComboBox();
         jLabel11 = new javax.swing.JLabel();
         jPanel_Player3 = new javax.swing.JPanel();
         jTextField_Player3Money = new javax.swing.JTextField();
@@ -331,7 +330,6 @@ public class Board_jFrame extends javax.swing.JFrame
         jTextField_CardsPlayer3 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jComboBox_OwnedPlayer3 = new javax.swing.JComboBox();
         jPanel_Player7 = new javax.swing.JPanel();
         jTextField_Player7Money = new javax.swing.JTextField();
         jLabel_Funds6 = new javax.swing.JLabel();
@@ -342,7 +340,6 @@ public class Board_jFrame extends javax.swing.JFrame
         jTextField_CardsPlayer7 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jComboBox_OwnedPlayer7 = new javax.swing.JComboBox();
         jPanel_Player5 = new javax.swing.JPanel();
         jTextField_Player5Money = new javax.swing.JTextField();
         jLabel_Funds4 = new javax.swing.JLabel();
@@ -353,7 +350,6 @@ public class Board_jFrame extends javax.swing.JFrame
         jTextField_CardsPlayer5 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jComboBox_OwnedPlayer5 = new javax.swing.JComboBox();
         jPanel_Player8 = new javax.swing.JPanel();
         jTextField_Player8Money = new javax.swing.JTextField();
         jLabel_Funds7 = new javax.swing.JLabel();
@@ -364,7 +360,6 @@ public class Board_jFrame extends javax.swing.JFrame
         jTextField_CardsPlayer8 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jComboBox_OwnedPlayer8 = new javax.swing.JComboBox();
         jPanel_Player6 = new javax.swing.JPanel();
         jTextField_Player6Money = new javax.swing.JTextField();
         jLabel_Funds5 = new javax.swing.JLabel();
@@ -375,7 +370,6 @@ public class Board_jFrame extends javax.swing.JFrame
         jTextField_CardsPlayer6 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jComboBox_OwnedPlayer6 = new javax.swing.JComboBox();
         jPanel_Player4 = new javax.swing.JPanel();
         jTextField_Player4Money = new javax.swing.JTextField();
         jLabel_Funds3 = new javax.swing.JLabel();
@@ -386,7 +380,6 @@ public class Board_jFrame extends javax.swing.JFrame
         jTextField_CardsPlayer4 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jComboBox_OwnedPlayer4 = new javax.swing.JComboBox();
         jPanel_Player2 = new javax.swing.JPanel();
         jTextField_Player2Money = new javax.swing.JTextField();
         jLabel_Funds2 = new javax.swing.JLabel();
@@ -397,11 +390,8 @@ public class Board_jFrame extends javax.swing.JFrame
         jTextField_CardsPlayer2 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jComboBox_OwnedPlayer2 = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         jTextField_CurrentPlayer = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField_Round = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu_File = new javax.swing.JMenu();
         jMenuItem_Exit = new javax.swing.JMenuItem();
@@ -877,9 +867,6 @@ public class Board_jFrame extends javax.swing.JFrame
         jTextField_CardsPlayer1.setEnabled(false);
         jPanel_Player1.add(jTextField_CardsPlayer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 30, -1));
 
-        jComboBox_OwnedPlayer1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
-        jPanel_Player1.add(jComboBox_OwnedPlayer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
-
         jLabel11.setText("Owned Properties:");
         jPanel_Player1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
@@ -913,9 +900,6 @@ public class Board_jFrame extends javax.swing.JFrame
         jLabel13.setText("Owned Properties:");
         jPanel_Player3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
-        jComboBox_OwnedPlayer3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
-        jPanel_Player3.add(jComboBox_OwnedPlayer3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
-
         getContentPane().add(jPanel_Player3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 190, 200, 175));
 
         jPanel_Player7.setBorder(javax.swing.BorderFactory.createTitledBorder("Player 7"));
@@ -945,9 +929,6 @@ public class Board_jFrame extends javax.swing.JFrame
 
         jLabel17.setText("Owned Properties:");
         jPanel_Player7.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
-
-        jComboBox_OwnedPlayer7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
-        jPanel_Player7.add(jComboBox_OwnedPlayer7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
 
         getContentPane().add(jPanel_Player7, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 550, 200, 175));
 
@@ -979,9 +960,6 @@ public class Board_jFrame extends javax.swing.JFrame
         jLabel15.setText("Owned Properties:");
         jPanel_Player5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
-        jComboBox_OwnedPlayer5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
-        jPanel_Player5.add(jComboBox_OwnedPlayer5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
-
         getContentPane().add(jPanel_Player5, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 370, 200, 175));
 
         jPanel_Player8.setBorder(javax.swing.BorderFactory.createTitledBorder("Player 8"));
@@ -1011,9 +989,6 @@ public class Board_jFrame extends javax.swing.JFrame
 
         jLabel18.setText("Owned Properties:");
         jPanel_Player8.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
-
-        jComboBox_OwnedPlayer8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
-        jPanel_Player8.add(jComboBox_OwnedPlayer8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
 
         getContentPane().add(jPanel_Player8, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 550, 200, 175));
 
@@ -1045,9 +1020,6 @@ public class Board_jFrame extends javax.swing.JFrame
         jLabel16.setText("Owned Properties:");
         jPanel_Player6.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
-        jComboBox_OwnedPlayer6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
-        jPanel_Player6.add(jComboBox_OwnedPlayer6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
-
         getContentPane().add(jPanel_Player6, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 370, 200, 175));
 
         jPanel_Player4.setBorder(javax.swing.BorderFactory.createTitledBorder("Player 4"));
@@ -1077,9 +1049,6 @@ public class Board_jFrame extends javax.swing.JFrame
 
         jLabel14.setText("Owned Properties:");
         jPanel_Player4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
-
-        jComboBox_OwnedPlayer4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
-        jPanel_Player4.add(jComboBox_OwnedPlayer4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
 
         getContentPane().add(jPanel_Player4, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 190, 200, 175));
 
@@ -1111,9 +1080,6 @@ public class Board_jFrame extends javax.swing.JFrame
         jLabel12.setText("Owned Properties:");
         jPanel_Player2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
-        jComboBox_OwnedPlayer2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
-        jPanel_Player2.add(jComboBox_OwnedPlayer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
-
         getContentPane().add(jPanel_Player2, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 10, 200, 175));
 
         jLabel1.setText("Current Player:");
@@ -1121,10 +1087,6 @@ public class Board_jFrame extends javax.swing.JFrame
 
         jTextField_CurrentPlayer.setEnabled(false);
         getContentPane().add(jTextField_CurrentPlayer, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 720, 110, -1));
-
-        jLabel2.setText("Current Round:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 720, -1, -1));
-        getContentPane().add(jTextField_Round, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 720, 40, -1));
 
         jMenu_File.setText("File");
 
@@ -1210,7 +1172,7 @@ public class Board_jFrame extends javax.swing.JFrame
         {
             //get player name from dialog box
             String name = (String)JOptionPane.showInputDialog(jLayeredPane1,"Enter Name","",JOptionPane.PLAIN_MESSAGE);
-            Game.players.get(Game.numPlayers-1).name=name;       
+            Game.Players.get(Game.numPlayers-1).name=name;       
         }
         else
         {
@@ -1228,10 +1190,10 @@ public class Board_jFrame extends javax.swing.JFrame
         //if Game successfully started
         if(Game.Start())
         {
-            for(int i=0;i<Game.players.size();i++)
+            for(int i=0;i<Game.Players.size();i++)
             {
                 //set the name labels
-                playerNames.get( i ).setText(Game.players.get( i ).name );
+                playerNames.get( i ).setText(Game.Players.get( i ).name );
                 //make each active player's peice visible
                 playerLabels.get(i).setVisible(true);
                 //place the peice on Go
@@ -1240,49 +1202,61 @@ public class Board_jFrame extends javax.swing.JFrame
                     Board.spaces.get(0).YPos+25);
                 //display initial funds
                 playerFunds.get(i).setText( 
-                        String.valueOf(Game.players.get(i).funds));
+                        String.valueOf(Game.Players.get(i).funds));
                 //display initial location
                 playerLocations.get(i).setText( 
-                        Board.spaces.get(Game.players.get(i).location).Name);
+                        Board.spaces.get(Game.Players.get(i).location).Name);
                 //
                 
             }
-            //display succedd message
+            //display success message
             JOptionPane.showMessageDialog( jLayeredPane1, "Game Started", "Success", JOptionPane.PLAIN_MESSAGE );
             
             //game loop, loops so long as the Game can play rounds
             while(Game.playRound())
             {
-                jTextField_Round.setText(String.valueOf( Game.currentRound) );
-                for(int i =0;i<Game.players.size();i++)
+                for(int i =0;i<Game.Players.size();i++)
                 {
                     
                     do
                     {
                         //alert player it's their turn
-                        JOptionPane.showMessageDialog(jLayeredPane1, Game.players.get( i ).name+"'s Turn", "Playing", JOptionPane.PLAIN_MESSAGE );
+                        JOptionPane.showMessageDialog(jLayeredPane1, Game.Players.get( i ).name+"'s Turn", "Playing", JOptionPane.PLAIN_MESSAGE );
                         //update current player box
-                        jTextField_CurrentPlayer.setText(Game.players.get( i ).name);
+                        jTextField_CurrentPlayer.setText(Game.Players.get( i ).name);
 
                         //each player takes their turn
-                        Game.players.get(i).takeTurn();
+                        Game.Players.get(i).takeTurn();
 
                         //update the player's info boxes                   
                         playerFunds.get(Game.currentPlayer).setText( 
-                                String.valueOf(Game.players.get(Game.currentPlayer).funds));
+                                String.valueOf(Game.Players.get(Game.currentPlayer).funds));
 
                         playerLocations.get(Game.currentPlayer).setText( 
-                                Board.spaces.get(Game.players.get(Game.currentPlayer).location).Name);
-
+                                Board.spaces.get(Game.Players.get(Game.currentPlayer).location).Name);
+                        
+                        int cards = 0;
+                        if(Game.Players.get(Game.currentPlayer).ChanceJailCard)
+                        {
+                            cards++;
+                        }
+                        if(Game.Players.get(Game.currentPlayer).ChestJailCard)
+                        {
+                            cards++;
+                        }
+                        playerCards.get(Game.currentPlayer).setText(String.valueOf(cards));
+                        
                         //update piece location
                         playerLabels.get(Game.currentPlayer).setLocation(
-                            Board.spaces.get(Game.players.get(Game.currentPlayer).location).XPos,
-                            Board.spaces.get(Game.players.get(Game.currentPlayer).location).YPos+25);
+                            Board.spaces.get(Game.Players.get(Game.currentPlayer).location).XPos,
+                            Board.spaces.get(Game.Players.get(Game.currentPlayer).location).YPos+25);
                         
-                    }while(Game.players.get(Game.currentPlayer).rolledDoubles);
+                       
+                        
+                    }while(Game.Players.get(Game.currentPlayer).rolledDoubles);
                     
                     //go to next player
-                    Game.currentPlayer=(Game.currentPlayer+1)%Game.players.size();
+                    Game.currentPlayer=(Game.currentPlayer+1)%Game.Players.size();
                     
                 }
 
@@ -1340,14 +1314,6 @@ public class Board_jFrame extends javax.swing.JFrame
     private javax.swing.JButton jButton_Yellow1;
     private javax.swing.JButton jButton_Yellow2;
     private javax.swing.JButton jButton_Yellow3;
-    private javax.swing.JComboBox jComboBox_OwnedPlayer1;
-    private javax.swing.JComboBox jComboBox_OwnedPlayer2;
-    private javax.swing.JComboBox jComboBox_OwnedPlayer3;
-    private javax.swing.JComboBox jComboBox_OwnedPlayer4;
-    private javax.swing.JComboBox jComboBox_OwnedPlayer5;
-    private javax.swing.JComboBox jComboBox_OwnedPlayer6;
-    private javax.swing.JComboBox jComboBox_OwnedPlayer7;
-    private javax.swing.JComboBox jComboBox_OwnedPlayer8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1358,7 +1324,6 @@ public class Board_jFrame extends javax.swing.JFrame
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1446,6 +1411,5 @@ public class Board_jFrame extends javax.swing.JFrame
     private javax.swing.JTextField jTextField_Player7Money;
     private javax.swing.JTextField jTextField_Player8Location;
     private javax.swing.JTextField jTextField_Player8Money;
-    private javax.swing.JTextField jTextField_Round;
     // End of variables declaration//GEN-END:variables
 }

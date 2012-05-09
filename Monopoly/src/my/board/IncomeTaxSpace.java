@@ -28,15 +28,15 @@ public class IncomeTaxSpace extends Space
 
         if(result==JOptionPane.YES_OPTION)//$200
         {
-            Game.bank.takeMoney( Game.players.get( Game.currentPlayer), 200);
+            Game.bank.takeMoney( Game.Players.get( Game.currentPlayer), 200);
         }
         else//15%
         {
             int wealth;
-            wealth = Game.players.get( Game.currentPlayer).funds;
+            wealth = Game.Players.get( Game.currentPlayer).funds;
             //TODO: add property worth calculations
             int value = ( int ) ( wealth * 0.1 );
-            Game.bank.takeMoney( Game.players.get( Game.currentPlayer), value);
+            Game.bank.takeMoney( Game.Players.get( Game.currentPlayer), value);
         }         
     }
 }

@@ -21,7 +21,7 @@ public class JailSpace extends Space
     @Override
     public void doAction()
     {
-        if(Game.players.get( Game.currentPlayer).InJail)
+        if(Game.Players.get( Game.currentPlayer).InJail)
         {
             Object[] options={"try to roll doubles","pay bail","Use Get Out of Jail Free Card"};
             int result = (int)JOptionPane.showOptionDialog( Board.board.dialog, 
@@ -30,17 +30,17 @@ public class JailSpace extends Space
 
             if(result==JOptionPane.YES_OPTION)
             {
-                Game.players.get( Game.currentPlayer).roll();
-                if(Game.players.get( Game.currentPlayer).dice[0].result ==
-                        Game.players.get( Game.currentPlayer).dice[1].result)
+                Game.Players.get( Game.currentPlayer).roll();
+                if(Game.Players.get( Game.currentPlayer).dice[0].result ==
+                        Game.Players.get( Game.currentPlayer).dice[1].result)
                 {
                     JOptionPane.showMessageDialog( 
                             Board.board.dialog, "You're Free!", "Yay!", JOptionPane.PLAIN_MESSAGE );
                     
-                    Game.players.get( Game.currentPlayer).InJail=false;
+                    Game.Players.get( Game.currentPlayer).InJail=false;
                     
-                    Game.players.get( Game.currentPlayer).Move(
-                            Game.players.get( Game.currentPlayer).rolled);
+                    Game.Players.get( Game.currentPlayer).Move(
+                            Game.Players.get( Game.currentPlayer).rolled);
                 }
                 else
                 {
@@ -51,36 +51,36 @@ public class JailSpace extends Space
             }
             else if (result==JOptionPane.NO_OPTION)
             {
-                Game.bank.takeMoney( Game.players.get( Game.currentPlayer), 50);
+                Game.bank.takeMoney( Game.Players.get( Game.currentPlayer), 50);
                 JOptionPane.showMessageDialog( Board.board.dialog, "You're Free!", "Yay!", JOptionPane.PLAIN_MESSAGE );
-                Game.players.get( Game.currentPlayer).InJail=false;
+                Game.Players.get( Game.currentPlayer).InJail=false;
                 
-                Game.players.get( Game.currentPlayer).takeTurn();
+                Game.Players.get( Game.currentPlayer).takeTurn();
             }
             
             else
             {
-                if(Game.players.get( Game.currentPlayer).ChanceJailCard)
+                if(Game.Players.get( Game.currentPlayer).ChanceJailCard)
                 {
-                   Game.players.get( Game.currentPlayer).ChanceJailCard=false;
+                   Game.Players.get( Game.currentPlayer).ChanceJailCard=false;
                     JOptionPane.showMessageDialog( Board.board.dialog, "You're Free!", "Yay!", JOptionPane.PLAIN_MESSAGE );
-                    Game.players.get( Game.currentPlayer).InJail=false;
+                    Game.Players.get( Game.currentPlayer).InJail=false;
                     
                     ChanceSpace.chance.add(new Card(8, "Get out of Jail Free – this card may be kept until needed, "
                     + "or traded/sold"));
                     
-                    Game.players.get( Game.currentPlayer).takeTurn();
+                    Game.Players.get( Game.currentPlayer).takeTurn();
                 }
-                else if(Game.players.get( Game.currentPlayer).ChestJailCard)
+                else if(Game.Players.get( Game.currentPlayer).ChestJailCard)
                 {
-                    Game.players.get( Game.currentPlayer).ChestJailCard=false;
+                    Game.Players.get( Game.currentPlayer).ChestJailCard=false;
                     JOptionPane.showMessageDialog( Board.board.dialog, "You're Free!", "Yay!", JOptionPane.PLAIN_MESSAGE );
-                    Game.players.get( Game.currentPlayer).InJail=false;
+                    Game.Players.get( Game.currentPlayer).InJail=false;
                     
                     CommChestSpace.comchest.add(new Card(4, "Get Out of Jail Free – this card may be kept until needed, "
                     + "or sold"));
                     
-                    Game.players.get( Game.currentPlayer).takeTurn();
+                    Game.Players.get( Game.currentPlayer).takeTurn();
                 }
                 else
                 {

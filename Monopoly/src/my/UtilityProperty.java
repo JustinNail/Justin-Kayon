@@ -25,12 +25,12 @@ public class UtilityProperty extends Property
         if(PropertySpace.class.cast(Board.spaces.get(12)).property.Owner == 
                 PropertySpace.class.cast(Board.spaces.get(28)).property.Owner)
         {
-            return Rent.get(1) * Game.players.get(Game.currentPlayer).rolled;
+            return Rent.get(1) * Game.Players.get(Game.currentPlayer).rolled;
         }
-        //owned by different players
+        //owned by different Players
         else
         {
-            return Rent.get(0) * Game.players.get(Game.currentPlayer).rolled;
+            return Rent.get(0) * Game.Players.get(Game.currentPlayer).rolled;
         }
     }
     

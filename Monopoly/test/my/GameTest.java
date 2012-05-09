@@ -37,7 +37,7 @@ public class GameTest
     public void testAddPlayer()
     {
         Game.numPlayers=0;
-        Game.players.clear();
+        Game.Players.clear();
         Game.started=false;
         System.out.println( "addPlayer" );
         boolean result = Game.addPlayer();
@@ -46,7 +46,7 @@ public class GameTest
     }
 
     /**
-     * Test of Start method, of class Game. With valid number of players
+     * Test of Start method, of class Game. With valid number of Players
      */
     @Test
     public void testStartValid()
@@ -59,7 +59,7 @@ public class GameTest
 
     }
     /**
-     * Test of Start method, of class Game. With not enough players
+     * Test of Start method, of class Game. With not enough Players
      */
     @Test
     public void testStartSmall()
@@ -72,7 +72,7 @@ public class GameTest
 
     }
     /**
-     * Test of Start method, of class Game. With too many players
+     * Test of Start method, of class Game. With too many Players
      */
     @Test
     public void testStartBig()
@@ -98,19 +98,19 @@ public class GameTest
         for(int i=0;i<100;i++)
         {
             Game.numPlayers=0;
-            Game.players.clear();
+            Game.Players.clear();
             Game.started=false;
             
             Game.addPlayer();
-            Game.players.get(Game.numPlayers-1).name="Car";
+            Game.Players.get(Game.numPlayers-1).name="Car";
 
             Game.addPlayer();
-            Game.players.get(Game.numPlayers-1).name="Horse";
+            Game.Players.get(Game.numPlayers-1).name="Horse";
 
             Game.Start();
 
-            String first = Game.players.get(Game.currentPlayer).name;
-            String second = Game.players.get(Game.currentPlayer+1).name;
+            String first = Game.Players.get(Game.currentPlayer).name;
+            String second = Game.Players.get(Game.currentPlayer+1).name;
 
             if("Horse".equals( first )&&"Car".equals( second ))
             {
@@ -127,12 +127,12 @@ public class GameTest
     public void TestRounds()
     {
         Game.numPlayers=0;
-        Game.players.clear();
+        Game.Players.clear();
         Game.started=false;
         Game.addPlayer();
-        Game.players.get(Game.numPlayers-1).name="Horse";
+        Game.Players.get(Game.numPlayers-1).name="Horse";
         Game.addPlayer();
-        Game.players.get(Game.numPlayers-1).name="Car";
+        Game.Players.get(Game.numPlayers-1).name="Car";
         Game.Start();
         System.out.println( "Game Rounds" );
         assertTrue(Game.playRound());

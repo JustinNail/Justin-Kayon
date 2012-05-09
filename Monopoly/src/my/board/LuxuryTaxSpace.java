@@ -25,6 +25,6 @@ public class LuxuryTaxSpace extends Space
                 JOptionPane.PLAIN_MESSAGE );
         
         
-        Game.bank.takeMoney( Game.players.get( Game.currentPlayer), 75);
+        Game.bank.takeMoney( Game.Players.get( Game.currentPlayer), 75);
     }
 }

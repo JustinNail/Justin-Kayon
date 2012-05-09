@@ -32,7 +32,7 @@ public class PropertySpace extends Space
         else if(property.Owner == null)
         {
             int result = (int)JOptionPane.showOptionDialog( Board.board.dialog, 
-                "No one owns "+property.Name+". Do you want to buy it? ", property.Name, JOptionPane.YES_NO_OPTION, 
+                "No one owns "+property.Name+". Do you want to buy it? \n Cost: "+property.Cost, property.Name, JOptionPane.YES_NO_OPTION, 
                 JOptionPane.QUESTION_MESSAGE, null, null, null);
             
             if(result==JOptionPane.YES_OPTION)

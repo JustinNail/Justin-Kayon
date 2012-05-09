@@ -1228,23 +1228,34 @@ public class Board_jFrame extends javax.swing.JFrame
                         //each player takes their turn
                         Game.Players.get(i).takeTurn();
 
-                        //update the player's info boxes                   
-                        playerFunds.get(Game.currentPlayer).setText( 
-                                String.valueOf(Game.Players.get(Game.currentPlayer).funds));
+                        //update the players' info boxes                   
+                        for(int j=0; j<Game.numPlayers; j++)
+                        {
+                            playerFunds.get(j).setText( 
+                                String.valueOf(Game.Players.get(j).funds));
 
-                        playerLocations.get(Game.currentPlayer).setText( 
-                                Board.spaces.get(Game.Players.get(Game.currentPlayer).location).Name);
-                        
-                        int cards = 0;
-                        if(Game.Players.get(Game.currentPlayer).ChanceJailCard)
-                        {
-                            cards++;
+                            playerLocations.get(j).setText( 
+                                Board.spaces.get(Game.Players.get(j).location).Name);
+                            int cards = 0;
+                            if(Game.Players.get(j).ChanceJailCard)
+                            {
+                                cards=1;
+                                if(Game.Players.get(j).ChestJailCard)
+                                {
+                                    cards=2;
+                                }
+
+                            }
+                            if(Game.Players.get(j).ChestJailCard)
+                            {
+                                cards=1;
+                                if(Game.Players.get(j).ChanceJailCard)
+                                {
+                                    cards=2;
+                                }
+                            }
+                            playerCards.get(j).setText(String.valueOf(cards));
                         }
-                        if(Game.Players.get(Game.currentPlayer).ChestJailCard)
-                        {
-                            cards++;
-                        }
-                        playerCards.get(Game.currentPlayer).setText(String.valueOf(cards));
                         
                         //update piece location
                         playerLabels.get(Game.currentPlayer).setLocation(
@@ -1254,6 +1265,117 @@ public class Board_jFrame extends javax.swing.JFrame
                        
                         
                     }while(Game.Players.get(Game.currentPlayer).rolledDoubles);
+                    
+                    int result;
+                    do
+                    {
+                        Object[] options={"View Player Info","Modify Properties","All Done"};
+                        result = (int)JOptionPane.showOptionDialog( Board.board.dialog, 
+                        "What do you want to do?", "Turn Wrap Up", JOptionPane.YES_NO_CANCEL_OPTION, 
+                        JOptionPane.QUESTION_MESSAGE, null, options, null);
+                        
+                        if(result == JOptionPane.YES_OPTION)
+                        {
+                            for(int j=0; j<Game.numPlayers; j++)
+                            {
+                                String properties="";
+                                
+                                for(int k = 0; k<Board.spaces.size();k++)
+                                {
+                                    if(Board.spaces.get(k) instanceof PropertySpace )
+                                    {
+                                        if(PropertySpace.class.cast(Board.spaces.get(k)).property.Owner ==
+                                                Game.Players.get(j))
+                                        {
+                                            properties += 
+                                             PropertySpace.class.cast(Board.spaces.get(k)).property.Name + "\n"+
+                                                    "     Houses: "+PropertySpace.class.cast(Board.spaces.get(k)).property.UpgradeLevel+"\n";
+                                        }
+                                    }
+                                }
+                                JOptionPane.showMessageDialog(jLayeredPane1, 
+                                        "Funds: "+Game.Players.get( j ).funds+"\n"+
+                                        "Owned Properties: \n"+properties+"\n", Game.Players.get( j ).name+"'s Info", JOptionPane.PLAIN_MESSAGE );
+                            }
+                        }
+                        else if(result == JOptionPane.NO_OPTION)
+                        {
+                            Object[] options1={"Downgrade Property","Upgrade Property"};
+                            int result1 = (int)JOptionPane.showOptionDialog( Board.board.dialog, 
+                            "What do you want to do?", "Modify Property", JOptionPane.YES_NO_OPTION, 
+                            JOptionPane.QUESTION_MESSAGE, null, options1, null);
+                            
+                            if(result1 == JOptionPane.YES_OPTION)
+                            {
+                                List<String> props = new ArrayList<>();
+                                for(int j = 0; j<Board.spaces.size();j++)
+                                {
+                                    if(Board.spaces.get(j) instanceof PropertySpace )
+                                    {
+                                        if(PropertySpace.class.cast(Board.spaces.get(j)).property.Owner ==
+                                                Game.Players.get(Game.currentPlayer))
+                                        {
+                                            if((PropertySpace.class.cast(Board.spaces.get( j )).property.UpgradeLevel>0))
+                                            {
+                                                props.add(Board.spaces.get( j ).Name);
+                                            }
+
+                                        }
+                                    }
+                                }
+                                String s = (String)JOptionPane.showInputDialog(Board.board.dialog,
+                                "Pick a Property to Downgrade", "Properties",
+                                JOptionPane.PLAIN_MESSAGE,null,props.toArray(),null);
+                                for(int j = 0; j<Board.spaces.size();j++)
+                                {
+                                    if(Board.spaces.get(j) instanceof PropertySpace )
+                                    {
+                                        if(Board.spaces.get( j ).Name.equals( s ))
+                                        {
+                                            Game.bank.giveMoney(Game.Players.get( Game.currentPlayer)
+                                                    ,PropertySpace.class.cast(Board.spaces.get(j)).property.UpgradeCost / 2);
+                                            PropertySpace.class.cast(Board.spaces.get(j)).property.UpgradeLevel--;
+                                        }
+                                    }
+                                }
+                            }
+                            else if(result1 == JOptionPane.NO_OPTION)
+                            {
+                                List<String> props = new ArrayList<>();
+                                for(int j = 0; j<Board.spaces.size();j++)
+                                {
+                                    if(Board.spaces.get(j) instanceof PropertySpace )
+                                    {
+                                        if(PropertySpace.class.cast(Board.spaces.get(j)).property.Owner ==
+                                                Game.Players.get(Game.currentPlayer))
+                                        {
+                                            if((PropertySpace.class.cast(Board.spaces.get( j )).property.canUpgrade()) &&
+                                                    (PropertySpace.class.cast(Board.spaces.get( j )).property.UpgradeLevel<5))
+                                            {
+                                                props.add(Board.spaces.get( j ).Name);
+                                            }
+
+                                        }
+                                    }
+                                }
+                                String s = (String)JOptionPane.showInputDialog(Board.board.dialog,
+                                "Pick a Property to Upgrade", "Properties",
+                                JOptionPane.PLAIN_MESSAGE,null,props.toArray(),null);
+                                for(int j = 0; j<Board.spaces.size();j++)
+                                {
+                                    if(Board.spaces.get(j) instanceof PropertySpace )
+                                    {
+                                        if(Board.spaces.get( j ).Name.equals( s ))
+                                        {
+                                            Game.bank.takeMoney(Game.Players.get( Game.currentPlayer)
+                                                    ,PropertySpace.class.cast(Board.spaces.get(j)).property.UpgradeCost);
+                                            PropertySpace.class.cast(Board.spaces.get(j)).property.UpgradeLevel++;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }while(result != JOptionPane.CANCEL_OPTION);
                     
                     //go to next player
                     Game.currentPlayer=(Game.currentPlayer+1)%Game.Players.size();
